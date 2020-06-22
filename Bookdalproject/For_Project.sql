@@ -1,11 +1,12 @@
-create table  Member_Library(
-	id varchar2(100),
-	pw varchar2(100),
+create table  Member(
+	ID varchar2(100),
+	PW varchar2(100),
  	name varchar2(100),
  	age NUMBER (20),
  	phone varchar2(100),
- 	sex varchar2(100)
+ 	GENDER varchar2(100)
 )
+
 Select * from Member_Library;
 update Member_Library set phone = '010-7176-0953' where name = '김명주';
 update Member_Library set sex = 'M' where name = '김명주';
@@ -14,15 +15,45 @@ update MEMBER_LIBRARY set sex = 'F' where name = '박수진';
 update MEMBER_LIBRARY set sex = 'F' where name = '이은지';
 update MEMBER_LIBRARY set phone = '010-2222-3333' where name = '박수진';
 update MEMBER_LIBRARY set phone = '010-3333-4444' where name = '이은지';
+
 Create table Reserved_book(
    User_name varchar2(100),
    book_name varchar2(100),
    book_id varchar2(100),
    author_Publisher varchar2(100),
    Day_to_Expire number(24),
-   Library_name varchar2(100)
+   LIB_NAME VARCHAR2(30)
 );
+
+CREATE TABLE BOOK(
+BOOK_NAME VARCHAR2(100),
+CODE NUMBER(30),
+PRICE NUMBER(20),
+WRITER VARCHAR2(30),
+PUBLISHER VARCHAR2(30),
+LIB_NAME VARCHAR2(30),
+RENTAL_OK VARCHAR2(10),
+RENTAL_SUM NUMBER(10)
+CONSTRAINT BOOK_nameCode_PK PRIMARY KEY(BOOK_NAME, CODE),
+
+)
 select * from Reserved_book;
+
+CREATE TABLE BOOKCART(
+BOOK_NAME VARCHAR2(100),
+CODE NUMBER(50),
+WRITER VARCHAR2(50),
+PUBLISHER VARCHAR2(50),
+LIB_NAME VARCHAR2(30),
+RENTAL_DAY NUMBER(30),
+CONSTRAINT BOOKCART_CODE_PK PRIMARY KEY(CODE),
+CONSTRAINT BOOKCART_CART_FK FOREIGN KEY(CODE)
+constraint reservation_memid_fk foreign key(member_id)
+	references member (member_id),
+)
+
+
+
 create table LIB(
 LIB_NAME VARCHAR2(50),
 LOCATION VARCHAR2(100),
@@ -37,6 +68,7 @@ GRADE NUMBER(5),
 CONSTRAINT MEMBER_ID_PK PRIMARY KEY(LIB_NAME)
 )
 select * from lib;
+
 INSERT INTO LIB VALUES(
 '상록도서관', '광주광역시 서구 상무대로 1171번길 11','자료실 매일 9:00~22:00, 어린이열람실 매일 9:00~18:00',
 '매월 두번째, 네번째 월요일, 법정공휴일', 'http://www.seogu.gwangju.kr/library', 43478, 15, 5,'062-350-4589',NULL
