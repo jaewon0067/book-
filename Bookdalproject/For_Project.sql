@@ -1,60 +1,83 @@
-create table  Member(
-	ID varchar2(100),
-	PW varchar2(100),
- 	name varchar2(100),
- 	age NUMBER (20),
- 	phone varchar2(100),
- 	GENDER varchar2(100)
+CREATE TABLE MEMBER(
+ID VARCHAR2(30) NOT NULL,
+PW VARCHAR2(25) NOT NULL,
+NAME VARCHAR2(10) NOT NULL,
+AGE NUMBER(5) NOT NULL,
+PHONE VARCHAR2(30) NOT NULL,
+GENDER NUMBER(2) NOT NULL,
+CONSTRAINT MEMBER_ID_PK PRIMARY KEY(ID)
 )
 
-Select * from Member_Library;
-update Member_Library set phone = '010-7176-0953' where name = '김명주';
-update Member_Library set sex = 'M' where name = '김명주';
-update MEMBER_LIBRARY set phone = '010-1111-2222' where name = '정재원';
-update MEMBER_LIBRARY set sex = 'F' where name = '박수진';
-update MEMBER_LIBRARY set sex = 'F' where name = '이은지';
-update MEMBER_LIBRARY set phone = '010-2222-3333' where name = '박수진';
-update MEMBER_LIBRARY set phone = '010-3333-4444' where name = '이은지';
+Select * from MEMBERs;
+drop table members cascade constraints;
+drop table members
 
-Create table Reserved_book(
+update MEMBERs set phone = '010-7176-0953' where name = '김명주';
+update MEMBERs set sex = 'M' where name = '김명주';
+update MEMBERs set phone = '010-1111-2222' where name = '정재원';
+update MEMBERs set sex = 'F' where name = '박수진';
+update MEMBERs set sex = 'F' where name = '이은지';
+update MEMBERs set phone = '010-2222-3333' where name = '박수진';
+update MEMBERs set phone = '010-3333-4444' where name = '이은지';
+
+/*Create table Reserved_book(
    User_name varchar2(100),
    book_name varchar2(100),
    book_id varchar2(100),
    author_Publisher varchar2(100),
    Day_to_Expire number(24),
    LIB_NAME VARCHAR2(30)
-);
+);*/
 
 CREATE TABLE BOOK(
-BOOK_NAME VARCHAR2(100),
-CODE NUMBER(30),
+BOOK_NAME VARCHAR2(100) NOT NULL,
+CODE NUMBER(30) NOT NULL,
 PRICE NUMBER(20),
 WRITER VARCHAR2(30),
 PUBLISHER VARCHAR2(30),
-LIB_NAME VARCHAR2(30),
-RENTAL_OK VARCHAR2(10),
-RENTAL_SUM NUMBER(10)
+LIB_NAME VARCHAR2(30) NOT NULL,
+RENTAL_OK VARCHAR2(10) NOT NULL,
+RENTAL_SUM NUMBER(10),
 CONSTRAINT BOOK_nameCode_PK PRIMARY KEY(BOOK_NAME, CODE),
-
+CONSTRAINT BOOK_LIBNAME_FK FOREIGN KEY(LIB_NAME)
+	REFERENCES LIB(LIB_NAME)
 )
+SELECT * FROM BOOK
+
+CREAGE TABLE DELE_INFO(
+ORDER_NUMBER NUMBER(10),
+ID VARCHAR2(100),
+BOOK_NAME VARCHAR2(100),
+NAME VARCHAR2(50),
+ADDR VARCHAR2(100),
+AGE NUMBER(30),
+GENDER NUMBER(5),
+CHARGE NUMBER(10),
+NOW_LOCATION VARCHAR2(100)
+CONSTRAINT DELEINFO_ORDER_PK PRIMARY KEY(ORDER_NUMBER),
+CONSTRAIN DELINFO_ID_FK FOREIGN KEY(ID)
+	REFERENCES MEMBER(ID)
+)
+
 select * from Reserved_book;
 
 CREATE TABLE BOOKCART(
 BOOK_NAME VARCHAR2(100),
-CODE NUMBER(50),
+CODE NUMBER(30),
 WRITER VARCHAR2(50),
 PUBLISHER VARCHAR2(50),
 LIB_NAME VARCHAR2(30),
 RENTAL_DAY NUMBER(30),
-CONSTRAINT BOOKCART_CODE_PK PRIMARY KEY(CODE),
-CONSTRAINT BOOKCART_CART_FK FOREIGN KEY(CODE)
-constraint reservation_memid_fk foreign key(member_id)
-	references member (member_id),
+CONSTRAINT BOOKCART_nameCode_PK PRIMARY KEY(BOOK_NAME, CODE),
+CONSTRAINT BOOKCART_NAME_FK FOREIGN KEY(BOOK_NAME,CODE)
+	REFERENCES BOOK(BOOK_NAME,CODE),
+CONSTRAINT BOOKCART_libName_FK FOREIGN KEY(LIB_NAME)
+	REFERENCES LIB(LIB_NAME)
 )
 
+SELECT * FROM BOOKCART
 
-
-create table LIB(
+CREATE TABLE LIB(
 LIB_NAME VARCHAR2(50),
 LOCATION VARCHAR2(100),
 OPR_TIME VARCHAR2(300),
@@ -65,7 +88,7 @@ RENTAL_DAY NUMBER(5),
 RENTAL_CNT NUMBER(5),
 LIB_TEL VARCHAR2(30),
 GRADE NUMBER(5),
-CONSTRAINT MEMBER_ID_PK PRIMARY KEY(LIB_NAME)
+CONSTRAINT LIB_LIBNAME_PK PRIMARY KEY(LIB_NAME)
 )
 select * from lib;
 
