@@ -17,6 +17,8 @@ import javax.swing.JTextField;
 
 import Controller.LibraryManagementSystem;
 import Model.Member_LibraryVo;
+import javax.swing.JSeparator;
+import java.awt.Font;
 
 public class LibraryLoginGUI {
 	private JFrame frame; // ÇöÀç Ã¢À» ³ªÅ¸³»´Â °´Ã¼
@@ -28,6 +30,11 @@ public class LibraryLoginGUI {
 	public static LibraryManagementSystem controller = new LibraryManagementSystem();
 	private JLabel lblNewLabel;
 	private JLabel lblNewLabel_1;
+	private JPanel panel_1;
+	private JLabel lbl_title_1;
+	private JLabel lbl_title_2;
+	private JLabel lbl_title_3;
+	private JLabel lbl_title_4;
 
 	/**
 	 * Launch the application.
@@ -94,7 +101,13 @@ public class LibraryLoginGUI {
 			}
 
 		});
-		btn_Login.setBounds(45, 350, 97, 31);
+		String path1 = "C:\\Users\\smhrd\\Desktop\\refresh.png";
+		Image image1 = new ImageIcon(path1).getImage();
+		
+		JLabel lblNewLabel_2 = new JLabel(new ImageIcon(image1.getScaledInstance(90, 90, image1.SCALE_SMOOTH)));
+		lblNewLabel_2.setBounds(90, 82, 125, 119);
+		frame.getContentPane().add(lblNewLabel_2);
+		btn_Login.setBounds(45, 318, 97, 31);
 		frame.getContentPane().add(btn_Login);
 
 		btn_cancel = new JButton("\uD68C\uC6D0\uAC00\uC785");
@@ -105,46 +118,73 @@ public class LibraryLoginGUI {
 				LibraryJoinGUI join = new LibraryJoinGUI();
 			}
 		});
-		btn_cancel.setBounds(169, 350, 97, 31);
+		btn_cancel.setBounds(169, 318, 97, 31);
 		frame.getContentPane().add(btn_cancel);
 
 		JLabel lbl_id = new JLabel("ID");
-		lbl_id.setBounds(45, 203, 57, 15);
+		lbl_id.setBounds(45, 186, 57, 15);
 		frame.getContentPane().add(lbl_id);
 
 		JLabel lbl_pw = new JLabel("PW");
-		lbl_pw.setBounds(45, 269, 57, 15);
+		lbl_pw.setBounds(45, 252, 57, 15);
 		frame.getContentPane().add(lbl_pw);
 
 		Input_id = new JTextField();
-		Input_id.setBounds(45, 228, 221, 31);
+		Input_id.setBounds(45, 211, 221, 31);
 		frame.getContentPane().add(Input_id);
 		Input_id.setColumns(10);
 
 		Input_pw = new JPasswordField();
-		Input_pw.setBounds(45, 294, 221, 31);
+		Input_pw.setBounds(45, 277, 221, 31);
 		frame.getContentPane().add(Input_pw);
 
 		String path = "C:\\Users\\smhrd\\Desktop\\book.png";
 		Image image = new ImageIcon(path).getImage();
 
-		JLabel img_label = new JLabel(new ImageIcon(image.getScaledInstance(80, 80, image.SCALE_SMOOTH)));
-		img_label.setBounds(98, 88, 108, 105);
+		JLabel img_label = new JLabel(new ImageIcon(image.getScaledInstance(50, 50, image.SCALE_SMOOTH)));
+		img_label.setBounds(101, 94, 108, 105);
 		frame.getContentPane().add(img_label);
 
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(245, 245, 245));
+		panel.setBackground(new Color(255, 255, 255));
 		panel.setBounds(12, 13, 291, 65);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 
-		JLabel lbl_title = new JLabel("\uB2F9\uC2E0\uC758 \uB3C5\uC11C\uB97C \uB2A5\uB3D9\uC801\uC73C\uB85C   ");
-		lbl_title.setBounds(12, 0, 199, 45);
+		JLabel lbl_title = new JLabel("\uB2F9\uC2E0\uC758   ");
+		lbl_title.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 12));
+		lbl_title.setBounds(12, 0, 54, 31);
 		panel.add(lbl_title);
 
 		lblNewLabel_1 = new JLabel("\uBC14\uAFB8\uC5B4\uC904 \uB180\uB77C\uC6B4 \uD504\uB85C\uADF8\uB7A8");
 		lblNewLabel_1.setBounds(135, 31, 208, 31);
 		panel.add(lblNewLabel_1);
+		
+		lbl_title_1 = new JLabel("\uB3C5\uC11C");
+		lbl_title_1.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 17));
+		lbl_title_1.setBounds(58, -1, 48, 31);
+		panel.add(lbl_title_1);
+		
+		lbl_title_2 = new JLabel("\uB97C");
+		lbl_title_2.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 12));
+		lbl_title_2.setBounds(95, 0, 27, 31);
+		panel.add(lbl_title_2);
+		
+		lbl_title_3 = new JLabel("\uB2A5\uB3D9\uC801");
+		lbl_title_3.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 17));
+		lbl_title_3.setBounds(118, 0, 63, 31);
+		panel.add(lbl_title_3);
+		
+		lbl_title_4 = new JLabel("\uC73C\uB85C");
+		lbl_title_4.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 12));
+		lbl_title_4.setBounds(173, 0, 54, 31);
+		panel.add(lbl_title_4);
+		
+		panel_1 = new JPanel();
+		panel_1.setBounds(30, 146, 254, 223);
+		frame.getContentPane().add(panel_1);
+		
+
 
 	}
 }

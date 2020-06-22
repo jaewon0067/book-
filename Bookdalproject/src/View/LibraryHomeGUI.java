@@ -22,6 +22,8 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JLabel;
 import javax.swing.JScrollBar;
+import javax.swing.JSlider;
+import javax.swing.JSeparator;
 
 public class LibraryHomeGUI {
 
@@ -43,13 +45,15 @@ public class LibraryHomeGUI {
 	private JLabel loginUser;
 	private JLabel lblNewLabel_1;
 	private JPanel panel_1;
+	private JSeparator separator;
+	private JSeparator separator_1;
 	
 	
 	public LibraryHomeGUI(Member_LibraryVo user) {
 		initialize(user);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(Color.LIGHT_GRAY);
+		panel.setBackground(new Color(255, 255, 255));
 		panel.setBounds(12, 10, 358, 61);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
@@ -71,7 +75,7 @@ public class LibraryHomeGUI {
 
 		
 		panel_1 = new JPanel();
-		panel_1.setBackground(SystemColor.scrollbar);
+		panel_1.setBackground(new Color(255, 255, 255));
 		panel_1.setBounds(0, 404, 382, 70);
 		frame.getContentPane().add(panel_1);
 		panel_1.setLayout(null);
@@ -81,7 +85,6 @@ public class LibraryHomeGUI {
 		
 		
 		btn_GoHome = new JButton(new ImageIcon(image.getScaledInstance(30, 30, image.SCALE_SMOOTH)));
-		btn_GoHome.setText("\uD648");
 		btn_GoHome.setBounds(12, 10, 61, 50);
 		panel_1.add(btn_GoHome);
 		
@@ -89,7 +92,6 @@ public class LibraryHomeGUI {
 		Image image2 = new ImageIcon(path2).getImage();
 		
 		btn_WhatRead = new JButton(new ImageIcon(image2.getScaledInstance(30, 30, image2.SCALE_SMOOTH)));
-		btn_WhatRead.setText("\uBC30\uC1A1\uC815\uBCF4");
 		btn_WhatRead.setBounds(172, 10, 54, 50);
 		panel_1.add(btn_WhatRead);
 		
@@ -97,7 +99,6 @@ public class LibraryHomeGUI {
 		Image image3 = new ImageIcon(path3).getImage();
 		
 		btn_MyPage = new JButton(new ImageIcon(image3.getScaledInstance(30, 30, image3.SCALE_SMOOTH)));
-		btn_MyPage.setText("\uB9C8\uC774\uD398\uC774\uC9C0");
 		btn_MyPage.setBounds(244, 10, 61, 50);
 		panel_1.add(btn_MyPage);
 		
@@ -105,7 +106,6 @@ public class LibraryHomeGUI {
 		Image image4 = new ImageIcon(path4).getImage();
 		
 		btn_Return = new JButton(new ImageIcon(image4.getScaledInstance(30, 30, image4.SCALE_SMOOTH)));
-		btn_Return.setText("\uBC18\uB0A9");
 		btn_Return.setBounds(314, 10, 54, 50);
 		panel_1.add(btn_Return);
 	
@@ -113,9 +113,18 @@ public class LibraryHomeGUI {
 		Image image1 = new ImageIcon(path1).getImage();
 		
 		JButton btn_bookbasket = new JButton(new ImageIcon(image1.getScaledInstance(30, 30, image1.SCALE_SMOOTH)));
-		btn_bookbasket.setText("\uBD81\uBC14\uAD6C\uB2C8");
 		btn_bookbasket.setBounds(93, 10, 54, 50);
 		panel_1.add(btn_bookbasket);
+		
+		separator_1 = new JSeparator();
+		separator_1.setBackground(new Color(153, 153, 153));
+		separator_1.setBounds(12, 0, 358, 2);
+		panel_1.add(separator_1);
+		
+		separator = new JSeparator();
+		separator.setBackground(new Color(153, 153, 153));
+		separator.setBounds(12, 81, 358, 2);
+		frame.getContentPane().add(separator);
 		btn_Return.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -142,7 +151,7 @@ public class LibraryHomeGUI {
 	 */
 	private void initialize(Member_LibraryVo user) {
 		frame = new JFrame();
-		frame.getContentPane().setBackground(Color.LIGHT_GRAY);
+		frame.getContentPane().setBackground(new Color(255, 255, 255));
 		frame.setBounds(100, 100, 398, 513);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -152,7 +161,7 @@ public class LibraryHomeGUI {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btn_Lib.setBounds(27, 282, 97, 89);
+		btn_Lib.setBounds(27, 294, 97, 77);
 		frame.getContentPane().add(btn_Lib);
 		
 		btn_Lib_1 = new JButton("\uAC00\uC871\uB3C4\uC11C\uAD00");
@@ -160,7 +169,7 @@ public class LibraryHomeGUI {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btn_Lib_1.setBounds(136, 282, 97, 89);
+		btn_Lib_1.setBounds(136, 294, 97, 77);
 		frame.getContentPane().add(btn_Lib_1);
 		
 		btn_Lib_2 = new JButton("\uC218\uC9C0\uB3C4\uC11C\uAD00");
@@ -168,7 +177,7 @@ public class LibraryHomeGUI {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btn_Lib_2.setBounds(245, 282, 104, 89);
+		btn_Lib_2.setBounds(245, 294, 104, 77);
 		frame.getContentPane().add(btn_Lib_2);
 		
 		btn_BuyThis = new JButton("\uC7A5\uBC14\uAD6C\uB2C8");
@@ -180,7 +189,8 @@ public class LibraryHomeGUI {
 		frame.getContentPane().add(btn_BuyThis);
 		
 		table = new JTable();
-		table.setBounds(31, 118, 318, 140);
+		table.setBackground(new Color(204, 204, 204));
+		table.setBounds(31, 138, 318, 136);
 		frame.getContentPane().add(table);
 		
 	
