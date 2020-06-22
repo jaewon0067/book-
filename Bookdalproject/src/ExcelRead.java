@@ -1,4 +1,8 @@
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.ObjectInputStream.GetField;
+import java.net.URL;
 import java.util.ArrayList;
 
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -6,8 +10,7 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class ExcelRead {
-
+public class ExcelRead {	
 	public static void main(String[] args) {
 		
 		ArrayList<BookVO> booklist = new ArrayList<BookVO>();
@@ -25,8 +28,13 @@ public class ExcelRead {
 		String price = null;
 		String sidebook = null;
 		String[] bookinfo = new String[13];
+		
 		try {
-            FileInputStream file = new FileInputStream("C:\\Users\\smhrd\\Desktop\\testValue.xlsx");
+			
+			// URL in = ExcelRead.class.getClass().getResource(".//excel_resource//testValue.xlsx");
+			// String path = in.getPath();
+			
+            FileInputStream file = new FileInputStream(System.getProperty("user.dir")+"\\src\\excel_resource\\testValue.xlsx");
             XSSFWorkbook workbook = new XSSFWorkbook(file);
  
             int rowindex=0;
@@ -84,7 +92,7 @@ public class ExcelRead {
         }catch(Exception e) {
             e.printStackTrace();
         }
-		System.out.println(booklist.get(20000).getOriginal());
+		//System.out.println(booklist.get(20000).getOriginal());
 	}
 
 }
