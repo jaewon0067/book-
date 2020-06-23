@@ -88,7 +88,7 @@ public class LibraryLoginGUI {
 				if (loginUSer != null) {
 					System.out.println("로그인 성공");
 					JOptionPane.showMessageDialog(frame, "환영합니다.");
-					System.out.println(user.getName());
+					
 					// LibraryMainGUI maingui = new LibraryMainGUI();
 					LibraryHomeGUI homeGUI = new LibraryHomeGUI(loginUSer);
 

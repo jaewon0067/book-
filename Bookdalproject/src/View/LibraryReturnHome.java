@@ -38,7 +38,7 @@ public class LibraryReturnHome {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 1031, 517);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 	}
 

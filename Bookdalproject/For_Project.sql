@@ -8,7 +8,7 @@ CREATE TABLE MEMBER(
 	CONSTRAINT MEMBER_ID_PK PRIMARY KEY(ID)
 	CONSTRAINT MEMBER_GENDER_CK CHECK(GENDER IN('F', 'M'))
 )
-
+Select*from MEMBER;
 Select * from Member_Library;
 update Member_Library set phone = '010-7176-0953' where name = '김명주';
 update Member_Library set sex = 'M' where name = '김명주';
@@ -27,7 +27,7 @@ update MEMBER_LIBRARY set phone = '010-3333-4444' where name = '이은지';
 --   LIB_NAME VARCHAR2(30)
 --);
 
-CREATE TABLE BOOK(
+CREATE TABLE BOOK( -- 어레이리스트에 담겨있음
 	BOOK_NAME VARCHAR2(100) NOT NULL,
 	CODE NUMBER(30) NOT NULL,
 	PRICE NUMBER(20),

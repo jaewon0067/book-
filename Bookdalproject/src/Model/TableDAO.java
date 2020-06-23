@@ -1,10 +1,13 @@
 package Model;
 
+import java.awt.Dimension;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import javax.swing.JTable;
 
 public class TableDAO {
 	private Connection conn; // 전역변수로 설정
@@ -48,5 +51,39 @@ public class TableDAO {
 			e.printStackTrace();
 		}
 	}
-	
+	public JTable getTable() {
+		getConnection();
+		JTable table = null;
+		
+		
+		try {
+			String sql = "select BOOK_NAME, RENTAL_DAY, WRITER, LIB_NAME from BOOKCART where name like ? ";
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, user.getName());
+			rs = pst.executeQuery();
+			if(rs.next()) {
+			String []title = {"책 제목", "반납 기한","도서관 이름", "작가 및 출판사"};
+			String [][]data = {{"어떻게 잠을 잘까요", "야부우치 마사유키", "한림출판사"},
+	        		{"1日 1茶 : 매일 마셔도 좋은 건강 약차", "신혜정", "라이스메이커"},
+	        		{"할머니가 남긴 선물", "마거릿 와이즈 브라운", "시공주니어"},
+	        		{"우리끼리 가자", "윤구병", "보리"},
+	        		{"카라마조프가의 형제들 1", "도스토예프스키", "민음사"},
+	        		{"오셀로", "윌리엄 셰익스피어 원작", "민음사"},
+	        		{"나르치스와 골드문트", "헤르만 헤세", "현대문학"}
+					
+					};
+			table = new JTable(data, title);
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+	return table;
 }
+
+}
+

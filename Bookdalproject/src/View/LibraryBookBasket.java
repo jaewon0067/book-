@@ -3,8 +3,11 @@ package View;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+import javax.swing.JButton;
 
-public class LibraryReturnBook {
+public class LibraryBookBasket {
 
 	private JFrame frame;
 
@@ -15,7 +18,7 @@ public class LibraryReturnBook {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					LibraryReturnBook window = new LibraryReturnBook();
+					LibraryBookBasket window = new LibraryBookBasket();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -27,7 +30,7 @@ public class LibraryReturnBook {
 	/**
 	 * Create the application.
 	 */
-	public LibraryReturnBook() {
+	public LibraryBookBasket() {
 		initialize();
 		frame.setVisible(true);
 	}
@@ -37,9 +40,13 @@ public class LibraryReturnBook {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 967, 509);
+		frame.setBounds(100, 100, 497, 534);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		
+		JButton btnNewButton = new JButton("New button");
+		btnNewButton.setBounds(196, 440, 97, 23);
+		frame.getContentPane().add(btnNewButton);
 	}
 
 }

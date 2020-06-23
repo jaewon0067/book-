@@ -3,12 +3,19 @@ package Controller;
 
 
 
+import java.util.ArrayList;
+
+import javax.swing.JTable;
+
+import Model.BookVO;
 import Model.Member_LibraryDAO;
 import Model.Member_LibraryVo;
 
 public class LibraryManagementSystem {
 	private Member_LibraryDAO dao = new Member_LibraryDAO();
 	private Member_LibraryVo loginUser;
+	private BookVO vo;
+	private ArrayList<BookVO> booklist = new ArrayList<BookVO>();
 	public Member_LibraryVo getLoginUser() {
 		return loginUser;
 	}
@@ -26,9 +33,6 @@ public class LibraryManagementSystem {
 		
 		return cnt;
 	}
-	
-	
-	
 	
 	
 }
