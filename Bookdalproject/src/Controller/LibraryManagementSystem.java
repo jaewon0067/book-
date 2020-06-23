@@ -49,9 +49,6 @@ public class LibraryManagementSystem {
 		return cnt;
 	}
 	
-	public BookVO findbook(String bookname) {
-		if(bookname.equals())
-	}
 	
 	
 	
