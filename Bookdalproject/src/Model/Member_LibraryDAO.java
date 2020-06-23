@@ -56,7 +56,7 @@ public class Member_LibraryDAO {
 	
 	
 	
-	public Member_LibraryVo selectOne(Member_LibraryVo user) {
+	public Member_LibraryVo selectOne(Member_LibraryVo user) { // 로그인
 		Member_LibraryVo loginUser = null;
 		getConnection();
 		
@@ -70,7 +70,7 @@ public class Member_LibraryDAO {
 				String id = rs.getString("id");
 				String pw = rs.getString("pw");
 				String name = rs.getString("name");
-				loginUser = new Member_LibraryVo(id,pw,name);
+				loginUser = new Member_LibraryVo(id,pw,name); // 홈화면에서 이름 띄워줌
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -94,14 +94,14 @@ public class Member_LibraryDAO {
 		getConnection();
 		int row = 0;
 		
-		String sql = "insert into Member_Library values(?, ?, ?, ?, ?, ?)"; // 회원가입
+		String sql = "insert into Member_Library values(?, ?, ?, ?, ?, ?, ?)"; // 회원가입
 		try {
 		pst = conn.prepareStatement(sql);
 		pst.setString(1, joinUser.getId());
 		pst.setString(2, joinUser.getPw());
 		pst.setString(3, joinUser.getName());
 		pst.setString(4, joinUser.getAge());
-		pst.setString(5, joinUser.getSex());
+		pst.setString(5, joinUser.getGender());
 		pst.setString(6, joinUser.getPhone());
 		
 		row = pst.executeUpdate();

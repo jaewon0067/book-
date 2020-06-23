@@ -1,8 +1,11 @@
+package View;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import java.awt.GridLayout;
 
-public class LibraryLoginGUI {
+public class LibraryRentalGUI {
 
 	private JFrame frame;
 
@@ -13,7 +16,7 @@ public class LibraryLoginGUI {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					LibraryLoginGUI window = new LibraryLoginGUI();
+					LibraryRentalGUI window = new LibraryRentalGUI();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -25,7 +28,7 @@ public class LibraryLoginGUI {
 	/**
 	 * Create the application.
 	 */
-	public LibraryLoginGUI() {
+	public LibraryRentalGUI() {
 		initialize();
 	}
 
@@ -34,8 +37,9 @@ public class LibraryLoginGUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 390, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(new GridLayout(1, 0, 0, 0));
 	}
 
 }

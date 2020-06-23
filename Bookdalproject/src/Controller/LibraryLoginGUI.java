@@ -1,10 +1,9 @@
-package View;
-
+package Controller;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
-public class LibraryReturnBook {
+public class LibraryLoginGUI {
 
 	private JFrame frame;
 
@@ -15,7 +14,7 @@ public class LibraryReturnBook {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					LibraryReturnBook window = new LibraryReturnBook();
+					LibraryLoginGUI window = new LibraryLoginGUI();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -27,9 +26,8 @@ public class LibraryReturnBook {
 	/**
 	 * Create the application.
 	 */
-	public LibraryReturnBook() {
+	public LibraryLoginGUI() {
 		initialize();
-		frame.setVisible(true);
 	}
 
 	/**
@@ -37,9 +35,8 @@ public class LibraryReturnBook {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 967, 509);
-		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 }

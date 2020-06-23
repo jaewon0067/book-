@@ -1,3 +1,4 @@
+package Controller;
 
 public class BookVO {
 	String book_index;
@@ -21,7 +22,7 @@ public class BookVO {
 		this.book_index = book_index;
 		this.lib_location = lib_location;
 		this.status = status;
-		this.restriction = restriction; // 
+		this.restriction = restriction;
 		this.book_id = book_id;
 		this.book_name = book_name;
 		this.author = author;
