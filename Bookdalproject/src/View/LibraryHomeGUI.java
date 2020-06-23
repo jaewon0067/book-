@@ -41,7 +41,6 @@ public class LibraryHomeGUI {
 	private JButton btn_Lib;
 	private JButton btn_Lib_1;
 	private JButton btn_Lib_2;
-	private JButton btn_BuyThis;
 	private JTable table;
 	
 	public static LibraryManagementSystem controller = new LibraryManagementSystem();
@@ -189,11 +188,16 @@ public class LibraryHomeGUI {
 	private void initialize(Member_LibraryVo user) {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(255, 255, 255));
+
 		frame.setBounds(100, 100, 644, 513);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+		frame.setBounds(100, 100, 401, 516);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 		frame.getContentPane().setLayout(null);
 		
-		btn_Lib = new JButton("\uB098\uBB34\uB3C4\uC11C\uAD00");
+		btn_Lib = new JButton("\uC0C1\uB85D\uB3C4\uC11C\uAD00");
 		btn_Lib.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -201,7 +205,7 @@ public class LibraryHomeGUI {
 		btn_Lib.setBounds(27, 294, 97, 77);
 		frame.getContentPane().add(btn_Lib);
 		
-		btn_Lib_1 = new JButton("\uAC00\uC871\uB3C4\uC11C\uAD00");
+		btn_Lib_1 = new JButton("\uC0DD\uD0DC\uB3C4\uC11C\uAD00");
 		btn_Lib_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -217,13 +221,13 @@ public class LibraryHomeGUI {
 		btn_Lib_2.setBounds(245, 294, 104, 77);
 		frame.getContentPane().add(btn_Lib_2);
 		
-		btn_BuyThis = new JButton("\uC7A5\uBC14\uAD6C\uB2C8");
-		btn_BuyThis.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btn_BuyThis.setBounds(944, 48, 97, 23);
-		frame.getContentPane().add(btn_BuyThis);
+
+		
+		table = new JTable();
+		table.setBackground(new Color(204, 204, 204));
+		table.setBounds(31, 138, 318, 136);
+		frame.getContentPane().add(table);
+
 		
 	
 		

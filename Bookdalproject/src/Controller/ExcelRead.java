@@ -1,3 +1,4 @@
+package Controller;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -11,7 +12,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelRead {
-	public static void main(String[] args) {
+	public ArrayList<BookVO> getBookList() {
 
 		ArrayList<BookVO> booklist = new ArrayList<BookVO>();
 		String book_index = null;
@@ -96,6 +97,8 @@ public class ExcelRead {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		return booklist;
 		// System.out.println(booklist.get(20000).getOriginal());
 	}
 

@@ -106,7 +106,7 @@ public class LibraryLoginGUI {
 		});
 		String path1 = "C:\\Users\\smhrd\\Desktop\\refresh.png";
 		Image image1 = new ImageIcon(path1).getImage();
-		btn_Login.setBounds(32, 348, 97, 31);
+		btn_Login.setBounds(52, 349, 97, 31);
 		frame.getContentPane().add(btn_Login);
 
 		btn_cancel = new JButton("\uD68C\uC6D0\uAC00\uC785");
@@ -118,7 +118,7 @@ public class LibraryLoginGUI {
 				LibraryJoinGUI join = new LibraryJoinGUI();
 			}
 		});
-		btn_cancel.setBounds(156, 348, 97, 31);
+		btn_cancel.setBounds(176, 349, 97, 31);
 		frame.getContentPane().add(btn_cancel);
 
 		JLabel lbl_id = new JLabel("ID");
@@ -131,12 +131,12 @@ public class LibraryLoginGUI {
 
 		Input_id = new JTextField();
 		Input_id.setBackground(SystemColor.control);
-		Input_id.setBounds(32, 241, 221, 31);
+		Input_id.setBounds(42, 241, 221, 31);
 		frame.getContentPane().add(Input_id);
 		Input_id.setColumns(10);
 
 		Input_pw = new JPasswordField();
-		Input_pw.setBounds(32, 307, 221, 31);
+		Input_pw.setBounds(42, 307, 221, 31);
 		frame.getContentPane().add(Input_pw);
 
 		String path = "C:\\Users\\smhrd\\Desktop\\book.png";
