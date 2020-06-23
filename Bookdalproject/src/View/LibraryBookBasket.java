@@ -1,8 +1,13 @@
+package View;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+import javax.swing.JButton;
 
-public class LibraryLoginGUI {
+public class LibraryBookBasket {
 
 	private JFrame frame;
 
@@ -13,7 +18,7 @@ public class LibraryLoginGUI {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					LibraryLoginGUI window = new LibraryLoginGUI();
+					LibraryBookBasket window = new LibraryBookBasket();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -25,8 +30,9 @@ public class LibraryLoginGUI {
 	/**
 	 * Create the application.
 	 */
-	public LibraryLoginGUI() {
+	public LibraryBookBasket() {
 		initialize();
+		frame.setVisible(true);
 	}
 
 	/**
@@ -34,8 +40,13 @@ public class LibraryLoginGUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setBounds(100, 100, 497, 534);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JButton btnNewButton = new JButton("New button");
+		btnNewButton.setBounds(196, 440, 97, 23);
+		frame.getContentPane().add(btnNewButton);
 	}
 
 }

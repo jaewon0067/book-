@@ -4,6 +4,21 @@ CREATE TABLE MEMBER_library(
 	NAME VARCHAR2(10) NOT NULL,
 	AGE NUMBER(5) NOT NULL,
 	PHONE VARCHAR2(30) NOT NULL,
+<<<<<<< HEAD
+	GENDER NUMBER(2) NOT NULL,
+	CONSTRAINT MEMBER_ID_PK PRIMARY KEY(ID)
+	CONSTRAINT MEMBER_GENDER_CK CHECK(GENDER IN('F', 'M'))
+)
+Select*from MEMBER;
+Select * from Member_Library;
+update Member_Library set phone = '010-7176-0953' where name = '김명주';
+update Member_Library set sex = 'M' where name = '김명주';
+update MEMBER_LIBRARY set phone = '010-1111-2222' where name = '정재원';
+update MEMBER_LIBRARY set sex = 'F' where name = '박수진';
+update MEMBER_LIBRARY set sex = 'F' where name = '이은지';
+update MEMBER_LIBRARY set phone = '010-2222-3333' where name = '박수진';
+update MEMBER_LIBRARY set phone = '010-3333-4444' where name = '이은지';
+=======
 	GENDER varchar2(20) NOT NULL,
 	ADDR VARCHAR2(300) NOT NULL,
 	CONSTRAINT MEMBERs_ID_PK PRIMARY KEY(ID),
@@ -19,12 +34,13 @@ MODIFY (gender varchar2(20)
 drop table MEMBER_library cascade constraints;
 DROP TABLE MEMBER_library
 
-Select * from MEMBER_library;
+Select * from MEMBER_library; 
 
 INSERT INTO MEMBER_LIBRARY VALUES('sj1004','1234','박수진',25,'010-1111-3333','F','광주광역시 풍암동')
 INSERT INTO MEMBER_LIBRARY VALUES('ej1004','1234','이은지',25,'010-1234-5678','F','광주광역시 광산구')
 INSERT INTO MEMBER_LIBRARY VALUES('mj1004','1234','김명주',26,'010-1111-2222','M','광주광역시 광산구 월계동')
 INSERT INTO MEMBER_LIBRARY VALUES('jw1004','1234','정재원',25,'010-2222-3333','F','광주광역시 송하동 CGI센터')
+>>>>>>> branch 'master' of https://github.com/jaewon0067/book-.git
 
 /*Create table Reserved_book(
    User_name varchar2(100),
@@ -36,6 +52,20 @@ INSERT INTO MEMBER_LIBRARY VALUES('jw1004','1234','정재원',25,'010-2222-3333','F
 );*/
 
 
+<<<<<<< HEAD
+CREATE TABLE BOOK( -- 어레이리스트에 담겨있음
+	BOOK_NAME VARCHAR2(100) NOT NULL,
+	CODE NUMBER(30) NOT NULL,
+	PRICE NUMBER(20),
+	WRITER VARCHAR2(30),
+	PUBLISHER VARCHAR2(30),
+	LIB_NAME VARCHAR2(30) NOT NULL,
+	RENTAL_OK VARCHAR2(10) NOT NULL,
+	RENTAL_SUM NUMBER(10),
+	CONSTRAINT BOOK_nameCode_PK PRIMARY KEY(BOOK_NAME, CODE),
+	CONSTRAINT BOOK_LIBNAME_FK FOREIGN KEY(LIB_NAME)
+	        REFERENCES LIB(LIB_NAME)
+=======
 CREATE TABLE BOOK(
 <<<<<<< HEAD
 BOOK_NAME VARCHAR2(100) NOT NULL,
@@ -52,6 +82,26 @@ CONSTRAINT BOOK_LIBNAME_FK FOREIGN KEY(LIB_NAME)
 )
 SELECT * FROM BOOK
 
+<<<<<<< HEAD
+CREATE TABLE DELE_INFO(
+ORDER_NUMBER NUMBER(10),
+ID VARCHAR2(100),
+BOOK_NAME VARCHAR2(100),
+NAME VARCHAR2(50),
+ADDR VARCHAR2(100),
+AGE NUMBER(30),
+GENDER NUMBER(5),
+CHARGE NUMBER(10),
+NOW_LOCATION VARCHAR2(100)
+CONSTRAINT DELEINFO_ORDER_PK PRIMARY KEY(ORDER_NUMBER),
+CONSTRAIN DELINFO_ID_FK FOREIGN KEY(ID)
+	REFERENCES MEMBER(ID)
+>>>>>>> branch 'master' of https://github.com/jaewon0067/book-.git
+)
+
+
+=======
+>>>>>>> branch 'master' of https://github.com/jaewon0067/book-.git
 select * from Reserved_book;
 
 CREATE TABLE BOOKCART(
