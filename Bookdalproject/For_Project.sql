@@ -11,6 +11,17 @@ CREATE TABLE MEMBER_library(
 )
 
 Select * from Member_Library;
+<<<<<<< HEAD
+
+
+update Member_Library set phone = '010-7176-0953' where name = '김명주';
+update Member_Library set sex = 'M' where name = '김명주';
+update MEMBER_LIBRARY set phone = '010-1111-2222' where name = '정재원';
+update MEMBER_LIBRARY set sex = 'F' where name = '박수진';
+update MEMBER_LIBRARY set sex = 'F' where name = '이은지';
+update MEMBER_LIBRARY set phone = '010-2222-3333' where name = '박수진';
+update MEMBER_LIBRARY set phone = '010-3333-4444' where name = '이은지';
+=======
 
 
 ALTER TABLE MEMBER_library MODIFY GENDER VARCHAR2(20);
@@ -20,6 +31,7 @@ ALTER TABLE MEMBER_library
 SELECT * FROM user_constraints WHERE CONSTRAINT_NAME = 'name_PK';
 drop table MEMBER_library cascade constraints;
 DROP TABLE MEMBER_library
+>>>>>>> branch 'master' of https://github.com/jaewon0067/book-.git
 
 
 

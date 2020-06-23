@@ -75,7 +75,7 @@ public class LibraryJoinGUI {
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.WHITE);
-		frame.setBounds(100, 100, 608, 414);
+		frame.setBounds(100, 100, 580, 451);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // 회원가입 창만 닫게 하기
 		frame.getContentPane().setLayout(null);
 		
