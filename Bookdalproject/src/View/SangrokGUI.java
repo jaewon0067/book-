@@ -128,8 +128,8 @@ public class SangrokGUI {
 		btnbook1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				book1GUI book1gui = new book1GUI();
-				book1gui.setNum(2);
 				frame.setVisible(true);
+				book1gui.setNum(2);
 
 			}
 		});

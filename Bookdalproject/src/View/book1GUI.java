@@ -10,6 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 public class book1GUI {
 
@@ -17,6 +18,7 @@ public class book1GUI {
 
 	private int num;
 	String path = null;
+	
 
 	public void setNum(int num) {
 		this.num = num;
@@ -50,14 +52,10 @@ public class book1GUI {
 		frame.getContentPane().add(bookInfo_label);
 		frame.setVisible(true);
 
-		
-		
-		
 	}
 
 	public book1GUI() {
 		initialize();
-	
 
 	}
 
@@ -70,11 +68,16 @@ public class book1GUI {
 		frame.setBounds(100, 100, 390, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+
 		JButton rental_btn = new JButton("");
 		rental_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				LibraryRentalGUI.main(null);
+				JOptionPane.showMessageDialog(null, "북바구니에 성공적으로 담겼습니다!! q:^)", "북바구니",
+						JOptionPane.INFORMATION_MESSAGE);
+				
+				
+				
+				
 			}
 		});
 		rental_btn.setBounds(63, 504, 256, 23);

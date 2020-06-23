@@ -40,7 +40,7 @@ public class LibraryBookBasket {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 497, 534);
+		frame.setBounds(100, 100, 390, 600);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
