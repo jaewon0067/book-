@@ -37,6 +37,8 @@ public class LibraryLoginGUI {
 	private JLabel lbl_title_4;
 	private JLabel bookmoon_label;
 	private JLabel bookdal_label;
+	private JPanel panel_1;
+	private JLabel lblNewLabel_2;
 
 	/**
 	 * Launch the application.
@@ -70,7 +72,7 @@ public class LibraryLoginGUI {
 		
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(255, 255, 255));
-		frame.setBounds(100, 100, 331, 467);
+		frame.setBounds(100, 100, 390, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
@@ -107,15 +109,8 @@ public class LibraryLoginGUI {
 		});
 		String path1 = "C:\\Users\\smhrd\\Desktop\\icon\\refresh.png";
 		Image image1 = new ImageIcon(path1).getImage();
-<<<<<<< HEAD
-		
-		JLabel lblNewLabel_2 = new JLabel(new ImageIcon(image1.getScaledInstance(90, 90, image1.SCALE_SMOOTH)));
-		lblNewLabel_2.setBounds(89, 82, 125, 119);
-		frame.getContentPane().add(lblNewLabel_2);
-		btn_Login.setBounds(45, 318, 97, 31);
-=======
-		btn_Login.setBounds(52, 349, 97, 31);
->>>>>>> branch 'master' of https://github.com/jaewon0067/book-.git
+		btn_Login.setBounds(42, 349, 97, 31);
+
 		frame.getContentPane().add(btn_Login);
 
 		btn_cancel = new JButton("\uD68C\uC6D0\uAC00\uC785");
@@ -127,7 +122,7 @@ public class LibraryLoginGUI {
 				LibraryJoinGUI join = new LibraryJoinGUI();
 			}
 		});
-		btn_cancel.setBounds(176, 349, 97, 31);
+		btn_cancel.setBounds(161, 349, 97, 31);
 		frame.getContentPane().add(btn_cancel);
 
 		JLabel lbl_id = new JLabel("ID");
@@ -139,7 +134,7 @@ public class LibraryLoginGUI {
 		frame.getContentPane().add(lbl_pw);
 
 		Input_id = new JTextField();
-		Input_id.setBackground(SystemColor.control);
+		Input_id.setBackground(new Color(255, 255, 255));
 		Input_id.setBounds(42, 241, 221, 31);
 		frame.getContentPane().add(Input_id);
 		Input_id.setColumns(10);
@@ -153,7 +148,7 @@ public class LibraryLoginGUI {
 
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 255, 255));
-		panel.setBounds(12, 13, 291, 65);
+		panel.setBounds(12, 13, 350, 73);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 
@@ -193,10 +188,6 @@ public class LibraryLoginGUI {
 		originImg = originImg.getScaledInstance(300, 250, Image.SCALE_SMOOTH);
 		ImageIcon Icon = new ImageIcon(originImg);
 
-		JLabel cover_label = new JLabel(Icon);
-		cover_label.setBounds(0, 135, 315, 303);
-		frame.getContentPane().add(cover_label);
-
 		// <이미지 사이즈 수정하기>
 		URL bookdal = this.getClass().getResource("../icon/bookdal.png");
 
@@ -205,11 +196,17 @@ public class LibraryLoginGUI {
 		originImg2 = originImg2.getScaledInstance(90,80, Image.SCALE_SMOOTH);
 
 		ImageIcon Icon2 = new ImageIcon(originImg2);
-
-		JLabel bookdal_label = new JLabel(Icon2);
-
-		bookdal_label.setBounds(-21, 44, 336, 159);
-		frame.getContentPane().add(bookdal_label);
+		
+		panel_1 = new JPanel();
+		panel_1.setBackground(new Color(255, 255, 255));
+		panel_1.setBounds(0, 0, 374, 561);
+		frame.getContentPane().add(panel_1);
+		panel_1.setLayout(null);
+		
+		lblNewLabel_2 = new JLabel("New label");
+		lblNewLabel_2.setBackground(new Color(255, 255, 255));
+		lblNewLabel_2.setBounds(45, 129, 277, 327);
+		panel_1.add(lblNewLabel_2);
 
 	}
 }
