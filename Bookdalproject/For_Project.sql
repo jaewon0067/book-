@@ -19,7 +19,7 @@ MODIFY (gender varchar2(20)
 drop table MEMBER_library cascade constraints;
 DROP TABLE MEMBER_library
 
-Select * from MEMBER_library;
+Select * from MEMBER_library; 
 
 INSERT INTO MEMBER_LIBRARY VALUES('sj1004','1234','¹Ú¼öÁø',25,'010-1111-3333','F','±¤ÁÖ±¤¿ª½Ã Ç³¾Ïµ¿')
 INSERT INTO MEMBER_LIBRARY VALUES('ej1004','1234','ÀÌÀºÁö',25,'010-1234-5678','F','±¤ÁÖ±¤¿ª½Ã ±¤»ê±¸')

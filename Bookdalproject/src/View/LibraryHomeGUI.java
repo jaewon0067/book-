@@ -37,7 +37,6 @@ public class LibraryHomeGUI {
 	private JButton btn_Lib;
 	private JButton btn_Lib_1;
 	private JButton btn_Lib_2;
-	private JButton btn_BuyThis;
 	private JTable table;
 	
 	public static LibraryManagementSystem controller = new LibraryManagementSystem();
@@ -62,9 +61,10 @@ public class LibraryHomeGUI {
 		lblNewLabel_1.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 20));
 		lblNewLabel_1.setBounds(198, 11, 148, 30);
 		panel.add(lblNewLabel_1);
-		loginUser.setText(user.getName());
+		
 		
 		loginUser = new JLabel("New label");
+		loginUser.setText(user.getName());
 		loginUser.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
 		loginUser.setBounds(114, 10, 78, 36);
 		panel.add(loginUser);
@@ -152,11 +152,11 @@ public class LibraryHomeGUI {
 	private void initialize(Member_LibraryVo user) {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(255, 255, 255));
-		frame.setBounds(100, 100, 398, 513);
+		frame.setBounds(100, 100, 401, 516);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		btn_Lib = new JButton("\uB098\uBB34\uB3C4\uC11C\uAD00");
+		btn_Lib = new JButton("\uC0C1\uB85D\uB3C4\uC11C\uAD00");
 		btn_Lib.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -164,7 +164,7 @@ public class LibraryHomeGUI {
 		btn_Lib.setBounds(27, 294, 97, 77);
 		frame.getContentPane().add(btn_Lib);
 		
-		btn_Lib_1 = new JButton("\uAC00\uC871\uB3C4\uC11C\uAD00");
+		btn_Lib_1 = new JButton("\uC0DD\uD0DC\uB3C4\uC11C\uAD00");
 		btn_Lib_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -179,14 +179,6 @@ public class LibraryHomeGUI {
 		});
 		btn_Lib_2.setBounds(245, 294, 104, 77);
 		frame.getContentPane().add(btn_Lib_2);
-		
-		btn_BuyThis = new JButton("\uC7A5\uBC14\uAD6C\uB2C8");
-		btn_BuyThis.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btn_BuyThis.setBounds(944, 48, 97, 23);
-		frame.getContentPane().add(btn_BuyThis);
 		
 		table = new JTable();
 		table.setBackground(new Color(204, 204, 204));
