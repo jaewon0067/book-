@@ -43,7 +43,7 @@ public class Member_LibraryVo {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public Member_LibraryVo(String id, String pw, String name, String age, String sex, String phone) {
+	public Member_LibraryVo(String id, String pw, String name, String age, String phone, String sex) {
 	
 		this.id = id;
 		this.pw = pw;
