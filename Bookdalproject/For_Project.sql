@@ -10,6 +10,8 @@ CREATE TABLE MEMBER(
 )
 
 Select * from Member_Library;
+
+
 update Member_Library set phone = '010-7176-0953' where name = '김명주';
 update Member_Library set sex = 'M' where name = '김명주';
 update MEMBER_LIBRARY set phone = '010-1111-2222' where name = '정재원';

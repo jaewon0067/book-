@@ -65,6 +65,7 @@ public class LibraryLoginGUI {
 	 */
 
 	private void initialize() {
+		
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(255, 255, 255));
 		frame.setBounds(100, 100, 331, 467);
@@ -101,11 +102,11 @@ public class LibraryLoginGUI {
 			}
 
 		});
-		String path1 = "C:\\Users\\smhrd\\Desktop\\refresh.png";
+		String path1 = "C:\\Users\\smhrd\\Desktop\\icon\\refresh.png";
 		Image image1 = new ImageIcon(path1).getImage();
 		
 		JLabel lblNewLabel_2 = new JLabel(new ImageIcon(image1.getScaledInstance(90, 90, image1.SCALE_SMOOTH)));
-		lblNewLabel_2.setBounds(90, 82, 125, 119);
+		lblNewLabel_2.setBounds(89, 82, 125, 119);
 		frame.getContentPane().add(lblNewLabel_2);
 		btn_Login.setBounds(45, 318, 97, 31);
 		frame.getContentPane().add(btn_Login);
@@ -138,7 +139,7 @@ public class LibraryLoginGUI {
 		Input_pw.setBounds(45, 277, 221, 31);
 		frame.getContentPane().add(Input_pw);
 
-		String path = "C:\\Users\\smhrd\\Desktop\\book.png";
+		String path = "C:\\Users\\smhrd\\Desktop\\icon\\book.png";
 		Image image = new ImageIcon(path).getImage();
 
 		JLabel img_label = new JLabel(new ImageIcon(image.getScaledInstance(50, 50, image.SCALE_SMOOTH)));
