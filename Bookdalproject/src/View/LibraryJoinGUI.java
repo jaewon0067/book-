@@ -38,6 +38,8 @@ public class LibraryJoinGUI {
 	private JLabel lblNewLabel;
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2;
+	private JTextField txt_forAddr;
+	private JLabel lblNewLabel_3;
 
 	
 	public LibraryJoinGUI() {
@@ -73,7 +75,7 @@ public class LibraryJoinGUI {
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.WHITE);
-		frame.setBounds(100, 100, 608, 414);
+		frame.setBounds(100, 100, 580, 451);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // 회원가입 창만 닫게 하기
 		frame.getContentPane().setLayout(null);
 		
@@ -141,9 +143,10 @@ public class LibraryJoinGUI {
 				String pw = txt_forPW.getText();
 				String name = txt_forName.getText();
 				String age = txt_forAge.getText();
-				String sex = txt_forSex.getText();
+				String gender = txt_forSex.getText();
 				String phone = txt_forPhone.getText();
-				Member_LibraryVo joinUser = new Member_LibraryVo(id,pw,name,age,sex,phone);
+				String addr = txt_forAddr.getText();
+				Member_LibraryVo joinUser = new Member_LibraryVo(id,pw,name,age,gender,phone,addr);
 				int cnt = controller.join(joinUser);
 				if(cnt == 0) {
 					System.out.println("회원가입 실패");
@@ -164,8 +167,17 @@ public class LibraryJoinGUI {
 					
 			}
 		});
-		btn_join_1.setBounds(236, 321, 97, 23);
+		btn_join_1.setBounds(233, 342, 97, 23);
 		frame.getContentPane().add(btn_join_1);
+		
+		txt_forAddr = new JTextField();
+		txt_forAddr.setBounds(259, 311, 116, 21);
+		frame.getContentPane().add(txt_forAddr);
+		txt_forAddr.setColumns(10);
+		
+		lblNewLabel_3 = new JLabel("Address");
+		lblNewLabel_3.setBounds(156, 314, 57, 15);
+		frame.getContentPane().add(lblNewLabel_3);
 		
 		
 	}

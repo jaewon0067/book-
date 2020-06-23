@@ -94,14 +94,14 @@ public class Member_LibraryDAO {
 		getConnection();
 		int row = 0;
 		
-		String sql = "insert into Member_Library values(?, ?, ?, ?, ?, ?)"; // 회원가입
+		String sql = "insert into Member_Library values(?, ?, ?, ?, ?, ?, ?)"; // 회원가입
 		try {
 		pst = conn.prepareStatement(sql);
 		pst.setString(1, joinUser.getId());
 		pst.setString(2, joinUser.getPw());
 		pst.setString(3, joinUser.getName());
 		pst.setString(4, joinUser.getAge());
-		pst.setString(5, joinUser.getSex());
+		pst.setString(5, joinUser.getGender());
 		pst.setString(6, joinUser.getPhone());
 		
 		row = pst.executeUpdate();

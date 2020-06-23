@@ -67,6 +67,7 @@ public class LibraryLoginGUI {
 	 */
 
 	private void initialize() {
+		
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(255, 255, 255));
 		frame.setBounds(100, 100, 331, 467);
@@ -104,9 +105,17 @@ public class LibraryLoginGUI {
 			}
 
 		});
-		String path1 = "C:\\Users\\smhrd\\Desktop\\refresh.png";
+		String path1 = "C:\\Users\\smhrd\\Desktop\\icon\\refresh.png";
 		Image image1 = new ImageIcon(path1).getImage();
+<<<<<<< HEAD
+		
+		JLabel lblNewLabel_2 = new JLabel(new ImageIcon(image1.getScaledInstance(90, 90, image1.SCALE_SMOOTH)));
+		lblNewLabel_2.setBounds(89, 82, 125, 119);
+		frame.getContentPane().add(lblNewLabel_2);
+		btn_Login.setBounds(45, 318, 97, 31);
+=======
 		btn_Login.setBounds(52, 349, 97, 31);
+>>>>>>> branch 'master' of https://github.com/jaewon0067/book-.git
 		frame.getContentPane().add(btn_Login);
 
 		btn_cancel = new JButton("\uD68C\uC6D0\uAC00\uC785");
@@ -139,7 +148,7 @@ public class LibraryLoginGUI {
 		Input_pw.setBounds(42, 307, 221, 31);
 		frame.getContentPane().add(Input_pw);
 
-		String path = "C:\\Users\\smhrd\\Desktop\\book.png";
+		String path = "C:\\Users\\smhrd\\Desktop\\icon\\book.png";
 		Image image = new ImageIcon(path).getImage();
 
 		JPanel panel = new JPanel();
