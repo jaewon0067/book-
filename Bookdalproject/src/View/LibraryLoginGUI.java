@@ -27,6 +27,7 @@ public class LibraryLoginGUI {
 	private JPasswordField Input_pw;
 	private JButton btn_Login;
 	private JButton btn_cancel;
+	
 
 	public static LibraryManagementSystem controller = new LibraryManagementSystem();
 	private JLabel lblNewLabel;
@@ -87,14 +88,15 @@ public class LibraryLoginGUI {
 				System.out.println(id);
 				System.out.println(pw);
 				Member_LibraryVo user = new Member_LibraryVo(id, pw);
-				Member_LibraryVo loginUSer = controller.login(user);
+				Member_LibraryVo loginUser = controller.login(user);
 
-				if (loginUSer != null) {
+				if (loginUser != null) {
 					System.out.println("로그인 성공");
 					JOptionPane.showMessageDialog(frame, "환영합니다.");
 					
 					// LibraryMainGUI maingui = new LibraryMainGUI();
-					LibraryHomeGUI homeGUI = new LibraryHomeGUI(loginUSer);
+					System.out.println(loginUser.getName());
+					LibraryHomeGUI homeGUI = new LibraryHomeGUI(loginUser);
 
 					frame.setVisible(false); // 로그인 성공 시 창 닫음
 
@@ -107,15 +109,15 @@ public class LibraryLoginGUI {
 		});
 		String path1 = "C:\\Users\\smhrd\\Desktop\\icon\\refresh.png";
 		Image image1 = new ImageIcon(path1).getImage();
-<<<<<<< HEAD
+
 		
 		JLabel lblNewLabel_2 = new JLabel(new ImageIcon(image1.getScaledInstance(90, 90, image1.SCALE_SMOOTH)));
 		lblNewLabel_2.setBounds(89, 82, 125, 119);
 		frame.getContentPane().add(lblNewLabel_2);
 		btn_Login.setBounds(45, 318, 97, 31);
-=======
+
 		btn_Login.setBounds(52, 349, 97, 31);
->>>>>>> branch 'master' of https://github.com/jaewon0067/book-.git
+
 		frame.getContentPane().add(btn_Login);
 
 		btn_cancel = new JButton("\uD68C\uC6D0\uAC00\uC785");

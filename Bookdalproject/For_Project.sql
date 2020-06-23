@@ -6,13 +6,13 @@ CREATE TABLE MEMBER_library(
 	PHONE VARCHAR2(30) NOT NULL,
 	GENDER varchar2(10) NOT NULL,
 	ADDR VARCHAR2(300) NOT NULL,
-	CONSTRAINT MEMBER_ID_PK PRIMARY KEY(ID),
-	CONSTRAINT MEMBER_GENDER_CK CHECK(GENDER IN('F', 'M'))
+	CONSTRAINT MEMBER_ID_PK2 PRIMARY KEY(ID),
+	CONSTRAINT MEMBER_GENDER_CK2 CHECK(GENDER IN('F', 'M'))
 )
 
 Select * from Member_Library;
-<<<<<<< HEAD
 
+drop table MEMBER_library;
 
 update Member_Library set phone = '010-7176-0953' where name = '김명주';
 update Member_Library set sex = 'M' where name = '김명주';
@@ -21,7 +21,7 @@ update MEMBER_LIBRARY set sex = 'F' where name = '박수진';
 update MEMBER_LIBRARY set sex = 'F' where name = '이은지';
 update MEMBER_LIBRARY set phone = '010-2222-3333' where name = '박수진';
 update MEMBER_LIBRARY set phone = '010-3333-4444' where name = '이은지';
-=======
+
 
 
 ALTER TABLE MEMBER_library MODIFY GENDER VARCHAR2(20);
@@ -31,7 +31,7 @@ ALTER TABLE MEMBER_library
 SELECT * FROM user_constraints WHERE CONSTRAINT_NAME = 'name_PK';
 drop table MEMBER_library cascade constraints;
 DROP TABLE MEMBER_library
->>>>>>> branch 'master' of https://github.com/jaewon0067/book-.git
+
 
 
 
