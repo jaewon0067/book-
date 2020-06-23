@@ -56,7 +56,7 @@ public class Member_LibraryDAO {
 	
 	
 	
-	public Member_LibraryVo selectOne(Member_LibraryVo user) {
+	public Member_LibraryVo selectOne(Member_LibraryVo user) { // 로그인
 		Member_LibraryVo loginUser = null;
 		getConnection();
 		
@@ -70,7 +70,7 @@ public class Member_LibraryDAO {
 				String id = rs.getString("id");
 				String pw = rs.getString("pw");
 				String name = rs.getString("name");
-				loginUser = new Member_LibraryVo(id,pw,name);
+				loginUser = new Member_LibraryVo(id,pw,name); // 홈화면에서 이름 띄워줌
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
