@@ -82,7 +82,7 @@ public class LibraryHomeGUI {
       lblNewLabel_4.setBounds(78, 21, 57, 15);
       panel.add(lblNewLabel_4);
 
-      String path5 = "C:\\Users\\smhrd\\Desktop\\icon\\user2.png";
+      String path5 = "../icon/user2.png";
 
       Image image5 = new ImageIcon(path5).getImage();
 
