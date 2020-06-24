@@ -25,6 +25,10 @@ public class LibraryLoginGUI {
 	private JFrame frame; // 현재 창을 나타내는 객체
 	private JButton btn_Login;
 
+	private JButton btn_cancel;
+	
+
+
 	public static LibraryManagementSystem controller = new LibraryManagementSystem();
 	private JLabel lblNewLabel;
 	private JLabel bookmoon_label;
@@ -68,11 +72,6 @@ public class LibraryLoginGUI {
 		frame.setBounds(100, 100, 390, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		String path1 = "C:\\Users\\smhrd\\Desktop\\icon\\refresh.png";
-		Image image1 = new ImageIcon(path1).getImage();
-
-		String path = "C:\\Users\\smhrd\\Desktop\\icon\\book.png";
-		Image image = new ImageIcon(path).getImage();
 
 		// <이미지 사이즈 수정하기>
 
