@@ -5,8 +5,15 @@ public class Member_LibraryVo {
 	private String pw;
 	private String name;
 	private String age;
-	private String sex;
+	private String gender;
 	private String phone;
+	private String addr;
+	public String getAddr() {
+		return addr;
+	}
+	public void setAddr(String addr) {
+		this.addr = addr;
+	}
 	public String getId() {
 		return id;
 	}
@@ -31,11 +38,11 @@ public class Member_LibraryVo {
 	public void setAge(String age) {
 		this.age = age;
 	}
-	public String getSex() {
-		return sex;
+	public String getGender() {
+		return gender;
 	}
-	public void setSex(String sex) {
-		this.sex = sex;
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 	public String getPhone() {
 		return phone;
@@ -43,14 +50,15 @@ public class Member_LibraryVo {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public Member_LibraryVo(String id, String pw, String name, String age, String phone, String sex) {
+	public Member_LibraryVo(String id, String pw, String name, String age, String phone, String gender, String addr) {
 	
 		this.id = id;
 		this.pw = pw;
 		this.name = name;
 		this.age = age;
-		this.sex = sex;
+		this.gender = gender;
 		this.phone = phone;
+		this.addr = addr;
 	}
 	public Member_LibraryVo(String id, String pw) {
 	

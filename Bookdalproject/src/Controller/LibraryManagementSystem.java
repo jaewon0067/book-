@@ -4,13 +4,14 @@ package Controller;
 
 
 import java.util.ArrayList;
-
 import Model.Member_LibraryDAO;
 import Model.Member_LibraryVo;
 
 public class LibraryManagementSystem {
 	private Member_LibraryDAO dao = new Member_LibraryDAO();
 	private Member_LibraryVo loginUser;
+	private BookVO vo;
+	private ArrayList<BookVO> booklist = new ArrayList<BookVO>();
 	private ExcelRead excelRead = new ExcelRead();
 	
 	public ArrayList<BookVO> getSearchBook(String searchbook) {
@@ -31,6 +32,7 @@ public class LibraryManagementSystem {
 	
 	
 	
+
 	public Member_LibraryVo getLoginUser() {
 		return loginUser;
 	}

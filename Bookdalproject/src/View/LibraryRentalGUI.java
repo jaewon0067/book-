@@ -3,8 +3,9 @@ package View;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import java.awt.GridLayout;
 
-public class LibraryReturnBook {
+public class LibraryRentalGUI {
 
 	private JFrame frame;
 
@@ -15,7 +16,7 @@ public class LibraryReturnBook {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					LibraryReturnBook window = new LibraryReturnBook();
+					LibraryRentalGUI window = new LibraryRentalGUI();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -27,9 +28,8 @@ public class LibraryReturnBook {
 	/**
 	 * Create the application.
 	 */
-	public LibraryReturnBook() {
+	public LibraryRentalGUI() {
 		initialize();
-		frame.setVisible(true);
 	}
 
 	/**
@@ -37,9 +37,9 @@ public class LibraryReturnBook {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 967, 509);
-		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frame.setBounds(100, 100, 390, 600);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(new GridLayout(1, 0, 0, 0));
 	}
 
 }
