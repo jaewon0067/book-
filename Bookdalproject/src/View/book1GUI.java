@@ -66,7 +66,7 @@ public class book1GUI {
 
 		frame = new JFrame();
 		frame.setBounds(100, 100, 390, 600);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
 		JButton rental_btn = new JButton("");
@@ -74,6 +74,7 @@ public class book1GUI {
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane.showMessageDialog(null, "북바구니에 성공적으로 담겼습니다!! q:^)", "북바구니",
 						JOptionPane.INFORMATION_MESSAGE);
+				
 				
 				
 				

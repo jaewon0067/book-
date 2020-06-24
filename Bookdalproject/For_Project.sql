@@ -12,7 +12,28 @@ CREATE TABLE MEMBER_library(
 
 Select * from Member_Library;
 
+
 drop table MEMBER_library;
+
+
+
+update Member_Library set phone = '010-7176-0953' where name = '김명주';
+update Member_Library set sex = 'M' where name = '김명주';
+update MEMBER_LIBRARY set phone = '010-1111-2222' where name = '정재원';
+update MEMBER_LIBRARY set sex = 'F' where name = '박수진';
+update MEMBER_LIBRARY set sex = 'F' where name = '이은지';
+update MEMBER_LIBRARY set phone = '010-2222-3333' where name = '박수진';
+update MEMBER_LIBRARY set phone = '010-3333-4444' where name = '이은지';
+
+
+
+
+
+
+
+
+
+
 
 INSERT INTO MEMBER_LIBRARY VALUES('sj1004','1234','박수진',25,'010-1111-3333','F','광주광역시 풍암동')
 INSERT INTO MEMBER_LIBRARY VALUES('ej1004','1234','이은지',25,'010-1234-5678','F','광주광역시 광산구')
@@ -40,12 +61,226 @@ CREATE TABLE BOOK( -- 어레이리스트에 담겨있음
 SELECT * FROM BOOK
 
 
+CREATE TABLE DELI_INFO(
+ORDER_NUMBER NUMBER(10),
+ID VARCHAR2(100) NOT NULL,
+BOOK_NAME VARCHAR2(100),
+ADDR VARCHAR2(100),
+AGE NUMBER(30),
+GENDER NUMBER(5),
+CHARGE NUMBER(10),
+NOW_LOCATION VARCHAR2(100),
+RETURN_DAY DATE,
+LIB_NAME varchar2(100) NOT NULL,
+BORROW_DATE DATE NOT NULL,	
+CONSTRAINT DELEINFO_ORDER_PK PRIMARY KEY(ORDER_NUMBER),
+CONSTRAINT DELINFO_ID_FK FOREIGN KEY(ID)
+	REFERENCES MEMBER_LIBRARY(ID)
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+drop table DELI_INFO
+
+SELECT * from DELI_INFO
+
+
+
 CREATE TABLE BOOKCART(
+ID VARCHAR2(30) NOT NULL,
+NAME VARCHAR2(50) NOT NULL,
 BOOK_NAME VARCHAR2(100) NOT NULL,
 CODE NUMBER(30) NOT NULL,
 WRITER VARCHAR2(50),
 PUBLISHER VARCHAR2(50),
 LIB_NAME VARCHAR2(30) NOT NULL,
+
 RENTAL_DAY NUMBER(30) NOT NULL,
 CONSTRAINT BOOKCART_idCode_PK PRIMARY KEY(ID, CODE),
 CONSTRAINT BOOKCART_ID_FK FOREIGN KEY(ID)
@@ -55,6 +290,11 @@ CONSTRAINT BOOKCART_ID_FK FOREIGN KEY(BOOK_NAME, CODE)
 CONSTRAINT BOOKCART_libName_FK FOREIGN KEY(LIB_NAME)
         REFERENCES LIB(LIB_NAME)
 );
+
+
+RENTAL_DAY NUMBER(30) NOT NULL
+);
+drop table bookcart
 
 SELECT * FROM BOOKCART
 
@@ -99,8 +339,8 @@ CREATE TABLE DELI_INFO(
 	GENDER NUMBER(5) NOT NULL,
 	CHARGE NUMBER(10)  NOT NULL,
 	LIB_NAME varchar2(100) NOT NULL,
-	D_DAY 
-	NOW_LOCATION VARCHAR2(100)
+	BORROW_DATE DATE NOT NULL,	
+	NOW_LOCATION VARCHAR2(100),
 	CONSTRAINT DELIINFO_ORDER_PK PRIMARY KEY(ORDER_NUMBER),
 	CONSTRAINT DELIINFO_ID_FK FOREIGN KEY(ID)
 	        REFERENCES MEMBER(ID),
@@ -110,5 +350,10 @@ CREATE TABLE DELI_INFO(
 	CONSTRAINT DELI_INFO_DELISTATE_CK CHECK(DELI_STATE IN('배송중','대출중','반납완료'))
 )
 
+
 select * from DELI_INFO;
 select * from MEMBER_library
+
+SELECT * from DELI_INFO
+drop table DELI_INFO
+

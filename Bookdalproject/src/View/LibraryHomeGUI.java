@@ -18,6 +18,8 @@ import javax.swing.JTable;
 import javax.swing.UIManager;
 import Controller.LibraryManagementSystem;
 import Model.Member_LibraryVo;
+import Model.TableDAO;
+import Model.TableVo;
 
 import java.awt.GridLayout;
 
@@ -32,13 +34,13 @@ public class LibraryHomeGUI {
 	private JLabel lblNewLabel_1;
 	private JSeparator separator;
 
+
 	private JLabel lblNewLabel_2;
 	private JSeparator separator_2;
 	private JLabel lblNewLabel_3;
 	private JLabel back;
 
 	private JPanel panel_2;
-
 	private JButton library2;
 
 	private JLabel back_1;
@@ -73,7 +75,7 @@ public class LibraryHomeGUI {
 
 		separator = new JSeparator();
 		separator.setBackground(UIManager.getColor("Button.light"));
-		separator.setBounds(29, 115, 314, 1);
+		separator.setBounds(29, 104, 314, 1);
 		frame.getContentPane().add(separator);
 
 		lblNewLabel_2 = new JLabel("\uB300\uCD9C\uBAA9\uB85D");
@@ -121,6 +123,11 @@ public class LibraryHomeGUI {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		frame.getContentPane().setLayout(null);
+		
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setBackground(SystemColor.controlHighlight);
+		separator_1.setBounds(29, 360, 314, 1);
+		frame.getContentPane().add(separator_1);
 
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(0, 564, 415, 64);
@@ -175,15 +182,13 @@ public class LibraryHomeGUI {
 
 		URL url__1 = this.getClass().getResource("../icon/library1.PNG");
 		JButton libaray_1 = new JButton(new ImageIcon(url__1.getPath()));
-
 		libaray_1.addActionListener(new ActionListener() {
-
-			public void actionPerformed(ActionEvent e) {
+		public void actionPerformed(ActionEvent e) {
 			}
 		});
 		panel_2.add(libaray_1);
 
-		// ----------------------------------------------------------------------
+// ----------------------------------------------------------------------
 
 		URL url__2 = this.getClass().getResource("../icon/library2.PNG");
 		JButton libaray_2 = new JButton(new ImageIcon(url__2.getPath()));
@@ -205,18 +210,7 @@ public class LibraryHomeGUI {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-
 		panel_2.add(library_3);
 
-		JSeparator separator_1 = new JSeparator();
-		separator_1.setBackground(SystemColor.controlHighlight);
-		separator_1.setBounds(29, 355, 314, 1);
-		frame.getContentPane().add(separator_1);
-
-		table = new JTable();
-		table.setBackground(SystemColor.controlLtHighlight);
-		table.setBounds(48, 124, 295, 199);
-		frame.getContentPane().add(table);
-
-	}
+   }
 }

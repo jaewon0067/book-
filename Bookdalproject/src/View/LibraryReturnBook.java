@@ -71,10 +71,13 @@ public class LibraryReturnBook {
 		btn_forReturn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JButton btn_forReturn = (JButton)e.getSource();
+
 				if(btn_forReturn.getText().equals("π›≥≥Ω≈√ª")) {
+
 					btn_forReturn.setText("π›≥≥øœ∑·");
 				}else {
 					btn_forReturn.setText("π›≥≥Ω≈√ª");
+
 				}
 			}
 		});
@@ -96,6 +99,7 @@ public class LibraryReturnBook {
 		btn_forReturn1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JButton btn_forReturn1 = (JButton)e.getSource();
+				
 				if(btn_forReturn1.getText().equals("π›≥≥Ω≈√ª")) {
 					btn_forReturn1.setText("π›≥≥øœ∑·");
 				}else {

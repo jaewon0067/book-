@@ -59,10 +59,10 @@ public class TableDAO {
 		try {
 			String sql = "select BOOK_NAME from DELI_INFO where name like ? ";
 			pst = conn.prepareStatement(sql);
-			pst.setString(1, user.getName());
+			pst.setString(1, loginUser.getName());
 			rs = pst.executeQuery();
 			if(rs.next()) {
-			String []title = {"책 제목", "반납기한", "도서관"};
+			String []title = {"책 제목", "반납기한"};
 			String [][]data = {{"어떻게 잠을 잘까요", "야부우치 마사유키"},
 	        		{"1日 1茶 : 매일 마셔도 좋은 건강 약차", "신혜정"},
 	        		{"할머니가 남긴 선물", "마거릿 와이즈 브라운"},
