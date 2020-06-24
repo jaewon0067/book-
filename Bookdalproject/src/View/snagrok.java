@@ -58,7 +58,7 @@ public class snagrok {
 		frame.getContentPane().setLayout(null);
 		
 
-		String path = "../icon/theme.png";
+		String path = "C:\\Users\\smhrd\\Desktop\\icon\\theme.png";
 
 		URL book_info1 = this.getClass().getResource(path);
 		Image originImg = new ImageIcon(book_info1.getPath()).getImage();
@@ -92,7 +92,7 @@ public class snagrok {
 		JPanel libinfo = new JPanel();
 		libinfo.setBounds(23, 59, 326, 118);
 
-		URL url5 = this.getClass().getResource("../icon/sangrok.PNG");
+		URL url5 = this.getClass().getResource("C:\\Users\\smhrd\\Desktop\\icon\\sangrok.PNG");
 		libinfo.setLayout(null);
 		panel_1.setLayout(new CardLayout(0, 0));
 		JLabel lib_info = new JLabel(new ImageIcon(url5.getPath()));
@@ -108,7 +108,7 @@ public class snagrok {
 		frame.getContentPane().add(bookrecommend);
 		bookrecommend.setLayout(null);
 
-		URL url = this.getClass().getResource("../icon/book1.PNG");
+		URL url = this.getClass().getResource("C:\\Users\\smhrd\\Desktop\\book1.PNG");
 
 		// <이미지 사이즈 수정하기>
 		Image originImg2 = new ImageIcon(url.getPath()).getImage();
@@ -131,7 +131,7 @@ public class snagrok {
 		bookrecommend.add(btnbook1);
 		//-----------------1할머니
 
-		URL url4 = this.getClass().getResource("../icon/book2.PNG");
+		URL url4 = this.getClass().getResource("C:\\Users\\smhrd\\Desktop\\book2.PNG");
 		JButton btnbook2 = new JButton(new ImageIcon(url4.getPath()));
 		btnbook2.setBounds(0, 153, 330, 102);
 		btnbook2.setBorderPainted(false);
@@ -149,7 +149,7 @@ public class snagrok {
 		bookrecommend.add(btnbook2);
 		//----------우리끼리 가자
 
-		URL url1 = this.getClass().getResource("../icon/book3.PNG");
+		URL url1 = this.getClass().getResource("C:\\Users\\smhrd\\Desktop\\icon\\book3.PNG");
 		JButton btnbook3 = new JButton(new ImageIcon(url1.getPath()));
 		btnbook3.setBounds(0, 80, 315, 74);
 		btnbook3.setBorderPainted(false);
@@ -166,7 +166,7 @@ public class snagrok {
 		bookrecommend.add(btnbook3);
 		//---------형제들
 		
-		URL urlcha = this.getClass().getResource("../icon/book4.PNG");
+		URL urlcha = this.getClass().getResource("C:\\Users\\smhrd\\Desktop\\icon\\book4.PNG");
 		JButton btnbook4 = new JButton(new ImageIcon(urlcha.getPath()));
 		btnbook4.setBounds(0, 186, 355, 57);
 		btnbook4.setBorderPainted(false);
