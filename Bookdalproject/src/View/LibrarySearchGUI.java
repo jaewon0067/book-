@@ -34,13 +34,12 @@ public class LibrarySearchGUI {
 	private final Action action = new SwingAction();
 	ArrayList<BookVO> searchlist = new ArrayList();
 	private JPanel panel_2 = new JPanel();
-
+	int j;
+	String[] sp;
+	public JButton lblNewButton_j;
 	public LibrarySearchGUI(String searchbook) {
-		initialize();
-		frame.setVisible(true);
 		searchlist = controller.getSearchBook(searchbook);
-		JButton lblNewButton_j = null;
-		for (int j = 0; j < searchlist.size(); j++) {
+		for (j = 0; j < searchlist.size(); j++) {
 			lblNewButton_j = new JButton();
 //<<<<<<< HEAD
 //			lblNewButton_j.setText(searchlist.get(j).getBook_id() + searchlist.get(j).getBook_name() + "\n"
@@ -57,18 +56,29 @@ public class LibrarySearchGUI {
 //		}
 
 //=======
-			lblNewButton_j.setText(searchlist.get(j).getBook_id() + searchlist.get(j).getBook_name() + "\n"
-					+ searchlist.get(j).getAuthor() + searchlist.get(j).getLib_location());
+			lblNewButton_j.setText(j+1+" : "+searchlist.get(j).getBook_id() + searchlist.get(j).getBook_name() + searchlist.get(j).getLib_location());
 			panel_2.add(lblNewButton_j);
+			
 			lblNewButton_j.addActionListener(new ActionListener() {
-
 				public void actionPerformed(ActionEvent arg0) {
-					book1GUI book1gui = new book1GUI();
-					frame.setVisible(true);
-					book1gui.setNum(1);
+					
+//					book1GUI book1gui = new book1GUI();
+//					frame.setVisible(true);
+//					book1gui.setNum(1);
+					//사진 띄우는 코드
+					System.out.println(lblNewButton_j.getText());
+					sp = lblNewButton_j.getText().toString().split(" : ");
+					System.out.println("size : "+searchlist.size());
+					String searchcode = searchlist.get(Integer.parseInt(sp[0])).getBook_id();
+					System.out.println(searchcode);
+					realbookGUI realgui = new realbookGUI(searchcode);
 				}
 			});
+			
 		}
+
+		initialize();
+		frame.setVisible(true);
 	}
 
 //	>>>>>>>branch'master'
@@ -121,6 +131,8 @@ public class LibrarySearchGUI {
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(0, 0, 260, 34);
 		panel_1.add(lblNewLabel);
+		
+		
 	}
 
 	private class SwingAction extends AbstractAction {

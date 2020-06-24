@@ -53,10 +53,9 @@ public class snagrok {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 388, 650);
+		frame.setBounds(100, 100, 388, 600);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
 
 		String path = "../icon/theme.png";
 
@@ -81,7 +80,7 @@ public class snagrok {
 				String searchbook = search.getText();
 				LibrarySearchGUI l = new LibrarySearchGUI(searchbook);
 			}
-		});
+		});  //버튼눌러서 넘기기
 		btn_search.setBounds(253, 0, 80, 23);
 		panel.add(btn_search);
 
@@ -92,11 +91,11 @@ public class snagrok {
 		JPanel libinfo = new JPanel();
 		libinfo.setBounds(23, 59, 326, 118);
 
-		URL url5 = this.getClass().getResource("../icon/sangrok.PNG");
 		libinfo.setLayout(null);
-		panel_1.setLayout(new CardLayout(0, 0));
-		JLabel lib_info = new JLabel(new ImageIcon(url5.getPath()));
-		panel_1.add(lib_info, "name_1106954147845299");
+		panel_1.setLayout(null); 
+		JLabel lib_info = new JLabel(new ImageIcon(snagrok.class.getResource("/icon/sangrok22.png")));
+		lib_info.setBounds(-36, 0, 417, 174);
+		panel_1.add(lib_info);
 
 		JLabel lblNewLabel = new JLabel("Librarian's PICK");
 		lblNewLabel.setFont(new Font("Ink Free", Font.BOLD, 22));
@@ -129,7 +128,7 @@ public class snagrok {
 		});
 		bookrecommend.setLayout(null);
 		bookrecommend.add(btnbook1);
-		//-----------------1할머니
+		// -----------------1할머니
 
 		URL url4 = this.getClass().getResource("../icon/book2.PNG");
 		JButton btnbook2 = new JButton(new ImageIcon(url4.getPath()));
@@ -143,11 +142,11 @@ public class snagrok {
 				book1GUI book1gui = new book1GUI();
 				book1gui.setNum(8);
 				frame.setVisible(true);
-				
+
 			}
 		});
 		bookrecommend.add(btnbook2);
-		//----------우리끼리 가자
+		// ----------우리끼리 가자
 
 		URL url1 = this.getClass().getResource("../icon/book3.PNG");
 		JButton btnbook3 = new JButton(new ImageIcon(url1.getPath()));
@@ -164,8 +163,8 @@ public class snagrok {
 			}
 		});
 		bookrecommend.add(btnbook3);
-		//---------형제들
-		
+		// ---------형제들
+
 		URL urlcha = this.getClass().getResource("../icon/book4.PNG");
 		JButton btnbook4 = new JButton(new ImageIcon(urlcha.getPath()));
 		btnbook4.setBounds(0, 186, 355, 57);
@@ -181,22 +180,14 @@ public class snagrok {
 			}
 		});
 		bookrecommend.add(btnbook4);
-		
-		
+
 		JScrollPane scrollPane = new JScrollPane(bookrecommend);
 		scrollPane.setBounds(23, 241, 337, 255);
 		frame.getContentPane().add(scrollPane);
-		
+
 		Dimension size = new Dimension();// 사이즈를 지정하기 위한 객체 생성
 		bookrecommend.setPreferredSize(size);
 		size.setSize(300, 330);// 객체의 사이즈를 지정
-		
-		
-		
-		
-
-		
-		
 
 		JLabel theme_label = new JLabel(Icon);
 		theme_label.setBounds(0, 0, 374, 564);

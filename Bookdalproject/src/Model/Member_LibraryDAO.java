@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import Controller.BookVO;
+
 public class Member_LibraryDAO {
 	
 	
@@ -117,6 +119,38 @@ public class Member_LibraryDAO {
 			close();
 		}
 		return row;
+	}
+	public BookcartbookVO intobookcart(BookVO vo) {
+		
+		BookcartbookVO Bookcartbook = null;
+		
+		getConnection();
+		
+		String sql = "INSERT INTO BOOKCART VALUES(?,?,?,?,?,?,?,?)";
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, vo.getBook_name()); //임시방편
+			pst.setString(2, vo.getBook_name());//임시방편
+//			pst.setString(1, member_ID); //멤버 아이디는 어디서 가져오지?
+//			pst.setString(2, member_Name); //멤버 이름은 어디서 가져오지?
+			pst.setString(3, vo.getBook_name());
+			pst.setString(4, vo.getBook_id());
+			pst.setString(5, vo.getAuthor());
+			pst.setString(6, vo.getPublisher());
+			pst.setString(7, vo.getLib_location());
+			pst.setString(8, vo.getStatus());
+			rs = pst.executeQuery();
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+
+//		BookcartbookVO(String member_ID, String member_Name, String book_Name, String book_ID, String author,
+//				String publisher, String library, String status)
+		
+		return Bookcartbook;
 	}
 	
 

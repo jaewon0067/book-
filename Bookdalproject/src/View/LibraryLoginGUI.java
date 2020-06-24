@@ -26,8 +26,6 @@ public class LibraryLoginGUI {
 	private JButton btn_Login;
 
 	private JButton btn_cancel;
-	
-
 
 	public static LibraryManagementSystem controller = new LibraryManagementSystem();
 	private JLabel lblNewLabel;
@@ -66,7 +64,7 @@ public class LibraryLoginGUI {
 	 */
 
 	private void initialize() {
-		
+
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(255, 255, 255));
 		frame.setBounds(100, 100, 389, 621);
@@ -75,85 +73,82 @@ public class LibraryLoginGUI {
 
 		// <이미지 사이즈 수정하기>
 
-		URL cover = this.getClass().getResource("../icon/bookContent.png");
-		Image originImg = new ImageIcon(cover.getPath()).getImage();
-		originImg = originImg.getScaledInstance(300, 250, Image.SCALE_SMOOTH);
-		ImageIcon Icon = new ImageIcon(originImg);
+//		URL cover = this.getClass().getResource("C:\\Users\\smhrd\\Desktop\\icon\\bookContent.png");
+//		Image originImg = new ImageIcon(cover.getPath()).getImage();
+//		originImg = originImg.getScaledInstance(300, 250, Image.SCALE_SMOOTH);
+//		ImageIcon Icon = new ImageIcon(originImg);
+//
+//		// <이미지 사이즈 수정하기>
+//		URL bookdal = this.getClass().getResource("../icon/bookdal.png");
+//
+//		Image originImg2 = new ImageIcon(bookdal.getPath()).getImage();
+//
+//		originImg2 = originImg2.getScaledInstance(90,80, Image.SCALE_SMOOTH);
+//
+//		ImageIcon Icon2 = new ImageIcon(originImg2);
 
-		// <이미지 사이즈 수정하기>
-		URL bookdal = this.getClass().getResource("../icon/bookdal.png");
-
-		Image originImg2 = new ImageIcon(bookdal.getPath()).getImage();
-
-		originImg2 = originImg2.getScaledInstance(90,80, Image.SCALE_SMOOTH);
-
-		ImageIcon Icon2 = new ImageIcon(originImg2);
-		
 		panel_1 = new JPanel();
 		panel_1.setBackground(new Color(255, 255, 255));
 		panel_1.setBounds(0, 0, 374, 581);
 		frame.getContentPane().add(panel_1);
 		panel_1.setLayout(null);
-		
 
-				
-				Input_pw = new JPasswordField();
-				Input_pw.setBounds(65, 451, 219, 31);
-				panel_1.add(Input_pw);
-				
-				Input_id = new JTextField();
-				Input_id.setBounds(65, 391, 219, 31);
-				panel_1.add(Input_id);
-				Input_id.setColumns(10);
-				
-				JButton btn_Join = new JButton("Join");
-				btn_Join.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent arg0) {
-						LibraryJoinGUI JOIN = new LibraryJoinGUI();
-						
-					}
-				});
-				btn_Join.setFont(new Font("Dialog", Font.BOLD, 15));
-				btn_Join.setBackground(new Color(222, 184, 135));
-				btn_Join.setBounds(187, 501, 97, 31);
-				panel_1.add(btn_Join);
-		
-				btn_Login = new JButton("Login");
-				btn_Login.setBounds(64, 501, 97, 31);
-				panel_1.add(btn_Login);
-				btn_Login.setFont(new Font("Dialog", Font.BOLD, 15));
-				btn_Login.setBackground(new Color(222, 184, 135));
-				btn_Login.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent arg0) {
-						// 확인버튼 클릭
-						// 1. id와 pw를 컴포넌트에서 꺼내오기
-						// 2. DB에서 해당 id,pw를 조회하기
-						String id = Input_id.getText();
-						String pw = String.valueOf(Input_pw.getPassword());
-						System.out.println(id);
-						System.out.println(pw);
-						Member_LibraryVo user = new Member_LibraryVo(id, pw);
-						Member_LibraryVo loginUSer = controller.login(user);
+		Input_pw = new JPasswordField();
+		Input_pw.setBounds(65, 451, 219, 31);
+		panel_1.add(Input_pw);
 
-						if (loginUSer != null) {
-							System.out.println("로그인 성공");
-							JOptionPane.showMessageDialog(frame, "환영합니다.");
-							
-							// LibraryMainGUI maingui = new LibraryMainGUI();
-							LibraryHomeGUI homeGUI = new LibraryHomeGUI(loginUSer);
+		Input_id = new JTextField();
+		Input_id.setBounds(65, 391, 219, 31);
+		panel_1.add(Input_id);
+		Input_id.setColumns(10);
 
-							frame.setVisible(false); // 로그인 성공 시 창 닫음
+		JButton btn_Join = new JButton("Join");
+		btn_Join.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				LibraryJoinGUI JOIN = new LibraryJoinGUI();
 
-						} else {
-							System.out.println("로그인 실패");
-							JOptionPane.showMessageDialog(frame, "로그인 실패", "Inane error", JOptionPane.ERROR_MESSAGE);
-						}
-					}
+			}
+		});
+		btn_Join.setFont(new Font("Dialog", Font.BOLD, 15));
+		btn_Join.setBackground(new Color(222, 184, 135));
+		btn_Join.setBounds(187, 501, 97, 31);
+		panel_1.add(btn_Join);
 
-				});
-		
+		btn_Login = new JButton("Login");
+		btn_Login.setBounds(64, 501, 97, 31);
+		panel_1.add(btn_Login);
+		btn_Login.setFont(new Font("Dialog", Font.BOLD, 15));
+		btn_Login.setBackground(new Color(222, 184, 135));
+		btn_Login.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				// 확인버튼 클릭
+				// 1. id와 pw를 컴포넌트에서 꺼내오기
+				// 2. DB에서 해당 id,pw를 조회하기
+				String id = Input_id.getText();
+				String pw = String.valueOf(Input_pw.getPassword());
+				System.out.println(id);
+				System.out.println(pw);
+				Member_LibraryVo user = new Member_LibraryVo(id, pw);
+				Member_LibraryVo loginUSer = controller.login(user);
 
-		java.net.URL url__1 = this.getClass().getResource("../icon/back.PNG");
+				if (loginUSer != null) {
+					System.out.println("로그인 성공");
+					JOptionPane.showMessageDialog(frame, "환영합니다.");
+
+					// LibraryMainGUI maingui = new LibraryMainGUI();
+					LibraryHomeGUI homeGUI = new LibraryHomeGUI(loginUSer);
+
+					frame.setVisible(false); // 로그인 성공 시 창 닫음
+
+				} else {
+					System.out.println("로그인 실패");
+					JOptionPane.showMessageDialog(frame, "로그인 실패", "Inane error", JOptionPane.ERROR_MESSAGE);
+				}
+			}
+
+		});
+
+		java.net.URL url__1 = this.getClass().getResource("C:\\Users\\smhrd\\Desktop\\icon\\back.PNG");
 		JLabel back = new JLabel(new ImageIcon(url__1.getPath()));
 		back.setBounds(0, 0, 374, 581);
 		panel_1.add(back);
