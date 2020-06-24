@@ -160,21 +160,37 @@ public class LibraryHomeGUI {
       Image image8 = new ImageIcon(path8).getImage();
 
       btn_5 = new JButton("");
+      btn_5.addActionListener(new ActionListener() {
+      	public void actionPerformed(ActionEvent e) {
+      	}
+      });
       btn_5.setIcon(new ImageIcon("C:\\Users\\smhrd\\Desktop\\icon\\\uBC18\uB0A9.PNG"));
       btn_5.setBounds(308, 504, 54, 47);
       frame.getContentPane().add(btn_5);
 
       btn_4 = new JButton("");
+      btn_4.addActionListener(new ActionListener() {
+      	public void actionPerformed(ActionEvent e) {
+      	}
+      });
       btn_4.setIcon(new ImageIcon("C:\\Users\\smhrd\\Desktop\\icon\\\uB9C8\uC774\uD398\uC774\uC9C0.PNG"));
       btn_4.setBounds(234, 504, 62, 57);
       frame.getContentPane().add(btn_4);
 
       btn_2 = new JButton("");
+      btn_2.addActionListener(new ActionListener() {
+      	public void actionPerformed(ActionEvent arg0) {
+      	}
+      });
       btn_2.setIcon(new ImageIcon("C:\\Users\\smhrd\\Desktop\\icon\\\uBC30\uC1A1\uC815\uBCF4.PNG"));
       btn_2.setBounds(85, 504, 54, 47);
       frame.getContentPane().add(btn_2);
 
       btn_3 = new JButton("");
+      btn_3.addActionListener(new ActionListener() {
+      	public void actionPerformed(ActionEvent e) {
+      	}
+      });
       btn_3.setIcon(new ImageIcon("C:\\Users\\smhrd\\Desktop\\icon\\\uBD81\uBC14\uAD6C\uB2C8.PNG"));
       btn_3.setBounds(155, 504, 54, 47);
       frame.getContentPane().add(btn_3);

@@ -8,12 +8,7 @@ public class Member_LibraryVo {
 	private String gender;
 	private String phone;
 	private String addr;
-	public String getAddr() {
-		return addr;
-	}
-	public void setAddr(String addr) {
-		this.addr = addr;
-	}
+	
 	public String getId() {
 		return id;
 	}
@@ -49,6 +44,12 @@ public class Member_LibraryVo {
 	}
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+	public String getAddr() {
+		return addr;
+	}
+	public void setAddr(String addr) {
+		this.addr = addr;
 	}
 	public Member_LibraryVo(String id, String pw, String name, String age, String phone, String gender, String addr) {
 	
