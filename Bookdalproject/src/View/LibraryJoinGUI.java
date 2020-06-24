@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -15,6 +16,7 @@ import Controller.LibraryManagementSystem;
 
 import Model.Member_LibraryVo;
 import javax.swing.JPanel;
+import java.awt.Font;
 
 
 
@@ -25,21 +27,12 @@ public class LibraryJoinGUI {
 	private JTextField txt_forPW;
 	private JTextField txt_forName;
 	private JButton btn_join;
-
-	private JLabel lbl_join_title;
 	private JButton btn_join_1;
-	private JLabel lbl_join_name;
-	private JLabel lbl_join_pw;
-	private JLabel lbl_join_id;
 	private LibraryManagementSystem controller = LibraryLoginGUI.controller;
 	private JTextField txt_forAge;
 	private JTextField txt_forGender;
 	private JTextField txt_forPhone;
-	private JLabel lblNewLabel;
-	private JLabel lblNewLabel_1;
-	private JLabel lblNewLabel_2;
 	private JTextField txt_forAddr;
-	private JLabel lblNewLabel_3;
 
 	
 	public LibraryJoinGUI() {
@@ -75,68 +68,43 @@ public class LibraryJoinGUI {
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.WHITE);
-		frame.setBounds(100, 100, 580, 451);
+		frame.setBounds(100, 100, 389, 622);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // 회원가입 창만 닫게 하기
 		frame.getContentPane().setLayout(null);
 		
-		lbl_join_id = new JLabel("ID");
-		lbl_join_id.setBounds(156, 100, 57, 15);
-		frame.getContentPane().add(lbl_join_id);
-		
-		lbl_join_pw = new JLabel("PW");
-		lbl_join_pw.setBounds(156, 142, 57, 15);
-		frame.getContentPane().add(lbl_join_pw);
-		
-		lbl_join_name = new JLabel("Name");
-		lbl_join_name.setBounds(156, 190, 57, 15);
-		frame.getContentPane().add(lbl_join_name);
-		
 		txt_forID = new JTextField();
-		txt_forID.setBounds(259, 97, 116, 21);
+		txt_forID.setBounds(131, 140, 161, 21);
 		frame.getContentPane().add(txt_forID);
 		txt_forID.setColumns(10);
 		
 		txt_forPW = new JTextField();
-		txt_forPW.setBounds(259, 139, 116, 21);
+		txt_forPW.setBounds(131, 191, 161, 21);
 		frame.getContentPane().add(txt_forPW);
 		txt_forPW.setColumns(10);
 		
 		txt_forName = new JTextField();
-		txt_forName.setBounds(259, 187, 116, 21);
+		txt_forName.setBounds(131, 234, 161, 21);
 		frame.getContentPane().add(txt_forName);
 		txt_forName.setColumns(10);
-		lbl_join_title = new JLabel("Join");
-		lbl_join_title.setBounds(249, 42, 57, 15);
-		frame.getContentPane().add(lbl_join_title);
 		
 		txt_forAge = new JTextField();
-		txt_forAge.setBounds(259, 218, 116, 21);
+		txt_forAge.setBounds(131, 281, 161, 23);
 		frame.getContentPane().add(txt_forAge);
 		txt_forAge.setColumns(10);
 		
 		txt_forGender = new JTextField();
-		txt_forGender.setBounds(259, 249, 116, 21);
+		txt_forGender.setBounds(131, 324, 161, 23);
 		frame.getContentPane().add(txt_forGender);
 		txt_forGender.setColumns(10);
 		
 		txt_forPhone = new JTextField();
-		txt_forPhone.setBounds(259, 280, 116, 21);
+		txt_forPhone.setBounds(131, 375, 161, 24);
 		frame.getContentPane().add(txt_forPhone);
 		txt_forPhone.setColumns(10);
 		
-		lblNewLabel = new JLabel("age");
-		lblNewLabel.setBounds(156, 215, 57, 15);
-		frame.getContentPane().add(lblNewLabel);
-		
-		lblNewLabel_1 = new JLabel("Gender");
-		lblNewLabel_1.setBounds(156, 252, 57, 15);
-		frame.getContentPane().add(lblNewLabel_1);
-		
-		lblNewLabel_2 = new JLabel("phone");
-		lblNewLabel_2.setBounds(156, 283, 57, 15);
-		frame.getContentPane().add(lblNewLabel_2);
-		
 		btn_join_1 = new JButton("\uD68C\uC6D0\uAC00\uC785");
+		btn_join_1.setFont(new Font("굴림", Font.BOLD, 15));
+		btn_join_1.setBackground(new Color(222, 184, 135));
 		btn_join_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String id = txt_forID.getText();
@@ -167,17 +135,19 @@ public class LibraryJoinGUI {
 					
 			}
 		});
-		btn_join_1.setBounds(233, 342, 97, 23);
+		btn_join_1.setBounds(116, 477, 123, 31);
 		frame.getContentPane().add(btn_join_1);
 		
 		txt_forAddr = new JTextField();
-		txt_forAddr.setBounds(259, 311, 116, 21);
+		txt_forAddr.setBounds(131, 418, 161, 23);
 		frame.getContentPane().add(txt_forAddr);
 		txt_forAddr.setColumns(10);
 		
-		lblNewLabel_3 = new JLabel("Address");
-		lblNewLabel_3.setBounds(156, 314, 57, 15);
-		frame.getContentPane().add(lblNewLabel_3);
+		
+		java.net.URL url__1 = this.getClass().getResource("../icon/joinback.PNG");	
+		JLabel back = new JLabel(new ImageIcon(url__1.getPath()));
+		back.setBounds(0, 0, 375, 585);
+		frame.getContentPane().add(back);
 		
 		
 	}
