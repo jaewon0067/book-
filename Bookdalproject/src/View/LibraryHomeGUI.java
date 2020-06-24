@@ -51,7 +51,7 @@ public class LibraryHomeGUI {
 
    public LibraryHomeGUI(Member_LibraryVo user) {
       initialize(user);
-
+      frame.setVisible(true);
       JPanel panel = new JPanel();
 
       panel.setBackground(new Color(245, 245, 245));
@@ -66,15 +66,11 @@ public class LibraryHomeGUI {
       panel.add(lblNewLabel_1);
 
 
-      loginUser.setText(loginUser.getName());
-
-      loginUser.setText(user.getName());
+      
 
 
-      loginUser = new JLabel("\uAE30\uAD00\uCC28");
-      loginUser.setFont(new Font("«‘√ ∑“µ∏øÚ", Font.BOLD, 16));
-      loginUser.setBounds(78, 8, 55, 36);
 
+     
       String path6 = "C:\\Users\\smhrd\\Desktop\\icon\\hello.png";
       Image image6 = new ImageIcon(path6).getImage();
 
@@ -83,8 +79,10 @@ public class LibraryHomeGUI {
       panel.add(lblNewLabel);
 
       lblNewLabel_4 = new JLabel("New label");
+      lblNewLabel_4.setFont(new Font("«‘√ ∑“µ∏øÚ", Font.BOLD, 16));
       lblNewLabel_4.setBounds(78, 21, 57, 15);
       panel.add(lblNewLabel_4);
+      lblNewLabel_4.setText(user.getName());
 
       String path5 = "C:\\Users\\smhrd\\Desktop\\icon\\user2.png";
 
@@ -231,7 +229,7 @@ public class LibraryHomeGUI {
       panel_2.setLayout(new GridLayout(0, 3, 10, 0));
 
      
-      panel_2.add(btnNewButton_1);
+     
 
       btnNewButton_2 = new JButton("");
       btnNewButton_2.addActionListener(new ActionListener() {
