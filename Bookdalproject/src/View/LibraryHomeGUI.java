@@ -130,11 +130,7 @@ public class LibraryHomeGUI {
       back.setBounds(0, 0, 374, 499);
       frame.getContentPane().add(back);
 
-
-    
-
-      String path7 = "../icon/1.PNG";
-
+      String path7 = "C:\\Users\\smhrd\\Desktop\\icon\\1.PNG";
       Image image7 = new ImageIcon(path7).getImage();
 
       back_1 = new JLabel(new ImageIcon(image7.getScaledInstance(374, 64, image7.SCALE_SMOOTH)));
@@ -184,7 +180,6 @@ public class LibraryHomeGUI {
       frame.getContentPane().add(btn_3);
 
       btn_1 = new JButton("");
-
       btn_1.setIcon(new ImageIcon("C:\\Users\\smhrd\\Desktop\\icon\\\uD648.PNG"));
       btn_1.setBounds(10, 504, 54, 47);
       frame.getContentPane().add(btn_1);
@@ -214,6 +209,7 @@ public class LibraryHomeGUI {
       panel_2.add(btnNewButton_2);
 
       btnNewButton_3 = new JButton("");
+
 
       btn_1.addActionListener(new ActionListener() {
       	public void actionPerformed(ActionEvent e) {
@@ -245,6 +241,7 @@ public class LibraryHomeGUI {
       	public void actionPerformed(ActionEvent e) {
       	}
       });
+
 
       btnNewButton_3.setIcon(new ImageIcon("C:\\Users\\smhrd\\Desktop\\icon\\\uB3C4\uC11C\uAD003.PNG"));
       panel_2.add(btnNewButton_3);
