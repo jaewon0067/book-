@@ -33,7 +33,7 @@ public class LibraryJoinGUI {
 	private JLabel lbl_join_id;
 	private LibraryManagementSystem controller = LibraryLoginGUI.controller;
 	private JTextField txt_forAge;
-	private JTextField txt_forSex;
+	private JTextField txt_forGender;
 	private JTextField txt_forPhone;
 	private JLabel lblNewLabel;
 	private JLabel lblNewLabel_1;
@@ -114,10 +114,10 @@ public class LibraryJoinGUI {
 		frame.getContentPane().add(txt_forAge);
 		txt_forAge.setColumns(10);
 		
-		txt_forSex = new JTextField();
-		txt_forSex.setBounds(259, 249, 116, 21);
-		frame.getContentPane().add(txt_forSex);
-		txt_forSex.setColumns(10);
+		txt_forGender = new JTextField();
+		txt_forGender.setBounds(259, 249, 116, 21);
+		frame.getContentPane().add(txt_forGender);
+		txt_forGender.setColumns(10);
 		
 		txt_forPhone = new JTextField();
 		txt_forPhone.setBounds(259, 280, 116, 21);
@@ -128,7 +128,7 @@ public class LibraryJoinGUI {
 		lblNewLabel.setBounds(156, 215, 57, 15);
 		frame.getContentPane().add(lblNewLabel);
 		
-		lblNewLabel_1 = new JLabel("sex");
+		lblNewLabel_1 = new JLabel("Gender");
 		lblNewLabel_1.setBounds(156, 252, 57, 15);
 		frame.getContentPane().add(lblNewLabel_1);
 		
@@ -143,7 +143,7 @@ public class LibraryJoinGUI {
 				String pw = txt_forPW.getText();
 				String name = txt_forName.getText();
 				String age = txt_forAge.getText();
-				String gender = txt_forSex.getText();
+				String gender = txt_forGender.getText();
 				String phone = txt_forPhone.getText();
 				String addr = txt_forAddr.getText();
 				Member_LibraryVo joinUser = new Member_LibraryVo(id,pw,name,age,gender,phone,addr);
