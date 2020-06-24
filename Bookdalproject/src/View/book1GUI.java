@@ -37,7 +37,7 @@ public class book1GUI {
 		} else if (num == 6) {
 			path = "../icon/bookinfo6.png";
 		} else if (num == 7) {
-			path = "../icon/bookinf7.png";
+			path = "../icon/bookinfo7.png";
 		} else if (num == 8) {
 			path = "../icon/bookinfo8.png";
 		}
