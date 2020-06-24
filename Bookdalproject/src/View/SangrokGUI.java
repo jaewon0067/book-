@@ -6,7 +6,9 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -124,10 +126,10 @@ public class SangrokGUI {
 
 		JLabel lblNewLabel = new JLabel("Librarian's PICK");
 		springLayout.putConstraint(SpringLayout.NORTH, lblNewLabel, 6, SpringLayout.SOUTH, libinfo);
-		springLayout.putConstraint(SpringLayout.WEST, lblNewLabel, 0, SpringLayout.WEST, panel);
+		springLayout.putConstraint(SpringLayout.WEST, lblNewLabel, 10, SpringLayout.WEST, frame.getContentPane());
 		springLayout.putConstraint(SpringLayout.SOUTH, lblNewLabel, -6, SpringLayout.NORTH, bookrecommend);
 
-		springLayout.putConstraint(SpringLayout.EAST, lblNewLabel, -20, SpringLayout.EAST, libinfo);
+		springLayout.putConstraint(SpringLayout.EAST, lblNewLabel, -142, SpringLayout.EAST, libinfo);
 		bookrecommend.setLayout(new GridLayout(3, 0, 0, 0));
 
 		URL url = this.getClass().getResource("../icon/book1.PNG");
@@ -185,6 +187,13 @@ public class SangrokGUI {
 
 		lblNewLabel.setFont(new Font("Ink Free", Font.BOLD, 22));
 		frame.getContentPane().add(lblNewLabel);
+		
+
+		
+		
+		springLayout.putConstraint(SpringLayout.NORTH, lblNewLabel_1, 6, SpringLayout.SOUTH, libinfo);
+		springLayout.putConstraint(SpringLayout.WEST, lblNewLabel_1, 35, SpringLayout.EAST, lblNewLabel);
+		frame.getContentPane().add(lblNewLabel_1);
 	}
 
 	
