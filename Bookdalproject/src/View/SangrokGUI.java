@@ -106,13 +106,17 @@ public class SangrokGUI {
 		btn_search.setBounds(305, 0, 49, 34);
 		btn_search.setFont(new Font("굴림", Font.PLAIN, 16));
 		panel.add(btn_search);
+		
+		
+	
+		
 
 		JPanel bookrecommend = new JPanel();
 		springLayout.putConstraint(SpringLayout.WEST, bookrecommend, 10, SpringLayout.WEST, frame.getContentPane());
 		springLayout.putConstraint(SpringLayout.SOUTH, bookrecommend, -10, SpringLayout.SOUTH, frame.getContentPane());
 		springLayout.putConstraint(SpringLayout.EAST, bookrecommend, 0, SpringLayout.EAST, panel);
 
-		frame.getContentPane().add(bookrecommend);
+		//frame.getContentPane().add(bookrecommend);
 
 		JPanel libinfo = new JPanel();
 		springLayout.putConstraint(SpringLayout.WEST, libinfo, 10, SpringLayout.WEST, frame.getContentPane());
@@ -128,10 +132,23 @@ public class SangrokGUI {
 		springLayout.putConstraint(SpringLayout.SOUTH, lblNewLabel, -6, SpringLayout.NORTH, bookrecommend);
 
 		springLayout.putConstraint(SpringLayout.EAST, lblNewLabel, -20, SpringLayout.EAST, libinfo);
-		bookrecommend.setLayout(new GridLayout(3, 0, 0, 0));
 
+		//--------------------
+		
+		
 		URL url = this.getClass().getResource("../icon/book1.PNG");
+		
+		//<이미지 사이즈 수정하기>
+		      
+		Image originImg = new ImageIcon(url.getPath()).getImage(); 
+
+		originImg= originImg.getScaledInstance(50, 50, Image.SCALE_SMOOTH );
+
+		ImageIcon Icon = new ImageIcon(originImg);
+
+		
 		JButton btnbook1 = new JButton(new ImageIcon(url.getPath()));
+		btnbook1.setBounds(0, 0, 329, 57);
 		btnbook1.setBorderPainted(false);
 		btnbook1.setContentAreaFilled(false);
 		btnbook1.setFocusPainted(false);
@@ -141,13 +158,14 @@ public class SangrokGUI {
 				book1GUI book1gui = new book1GUI();
 				frame.setVisible(true);
 				book1gui.setNum(2);
-
 			}
 		});
+		bookrecommend.setLayout(null);
 		bookrecommend.add(btnbook1);
 
 		URL url4 = this.getClass().getResource("../icon/book2.PNG");
 		JButton btnbook2 = new JButton(new ImageIcon(url4.getPath()));
+		btnbook2.setBounds(0, 62, 329, 57);
 		btnbook2.setBorderPainted(false);
 		btnbook2.setContentAreaFilled(false);
 		btnbook2.setFocusPainted(false);
@@ -164,6 +182,7 @@ public class SangrokGUI {
 
 		URL url1 = this.getClass().getResource("../icon/book3.PNG");
 		JButton btnbook3 = new JButton(new ImageIcon(url1.getPath()));
+		btnbook3.setBounds(0, 124, 329, 57);
 		btnbook3.setBorderPainted(false);
 		btnbook3.setContentAreaFilled(false);
 		btnbook3.setFocusPainted(false);
@@ -176,6 +195,38 @@ public class SangrokGUI {
 			}
 		});
 		bookrecommend.add(btnbook3);
+		
+		URL urlcha = this.getClass().getResource("../icon/book4.PNG");
+		JButton btnbook4 = new JButton(new ImageIcon(urlcha.getPath()));
+		btnbook4.setBounds(0, 186, 329, 57);
+		btnbook4.setBorderPainted(false);
+		btnbook4.setContentAreaFilled(false);
+		btnbook4.setFocusPainted(false);
+		btnbook4.setOpaque(false);
+		btnbook4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				book1GUI book1gui = new book1GUI();
+				frame.setVisible(true);
+				book1gui.setNum(1);
+			}
+		});
+		bookrecommend.add(btnbook4);
+	//---------	
+		URL urlnar = this.getClass().getResource("../icon/book6.PNG");
+		JButton btnbook5 = new JButton(new ImageIcon(urlnar.getPath()));
+		btnbook5.setBounds(0, 248, 329, 57);
+		btnbook5.setBorderPainted(false);
+		btnbook5.setContentAreaFilled(false);
+		btnbook5.setFocusPainted(false);
+		btnbook5.setOpaque(false);
+		btnbook5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				book1GUI book1gui = new book1GUI();
+				frame.setVisible(true);
+				book1gui.setNum(6);
+			}
+		});
+		bookrecommend.add(btnbook5);
 
 		libinfo.setLayout(new GridLayout(1, 0, 0, 0));
 
@@ -184,8 +235,23 @@ public class SangrokGUI {
 		libinfo.add(lib_info);
 
 		lblNewLabel.setFont(new Font("Ink Free", Font.BOLD, 22));
+		
+		
+		Dimension size = new Dimension();//사이즈를 지정하기 위한 객체 생성
+		bookrecommend.setPreferredSize(size);
+		size.setSize(300, 330);//객체의 사이즈를 지정
+		
 		frame.getContentPane().add(lblNewLabel);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		springLayout.putConstraint(SpringLayout.NORTH, scrollPane, 6, SpringLayout.SOUTH, lblNewLabel);
+		springLayout.putConstraint(SpringLayout.WEST, scrollPane, 0, SpringLayout.WEST, panel);
+		springLayout.putConstraint(SpringLayout.SOUTH, scrollPane, 313, SpringLayout.SOUTH, lblNewLabel);
+		springLayout.putConstraint(SpringLayout.EAST, scrollPane, 0, SpringLayout.EAST, libinfo);
+		
+		scrollPane.setViewportView(bookrecommend);
+		
+		
+		frame.getContentPane().add(scrollPane);
 	}
-
-	
 }

@@ -66,7 +66,7 @@ public class book1GUI {
 
 		frame = new JFrame();
 		frame.setBounds(100, 100, 390, 600);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
 		JButton rental_btn = new JButton("");

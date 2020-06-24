@@ -47,7 +47,7 @@ public class LibraryManagementSystem {
 	}
 	public int join(Member_LibraryVo joinUser) {
 		int cnt = dao.insert(joinUser);
-		
+	
 		return cnt;
 	}
 	
