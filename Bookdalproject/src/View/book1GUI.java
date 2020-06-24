@@ -78,6 +78,7 @@ public class book1GUI {
 				
 				
 				
+				
 			}
 		});
 		rental_btn.setBounds(63, 504, 256, 23);

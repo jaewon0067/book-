@@ -56,9 +56,12 @@ public class LibraryReturnBook {
 			public void actionPerformed(ActionEvent e) {
 				JButton btn_forReturn = (JButton)e.getSource();
 				if(btn_forReturn.getText().equals("반납하기")) {
+					btn_forReturn.setText("호출중");
+					
+				}else if(btn_forReturn.getText().equals("호출중")){
 					btn_forReturn.setText("반납완료");
 				}else {
-					btn_forReturn.setText("반납하기");
+					btn_forReturn .setText("반납하기");
 				}
 			}
 		});
@@ -73,6 +76,9 @@ public class LibraryReturnBook {
 			public void actionPerformed(ActionEvent e) {
 				JButton btn_forReturn1 = (JButton)e.getSource();
 				if(btn_forReturn1.getText().equals("반납하기")) {
+					btn_forReturn1.setText("호출중");
+					
+				}else if(btn_forReturn1.getText().equals("호출중")){
 					btn_forReturn1.setText("반납완료");
 				}else {
 					btn_forReturn1.setText("반납하기");

@@ -42,20 +42,39 @@ public class LibrarySearchGUI {
 		JButton lblNewButton_j = null;
 		for (int j = 0; j < searchlist.size(); j++) {
 			lblNewButton_j = new JButton();
+//<<<<<<< HEAD
+//			lblNewButton_j.setText(searchlist.get(j).getBook_id() + searchlist.get(j).getBook_name() + "\n"
+//					+ searchlist.get(j).getAuthor() + searchlist.get(j).getLib_location());
+//			panel_2.add(lblNewButton_j);
+//			lblNewButton_j.addActionListener(new ActionListener() {
+//				public void actionPerformed(ActionEvent arg0) {
+//					book1GUI bookgui = new book1GUI();
+//					frame.setVisible(true);
+//					bookgui.setNum(7);
+//
+//				}
+//			});
+//		}
+
+//=======
 			lblNewButton_j.setText(searchlist.get(j).getBook_id() + searchlist.get(j).getBook_name() + "\n"
 					+ searchlist.get(j).getAuthor() + searchlist.get(j).getLib_location());
 			panel_2.add(lblNewButton_j);
 			lblNewButton_j.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent arg0) {
-					book1GUI bookgui = new book1GUI();
-					frame.setVisible(true);
-					bookgui.setNum(7);
 
+				public void actionPerformed(ActionEvent arg0) {
+					book1GUI book1gui = new book1GUI();
+					frame.setVisible(true);
+					book1gui.setNum(1);
 				}
 			});
 		}
-
 	}
+
+//	>>>>>>>branch'master'
+//
+//	of https:// github.com/jaewon0067/book-.git
+//	}
 
 	/**
 	 * Initialize the contents of the frame.

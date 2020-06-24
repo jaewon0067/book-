@@ -18,6 +18,8 @@ import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import Controller.LibraryManagementSystem;
 import Model.Member_LibraryVo;
+import Model.TableDAO;
+import Model.TableVo;
 
 import java.awt.GridLayout;
 
@@ -48,7 +50,7 @@ public class LibraryHomeGUI {
    private JButton btn_4;
    private JButton btn_5;
    private JLabel lblNewLabel_4;
-
+   private TableVo vo = new TableVo();
    public LibraryHomeGUI(Member_LibraryVo user) {
       initialize(user);
       frame.setVisible(true);
@@ -171,6 +173,7 @@ public class LibraryHomeGUI {
       btn_4 = new JButton("");
       btn_4.addActionListener(new ActionListener() {
       	public void actionPerformed(ActionEvent e) {
+      		LibraryMyPage mypage = new LibraryMyPage(user);
       	}
       });
       btn_4.setIcon(new ImageIcon("C:\\Users\\smhrd\\Desktop\\icon\\\uB9C8\uC774\uD398\uC774\uC9C0.PNG"));
@@ -229,6 +232,7 @@ public class LibraryHomeGUI {
 
       btn_1.addActionListener(new ActionListener() {
       	public void actionPerformed(ActionEvent e) {
+      		
       	}
       });
       btn_1.setIcon(new ImageIcon("C:\\Users\\smhrd\\Desktop\\icon\\\uD648.PNG"));
@@ -255,6 +259,8 @@ public class LibraryHomeGUI {
       btnNewButton_3 = new JButton("");
       btnNewButton_3.addActionListener(new ActionListener() {
       	public void actionPerformed(ActionEvent e) {
+      	
+      		
       	}
       });
 

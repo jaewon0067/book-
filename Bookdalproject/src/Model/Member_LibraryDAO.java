@@ -70,7 +70,11 @@ public class Member_LibraryDAO {
 				String id = rs.getString("id");
 				String pw = rs.getString("pw");
 				String name = rs.getString("name");
-				loginUser = new Member_LibraryVo(id,pw,name); // 홈화면에서 이름 띄워줌
+				String age = rs.getString("age");
+				String phone = rs.getString("Phone");
+				String gender = rs.getString("gender");
+				String addr = rs.getString("addr");
+				loginUser = new Member_LibraryVo(id,pw,name,age,phone,gender,addr); // 홈화면에서 이름 띄워줌
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -114,6 +118,7 @@ public class Member_LibraryDAO {
 		}
 		return row;
 	}
+	
 
 
 }
