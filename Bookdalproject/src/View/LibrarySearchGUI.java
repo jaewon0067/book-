@@ -37,15 +37,24 @@ public class LibrarySearchGUI {
 		initialize();
 		frame.setVisible(true);
 		searchlist = controller.getSearchBook(searchbook);
-
+		JButton lblNewButton_j = null;
 		for (int j = 0; j < searchlist.size(); j++) {
-			JLabel lblNewLabel_j = new JLabel();
-			lblNewLabel_j.setText(searchlist.get(j).getBook_id()+searchlist.get(j).getBook_name()+"\n"+searchlist.get(j).getAuthor()+searchlist.get(j).getLib_location());
-			panel_2.add(lblNewLabel_j);
-			
-			
+			lblNewButton_j = new JButton();
+			lblNewButton_j.setText(searchlist.get(j).getBook_id()+searchlist.get(j).getBook_name()+"\n"+searchlist.get(j).getAuthor()+searchlist.get(j).getLib_location());
+			panel_2.add(lblNewButton_j);
+			lblNewButton_j.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					book1GUI book1gui = new book1GUI();
+					frame.setVisible(true);
+					book1gui.setNum(1);
+				}
+			});
 			}
-	
+		
+		
+
+
+			
 	}
 
 	/**
