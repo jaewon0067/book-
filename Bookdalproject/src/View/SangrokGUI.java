@@ -32,6 +32,7 @@ public class SangrokGUI {
 	private JFrame frame;
 	private JTextField search;
 	private LibraryManagementSystem controller = new LibraryManagementSystem();
+//	public ArrayList<BookVO> searchresult = new ArrayList();
 
 	/**
 	 * Launch the application.
@@ -84,12 +85,22 @@ public class SangrokGUI {
 		btn_search.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String searchbook = search.getText();
-				ArrayList<BookVO> searchresult = controller.getSearchBook(searchbook);
-				for (int j = 0; j < searchresult.size(); j++) {
-					System.out.println(searchresult.get(j).getBook_name());
+//				searchresult = controller.getSearchBook(searchbook);
+//				LibrarySearchGUI searchpage = new LibrarySearchGUI();
+//				searchpage.frame.setVisible(true);
+				LibrarySearchGUI l = new LibrarySearchGUI(searchbook);
+//				LibrarySearchGUI.main(null);
+//				for (int j = 0; j < searchresult.size(); j++) {
+//					System.out.println(searchresult.get(j).getBook_name());
+//					
+//				}
+			
 
-				}
-
+//				ArrayList<BookVO> searchresult = controller.getSearchBook(searchbook);
+//				for (int j = 0; j < searchresult.size(); j++) {
+//					System.out.println(searchresult.get(j).getBook_name());
+//
+//				}
 			}
 		});
 		btn_search.setBounds(305, 0, 49, 34);
@@ -175,4 +186,6 @@ public class SangrokGUI {
 		lblNewLabel.setFont(new Font("Ink Free", Font.BOLD, 22));
 		frame.getContentPane().add(lblNewLabel);
 	}
+
+	
 }
