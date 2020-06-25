@@ -1,5 +1,6 @@
 package View;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -41,7 +42,7 @@ public class realbookGUI {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 412, 638);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
@@ -53,22 +54,44 @@ public class realbookGUI {
 		
 		JPanel panel_4 = new JPanel();
 		panel_4.setBounds(0, 537, 394, 62);
+		panel_4.setBackground(new Color(255, 0,0,0));
+		panel_4.setOpaque(false);
 		panel.add(panel_4);
 		panel_4.setLayout(new GridLayout(0, 5, 0, 0));
 		
 		JButton btnNewButton = new JButton("New button");
+		btnNewButton.setBorderPainted(false);
+		btnNewButton.setContentAreaFilled(false);
+		btnNewButton.setFocusPainted(false);
+		btnNewButton.setOpaque(false);
 		panel_4.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("New button");
+		btnNewButton_1.setBorderPainted(false);
+		btnNewButton_1.setContentAreaFilled(false);
+		btnNewButton_1.setFocusPainted(false);
+		btnNewButton_1.setOpaque(false);
 		panel_4.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("New button");
+		btnNewButton_2.setBorderPainted(false);
+		btnNewButton_2.setContentAreaFilled(false);
+		btnNewButton_2.setFocusPainted(false);
+		btnNewButton_2.setOpaque(false);
 		panel_4.add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("New button");
+		btnNewButton_3.setBorderPainted(false);
+		btnNewButton_3.setContentAreaFilled(false);
+		btnNewButton_3.setFocusPainted(false);
+		btnNewButton_3.setOpaque(false);
 		panel_4.add(btnNewButton_3);
 		
 		JButton btnNewButton_4 = new JButton("New button");
+		btnNewButton_4.setBorderPainted(false);
+		btnNewButton_4.setContentAreaFilled(false);
+		btnNewButton_4.setFocusPainted(false);
+		btnNewButton_4.setOpaque(false);
 		panel_4.add(btnNewButton_4);
 		
 		JPanel panel_2 = new JPanel();
@@ -80,15 +103,15 @@ public class realbookGUI {
 		liblocation_label.setFont(new Font("배달의민족 주아", Font.PLAIN, 16));
 		panel_2.add(liblocation_label);
 		
-		JLabel author_label = new JLabel("\uC800\uC790"+vo.getAuthor());
+		JLabel author_label = new JLabel("\uC800\uC790 : "+vo.getAuthor());
 		author_label.setFont(new Font("배달의민족 주아", Font.PLAIN, 16));
 		panel_2.add(author_label);
 		
-		JLabel publisher_label = new JLabel("\uCD9C\uD310\uC0AC"+vo.getPublisher());
+		JLabel publisher_label = new JLabel("\uCD9C\uD310\uC0AC : "+vo.getPublisher());
 		publisher_label.setFont(new Font("배달의민족 주아", Font.PLAIN, 16));
 		panel_2.add(publisher_label);
 		
-		JLabel bookintroduce_label = new JLabel("\uCC45 \uC18C\uAC1C : "+vo.getOriginal()+vo.getPublishedin());
+		JLabel bookintroduce_label = new JLabel("\uCC45 \uC18C\uAC1C : "+vo.getOriginal()+" , "+vo.getSidebook());
 		bookintroduce_label.setFont(new Font("배달의민족 주아", Font.PLAIN, 16));
 		panel_2.add(bookintroduce_label);
 		
@@ -145,12 +168,12 @@ public class realbookGUI {
 		panel.add(panel_1);
 		panel_1.setLayout(new GridLayout(2, 0, 0, 0));
 		
-		JLabel bookname_label = new JLabel("\uC774\uB984"+vo.getBook_name());
+		JLabel bookname_label = new JLabel("\uC774\uB984 : "+vo.getBook_name());
 		bookname_label.setHorizontalAlignment(SwingConstants.CENTER);
 		bookname_label.setFont(new Font("배달의민족 주아", Font.PLAIN, 17));
 		panel_1.add(bookname_label);
 		
-		JLabel Book_idlabel = new JLabel("\uCC45 ID"+vo.getBook_id());
+		JLabel Book_idlabel = new JLabel("\uCC45 ID : "+vo.getBook_id());
 		Book_idlabel.setFont(new Font("배달의민족 주아", Font.PLAIN, 15));
 		Book_idlabel.setHorizontalAlignment(SwingConstants.LEFT);
 		panel_1.add(Book_idlabel);

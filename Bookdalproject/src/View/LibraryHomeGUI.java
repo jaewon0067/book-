@@ -196,6 +196,7 @@ public class LibraryHomeGUI {
       libaray_2.addActionListener(new ActionListener() {
 
          public void actionPerformed(ActionEvent e) {
+        	 snagrok sangrok = new snagrok(user);
          }
       });
 
