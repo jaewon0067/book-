@@ -18,11 +18,10 @@ public class BookVO {
 	public BookVO(String book_index, String lib_location, String status, String restriction, String book_id,
 			String book_name, String author, String publisher, String publishedin, String published_place, String original,
 			String price, String sidebook) {
-		super();
 		this.book_index = book_index;
 		this.lib_location = lib_location;
 		this.status = status;
-		this.restriction = restriction;
+		this.restriction = restriction; // 
 		this.book_id = book_id;
 		this.book_name = book_name;
 		this.author = author;
@@ -138,6 +137,5 @@ public class BookVO {
 		this.sidebook = sidebook;
 	}
 	
-
 
 }

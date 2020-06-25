@@ -12,7 +12,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelRead {
-	public ArrayList<BookVO> getBookList() {
+	public ArrayList<Controller.BookVO> getBookList() {
 
 		ArrayList<BookVO> booklist = new ArrayList<BookVO>();
 		String book_index = null;
