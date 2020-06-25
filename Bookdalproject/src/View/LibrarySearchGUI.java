@@ -20,6 +20,7 @@ import javax.swing.SwingConstants;
 
 import Controller.BookVO;
 import Controller.LibraryManagementSystem;
+import Model.Member_LibraryVo;
 
 public class LibrarySearchGUI implements ActionListener{
 
@@ -33,7 +34,9 @@ public class LibrarySearchGUI implements ActionListener{
 	int j;
 	String[] sp;
 	public JButton lblNewButton_j;
-	public LibrarySearchGUI(String searchbook) {
+	private Member_LibraryVo user;
+	public LibrarySearchGUI(String searchbook , Member_LibraryVo user) {
+		this.user = user;
 		searchlist = controller.getSearchBook(searchbook);
 		for (j = 0; j < searchlist.size(); j++) {
 			lblNewButton_j = new JButton();
@@ -116,7 +119,7 @@ public class LibrarySearchGUI implements ActionListener{
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane.showMessageDialog(frame, "뒤로 이동합니다.", "뒤로가기", JOptionPane.PLAIN_MESSAGE);
 				frame.setVisible(false);
-				SangrokGUI back = new SangrokGUI();
+				SangrokGUI back = new SangrokGUI(user);
 			}
 
 		});
@@ -152,7 +155,7 @@ public class LibrarySearchGUI implements ActionListener{
 		String value = ((JButton)e.getSource()).getText();
 		String[] values = value.split(":");
 		System.out.println(values[0]);
-		realbookGUI realgui = new realbookGUI(values[0]);
+		realbookGUI realgui = new realbookGUI(values[0],user);
 	}
 
 	

@@ -151,6 +151,29 @@ public class LibraryHomeGUI {
 
       frame.getContentPane().setLayout(null);
       
+      JButton btn_DetailView = new JButton("\uB300\uCD9C\uBAA9\uB85D \uC790\uC138\uD788\uBCF4\uAE30");
+      btn_DetailView.addActionListener(new ActionListener() {
+      	public void actionPerformed(ActionEvent arg0) {
+      		DetailViewGUI view = new DetailViewGUI(user);
+      	
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      	}
+      });
+      btn_DetailView.setBounds(45, 478, 239, 23);
+      frame.getContentPane().add(btn_DetailView);
+      
       JSeparator separator_1 = new JSeparator();
       separator_1.setBackground(SystemColor.controlHighlight);
       separator_1.setBounds(29, 360, 314, 1);
@@ -173,6 +196,7 @@ public class LibraryHomeGUI {
       list = new JButton(new ImageIcon(list_1.getPath()));
       list.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
+        	 LibraryWhat_i_Read read = new LibraryWhat_i_Read(user);
          }
       });
       panel_1.add(list);
@@ -181,6 +205,7 @@ public class LibraryHomeGUI {
       cart = new JButton(new ImageIcon(cart_1.getPath()));
       cart.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
+        	 RealBookBasketGUI basket = new RealBookBasketGUI(user);
          }
       });
 

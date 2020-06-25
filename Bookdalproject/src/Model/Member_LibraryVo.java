@@ -8,7 +8,14 @@ public class Member_LibraryVo {
 	private String gender;
 	private String phone;
 	private String addr;
+	private String number;
 	
+	public String getNumber() {
+		return number;
+	}
+	public void setNumber(String number) {
+		this.number = number;
+	}
 	public String getId() {
 		return id;
 	}
@@ -72,6 +79,11 @@ public class Member_LibraryVo {
 		this.pw = pw;
 		this.name = name;
 	}
+	public Member_LibraryVo(String number) {
+		
+		this.number = number;
+	}
+	
 	
 	
 	

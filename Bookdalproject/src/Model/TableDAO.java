@@ -104,6 +104,121 @@ public class TableDAO {
 		
 	return model;
 }
+	public DefaultTableModel getBookTable(Member_LibraryVo user) {
+		
+		getConnection();
+		JTable table;
+		String []title = {"책 제목", "책", "작가", "츨판사", "소장 도서관"};
+		DefaultTableModel model_book = new DefaultTableModel(title, 0); 
+		table = new JTable(model_book);
+		
+		try {
+			String sql = "select BOOK_NAME, CODE, WRITER, PUBLISHER, LIB_NAME from BOOKCART where ID = ? ";
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, user.getId());
+			rs = pst.executeQuery();
+			while(rs.next()) {
+				String bookname = rs.getString("BOOK_NAME");
+				String code = rs.getString("CODE");
+				String writer = rs.getString("WRITER");
+				String pub = rs.getString("PUBLISHER");
+				String lib_name = rs.getString("LIB_NAME");
+				
+				model_book.addRow(new Object[] {bookname, code, writer, pub, lib_name});	
+				
+			}
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return model_book;
+	}
+public JTable  getTable_1(Member_LibraryVo user) {
+		
+		getConnection();
+		JTable table;
+		String []title = {"ID", "반납기한", "책 제목", "소장 도서관"};
+		
+		 JFrame frame = new JFrame("독서 내역");
+		  
+		  JPanel panel_3 = new JPanel(); panel_3.setBounds(29, 104, 357, 213);
+		  frame.getContentPane().add(panel_3);
+		 
+		
+		DefaultTableModel model = new DefaultTableModel(title, 0); 
+		table = new JTable(model);
+		String arr[] = {"ID", "반납기한", "책 제목", "소장 도서관"};
+		String a = "ID";
+		String b = "반납 기한";
+		String c = "책 제목";
+		String d = "소장 도서관";
+	
+		
+		try {
+			String sql = "select ID, BORROW_DATE+15, BOOK_NAME, LIB_NAME  from DELI_INFO where id = ?  and RETURN_day is null ";
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, user.getId());
+			rs = pst.executeQuery();
+			while(rs.next()) {
+				
+				String id = rs.getString("ID");
+				String Borrow_date = rs.getString("BORROW_DATE+15");
+				String Book_name = rs.getString("BOOK_NAME");
+				String Lib_name = rs.getString("LIB_NAME");
+				
+				model.addRow(new Object[] {id, Borrow_date, Book_name, Lib_name});
+			
+				
+			}
+			table.setVisible(true);
+			frame.add(table);
+			frame.setVisible(true);
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+	return table;
+}
+	public DefaultTableModel DeliTable(Member_LibraryVo user) {
+		  getConnection();
+	      JTable table_2;
+	      String []title = {"반납 날짜", "책 제목", "소장 도서관"};
+	      JFrame frame = new JFrame("독서 내역");
+	      DefaultTableModel model_deli = new DefaultTableModel(title, 0); 
+	      table_2 = new JTable(model_deli);
+	      String arr[] = {"반납 날짜", "책 제목", "소장 도서관"};
+	      
+	      
+	      try {
+	         String sql = "select RETURN_DAY, BOOK_NAME, LIB_NAME from DELI_INFO where id = ? and RETURN_day is not null order by RETURN_DAY DESC ";
+	         pst = conn.prepareStatement(sql);
+	         pst.setString(1, user.getId());
+	         rs = pst.executeQuery();
+	         while(rs.next()) {
+	            String return_date = rs.getString("RETURN_DAY");
+	            String Book_name = rs.getString("BOOK_NAME");
+	            String Lib_name = rs.getString("LIB_NAME");
+	            model_deli.addRow(new Object[] {return_date, Book_name, Lib_name});
+	         }
+	}catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}finally {
+		close();
+	} return model_deli;
+
+
+
+
+
 
 }
+}
+
 

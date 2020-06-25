@@ -2,20 +2,18 @@ package Controller;
 
 import java.util.ArrayList;
 
-
 import Model.BookcartbookVO;
 
 import Model.Member_LibraryDAO;
 import Model.Member_LibraryVo;
 
 public class LibraryManagementSystem {
-	
+
 	private Member_LibraryDAO dao = new Member_LibraryDAO();
 	private Member_LibraryVo loginUser;
 	private ArrayList<BookVO> booklist = new ArrayList<BookVO>();
 	private ExcelRead excelRead = new ExcelRead();
-	private BookcartbookVO Bookcartbook = null; //»õ·Î¿î vo »ý¼º ÇÊ¿äÇÒ ¼öµµ ÀÖ¾î¼­ ÀÏ´Ü ¸¸µë
-
+	private BookcartbookVO Bookcartbook = null; // »õ·Î¿î vo »ý¼º ÇÊ¿äÇÒ ¼öµµ ÀÖ¾î¼­ ÀÏ´Ü ¸¸µë
 
 	public ArrayList<BookVO> getSearchBook(String searchbook) {
 		ArrayList<BookVO> list = excelRead.getBookList();
@@ -31,7 +29,6 @@ public class LibraryManagementSystem {
 		return searchresult;
 	}
 
-
 	public BookVO getSearchcode(String searchcode) {
 		ArrayList<BookVO> list = excelRead.getBookList();
 		BookVO vo = null;
@@ -42,7 +39,6 @@ public class LibraryManagementSystem {
 		}
 		return vo;
 	}
-
 
 	public Member_LibraryVo getLoginUser() {
 		return loginUser;
@@ -64,17 +60,15 @@ public class LibraryManagementSystem {
 		return cnt;
 	}
 
-
-	public boolean bookcartin(BookVO vo) {
-		System.out.println("Ä¼Ä¼Ä¼°i : "+getLoginUser().getId());
-		System.out.println("Ä¼Ä¼Ä¼°i : "+getLoginUser().getName());
-		//Bookcartbook = dao.intobookcart(getLoginUser().getId(), getLoginUser().getName(), vo);
+	public boolean bookcartin(BookVO vo, Member_LibraryVo member) {
+		System.out.println(vo.getAuthor());
+		System.out.println(member.getId());
+		Bookcartbook = dao.intobookcart(member.getId(), member.getName(), vo);
 		if (Bookcartbook == null) {
 			return false;
 		} else {
 			return true;
 		}
 	}
-
 
 }

@@ -20,6 +20,8 @@ import javax.swing.SpringLayout;
 
 import Controller.BookVO;
 import Controller.LibraryManagementSystem;
+import Model.Member_LibraryVo;
+
 import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -37,31 +39,31 @@ public class SangrokGUI {
    /**
     * Launch the application.
     */
-   public static void main(String[] args) {
-      EventQueue.invokeLater(new Runnable() {
-         public void run() {
-            try {
-               SangrokGUI window = new SangrokGUI();
-               window.frame.setVisible(true);
-            } catch (Exception e) {
-               e.printStackTrace();
-            }
-         }
-      });
-   }
+//   public static void main(String[] args) {
+//      EventQueue.invokeLater(new Runnable() {
+//         public void run() {
+//            try {
+//               SangrokGUI window = new SangrokGUI();
+//               window.frame.setVisible(true);
+//            } catch (Exception e) {
+//               e.printStackTrace();
+//            }
+//         }
+//      });
+//   }
 
    /**
     * Create the application.
     */
-   public SangrokGUI() {
-      initialize();
+   public SangrokGUI(Member_LibraryVo user) {
+      initialize(user);
 
    }
 
    /**
     * Initialize the contents of the frame.
     */
-   private void initialize() {
+   private void initialize(Member_LibraryVo user) {
       frame = new JFrame();
       frame.setBounds(100, 100, 390, 600);
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -83,7 +85,7 @@ public class SangrokGUI {
       btn_search.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent arg0) {
             String searchbook = search.getText();
-            LibrarySearchGUI l = new LibrarySearchGUI(searchbook);
+            LibrarySearchGUI l = new LibrarySearchGUI(searchbook, user);
 //            searchresult = controller.getSearchBook(searchbook);
 //            LibrarySearchGUI searchpage = new LibrarySearchGUI();
 //            searchpage.frame.setVisible(true);         
