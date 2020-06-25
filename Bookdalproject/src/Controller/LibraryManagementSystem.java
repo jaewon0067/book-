@@ -66,8 +66,9 @@ public class LibraryManagementSystem {
 
 
 	public boolean bookcartin(BookVO vo) {
-		
-//		Bookcartbook = dao.intobookcart(getLoginUser(), name, vo);
+		System.out.println("ļļļ�i : "+getLoginUser().getId());
+		System.out.println("ļļļ�i : "+getLoginUser().getName());
+		//Bookcartbook = dao.intobookcart(getLoginUser().getId(), getLoginUser().getName(), vo);
 		if (Bookcartbook == null) {
 			return false;
 		} else {

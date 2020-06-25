@@ -25,29 +25,24 @@ public class snagrok {
    private JFrame frame;
    private JTextField search;
 
-   /**
-    * Launch the application.
-    */
-   public static void main(String[] args) {
-      EventQueue.invokeLater(new Runnable() {
-         public void run() {
-            try {
-               snagrok window = new snagrok();
-               window.frame.setVisible(true);
-            } catch (Exception e) {
-               e.printStackTrace();
-            }
-         }
-      });
-   }
 
-   /**
-    * Create the application.
-    */
-   public snagrok() {
-      initialize();
-   }
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					snagrok window = new snagrok();
+//					window.frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
+	public snagrok() {
+		initialize();
+		frame.setVisible(true);
+	}
 
 
 	private void initialize() {
