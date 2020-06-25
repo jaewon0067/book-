@@ -10,40 +10,37 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import Controller.LibraryManagementSystem;
+import Model.Member_LibraryVo;
+
 import java.awt.GridLayout;
 import javax.swing.JButton;
 
 public class MyPage {
-
+	
+	
+	
 	private JFrame frame;
-
+	public static LibraryManagementSystem controller = new LibraryManagementSystem();
+	private JLabel lbl_address;
+	private JLabel lbl_phone;
+	private JLabel lbl_gender;
+	private JLabel lbl_age;
+	private JLabel lbl_name;
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MyPage window = new MyPage();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the application.
-	 */
-	public MyPage() {
-		initialize();
+	
+	public MyPage(Member_LibraryVo user) {
+		initialize(user);
+		frame.setVisible(true);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(Member_LibraryVo user) {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 388, 600);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -56,26 +53,31 @@ public class MyPage {
 		originImg = originImg.getScaledInstance(374, 561, Image.SCALE_SMOOTH);
 		ImageIcon Icon = new ImageIcon(originImg);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(203, 84, 57, 15);
-		frame.getContentPane().add(lblNewLabel);
+		lbl_name = new JLabel("New label");
+		lbl_name.setBounds(203, 84, 57, 15);
+		frame.getContentPane().add(lbl_name);
+		lbl_name.setText(user.getName());
 		
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setBounds(192, 109, 57, 15);
-		frame.getContentPane().add(lblNewLabel_1);
+		lbl_age = new JLabel("New label");
+		lbl_age.setBounds(192, 109, 57, 15);
+		frame.getContentPane().add(lbl_age);
+		lbl_age.setText(user.getAge());
 		
-		JLabel lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setBounds(214, 134, 57, 15);
-		frame.getContentPane().add(lblNewLabel_2);
+		lbl_gender = new JLabel("New label");
+		lbl_gender.setBounds(214, 134, 57, 15);
+		frame.getContentPane().add(lbl_gender);
+		lbl_gender.setText(user.getGender());
 		
-		JLabel lblNewLabel_3 = new JLabel("New label");
-		lblNewLabel_3.setBounds(203, 160, 57, 15);
-		frame.getContentPane().add(lblNewLabel_3);
+		lbl_phone = new JLabel("New label");
+		lbl_phone.setBounds(203, 160, 57, 15);
+		frame.getContentPane().add(lbl_phone);
+		lbl_phone.setText(user.getPhone());
 		
-		JLabel lblNewLabel_4 = new JLabel("New label");
-		lblNewLabel_4.setBounds(224, 185, 57, 15);
-		frame.getContentPane().add(lblNewLabel_4);
-
+		lbl_address = new JLabel("New label");
+		lbl_address.setBounds(224, 185, 57, 15);
+		frame.getContentPane().add(lbl_address);
+		lbl_address.setText(user.getAddr());
+		
 		JPanel panel = new JPanel();
 		panel.setBounds(0, 504, 372, 57);
 		frame.getContentPane().add(panel);

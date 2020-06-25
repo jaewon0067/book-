@@ -19,6 +19,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import Controller.LibraryManagementSystem;
+import Model.Member_LibraryDAO;
 import Model.Member_LibraryVo;
 
 public class LibraryLoginGUI {
@@ -148,6 +149,7 @@ public class LibraryLoginGUI {
 
 		});
 
+<<<<<<< HEAD
 		java.net.URL url__1 = this.getClass().getResource("../icon/back.PNG");
 		Image originImg = new ImageIcon(url__1.getPath()).getImage();
 		originImg = originImg.getScaledInstance(50, 50, Image.SCALE_SMOOTH);
@@ -155,6 +157,12 @@ public class LibraryLoginGUI {
 		JLabel back = new JLabel(new ImageIcon(url__1.getPath()));
 		back.setBounds(0, 0, 374, 581);
 		panel_1.add(back);
+=======
+//		java.net.URL url__1 = this.getClass().getResource("C:\\Users\\smhrd\\Desktop\\icon\\back.PNG");
+//		JLabel back = new JLabel(new ImageIcon(url__1.getPath()));
+//		back.setBounds(0, 0, 374, 581);
+//		panel_1.add(back);
+>>>>>>> branch 'master' of https://github.com/jaewon0067/book-.git
 
 	}
 }

@@ -163,6 +163,7 @@ public class LibraryHomeGUI {
       mypage = new JButton(new ImageIcon(mypage_1.getPath()));
       mypage.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
+        	 MyPage myPage = new MyPage(user);
          }
       });
       panel_1.add(mypage);
