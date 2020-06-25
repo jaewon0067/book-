@@ -25,7 +25,6 @@ import java.awt.GridLayout;
 public class MyJavaChart {
 
 	private JFrame frame;
-	 
 
 	/**
 	 * Launch the application.
@@ -65,7 +64,7 @@ public class MyJavaChart {
 	 * 
 	 * return new ChartPanel(chart); } }
 	 */
-	
+
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 605, 567);
@@ -82,13 +81,9 @@ public class MyJavaChart {
 		frame.getContentPane().add(panel);
 
 		// 월별 책빌린거 평균 통계
-	
-		
+
 		ArrayList<testVO> listChart = new ArrayList<testVO>();
-		
-		
-		
-		
+
 		ChartDAO dao = new ChartDAO();
 		ArrayList<String> borrowsList = dao.getBorrowList();
 
@@ -112,8 +107,7 @@ public class MyJavaChart {
 				months.add(Integer.parseInt(borrowsList.get(i)));
 				cnts.add(1);
 			}
-			
-			
+
 		}
 
 		// 월 months.get(i) 갯수 cnts.get(i)
@@ -123,29 +117,30 @@ public class MyJavaChart {
 //		}
 
 		for (int i = 0; i < months.size(); i++) {
-			listChart.add(new testVO(months.get(i), cnts.get(i)));		
+			listChart.add(new testVO(months.get(i), cnts.get(i)));
 		}
-		
-		System.out.println(months);
-		Collections.sort(months);
-		System.out.println(months);
-	//------------------월평균 독서량	
-		
+
+//		System.out.println(months);
+//		Collections.sort(months);
+//		System.out.println(months);
+		// ------------------월평균 독서량
+
 		DefaultCategoryDataset dataset1 = new DefaultCategoryDataset();
 
 		// 그래프에 값을 추가하는 코드
 		// 1.그래프 크기 2.범례 3.x축 이름
 		for (int i = 0; i < months.size(); i++) {
-			dataset1.addValue(listChart.get(i).getCnts()/4, "1~6", listChart.get(i).getMonths()+"");
+			dataset1.addValue(listChart.get(i).getCnts() / 4, "1~6", listChart.get(i).getMonths() + "");
 		}
-		
+
 		// 그래프를 그려주는 객체 dataset을 넣어준다
 		// 1.그래프제목(상단) 2.x축 제목 3.y축제목 4.그래프 데이터 5.그래프 가로/세로 할건지 6~8.그래프의 기능
 		JFreeChart barChart = ChartFactory.createBarChart("전체 월평균 독서량", "월", "독서량", dataset1, PlotOrientation.VERTICAL,
 				true, // HORIZONTAL
 				true, true);
-		
-		JFreeChart linechart = ChartFactory.createLineChart("전체 월평균 독서량", "월", "독서량", dataset1, PlotOrientation.VERTICAL, false, false, false);
+
+		JFreeChart linechart = ChartFactory.createLineChart("전체 월평균 독서량", "월", "독서량", dataset1,
+				PlotOrientation.VERTICAL, false, false, false);
 
 		// 한글을 적용하기 위한 Font 객체 생성
 		// 1.폰트종류 2.폰트타입 3.크기
@@ -171,15 +166,15 @@ public class MyJavaChart {
 		// ChartPanel chartPanel = new ChartPanel(pieChart);
 
 		// 크기지정
-		 chartPanel.setPreferredSize(new java.awt.Dimension(100, 100));
+		chartPanel.setPreferredSize(new java.awt.Dimension(100, 100));
 
 		panel.add(chartPanel);
-		//panel.add(chartPanel2);
-		//----------------------------
-		
-		//---------------20대여성이 많이 읽은 도서
-		
+		// panel.add(chartPanel2);
+		// ----------------------------
 
+		// ---------------20대여성이 많이 읽은 도서
+
+		
 
 	}
 

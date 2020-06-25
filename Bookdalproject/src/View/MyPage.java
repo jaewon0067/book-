@@ -241,6 +241,12 @@ public class MyPage {
 		readingState_panel.add(chartPanel);
 		
 		JButton recommand_btn = new JButton("\uB098\uC5D0\uAC8C \uB9DE\uB294 \uB3C4\uC11C \uCD94\uCC9C\uBC1B\uAE30");
+		recommand_btn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				MyJavaChart.main(null);
+				
+			}
+		});
 		recommand_btn.setFont(new Font("배달의민족 주아", Font.PLAIN, 18));
 		recommand_btn.setBounds(66, 442, 234, 23);
 		frame.getContentPane().add(recommand_btn);

@@ -2,20 +2,20 @@ package Model;
 
 public class Read_UserVO {
 	
-	String member_id;
+	String member_name;
 	String borrow_date;
 
-	public Read_UserVO(String member_id, String borrow_date) {
-		this.member_id = member_id;
+	public Read_UserVO(String member_name, String borrow_date) {
+		this.member_name = member_name;
 		this.borrow_date = borrow_date;
 	}
 
 	public String getMember_id() {
-		return member_id;
+		return member_name;
 	}
 
-	public void setMember_id(String member_id) {
-		this.member_id = member_id;
+	public void setMember_id(String member_name) {
+		this.member_name = member_name;
 	}
 
 	public String getBorrow_date() {
