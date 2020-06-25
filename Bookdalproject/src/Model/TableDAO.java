@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -54,17 +55,26 @@ public class TableDAO {
 			e.printStackTrace();
 		}
 	}
-	public JTable getTable() {
-		ArrayList<TableVo> Tablelist = new ArrayList<TableVo>();
-		TableVo vo = null;
+	public DefaultTableModel  getTable(Member_LibraryVo user) {
+		
 		getConnection();
-		JTable table = null;
+		JTable table;
 		String []title = {"ID", "반납기한", "책 제목", "소장 도서관"};
-		JFrame frame = new JFrame("독서 내역");
+		/*
+		 * JFrame frame = new JFrame("독서 내역");
+		 * 
+		 * JPanel panel_3 = new JPanel(); panel_3.setBounds(29, 104, 357, 213);
+		 * frame.getContentPane().add(panel_3);
+		 */
+		
 		DefaultTableModel model = new DefaultTableModel(title, 0); 
 		table = new JTable(model);
 		String arr[] = {"ID", "반납기한", "책 제목", "소장 도서관"};
-		String [][]data = null;
+		String a = "ID";
+		String b = "반납 기한";
+		String c = "책 제목";
+		String d = "소장 도서관";
+	
 		
 		try {
 			String sql = "select ID, BORROW_DATE+15, BOOK_NAME, LIB_NAME  from DELI_INFO where id = ?  and RETURN_day is null ";
@@ -72,14 +82,17 @@ public class TableDAO {
 			pst.setString(1, user.getId());
 			rs = pst.executeQuery();
 			while(rs.next()) {
+				
 				String id = rs.getString("ID");
 				String Borrow_date = rs.getString("BORROW_DATE+15");
 				String Book_name = rs.getString("BOOK_NAME");
 				String Lib_name = rs.getString("LIB_NAME");
+				
 				model.addRow(new Object[] {id, Borrow_date, Book_name, Lib_name});
 			
 				
 			}
+			table.setVisible(true);
 			
 		
 		} catch (SQLException e) {
@@ -87,11 +100,9 @@ public class TableDAO {
 			e.printStackTrace();
 		}finally {
 			close();
-		}frame.add(table);
-		frame.setBounds(0,0,900,310);
-		frame.setVisible(true);
+		}
 		
-	return table;
+	return model;
 }
 
 }

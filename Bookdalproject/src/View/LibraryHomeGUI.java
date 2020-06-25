@@ -16,12 +16,16 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTable;
 import javax.swing.UIManager;
+import javax.swing.table.DefaultTableModel;
+
 import Controller.LibraryManagementSystem;
 import Model.Member_LibraryVo;
 import Model.TableDAO;
 import Model.TableVo;
 
 import java.awt.GridLayout;
+import java.awt.CardLayout;
+import javax.swing.JScrollPane;
 
 public class LibraryHomeGUI {
 
@@ -50,6 +54,10 @@ public class LibraryHomeGUI {
    private JButton mypage;
    private JButton delivery;
    private JButton home;
+   private JPanel panel_3;
+   private JTable put_table;
+   private TableDAO dao = new TableDAO();
+   private JTable table_1;
 
    public LibraryHomeGUI(Member_LibraryVo user) {
       initialize(user);
@@ -61,6 +69,20 @@ public class LibraryHomeGUI {
 
       frame.getContentPane().add(panel);
       panel.setLayout(null);
+      
+      panel_3 = new JPanel();
+      panel_3.setBounds(29, 104, 357, 213);
+      frame.getContentPane().add(panel_3);
+      panel_3.setLayout(null);
+      
+      JScrollPane scrollPane = new JScrollPane();
+      scrollPane.setBounds(0, 0, 357, 213);
+      String []title = {"ID", "반납기한", "책 제목", "소장 도서관"};
+      DefaultTableModel model = new DefaultTableModel(title, 0);
+      model = dao.getTable(user);
+      table = new JTable(model);
+      scrollPane.setViewportView(table);
+      panel_3.add(scrollPane);
 
       lblNewLabel_1 = new JLabel("\uB2D8 \uD658\uC601\uD569\uB2C8\uB2E4");
       lblNewLabel_1.setFont(new Font("HY중고딕", Font.BOLD, 20));
@@ -104,7 +126,12 @@ public class LibraryHomeGUI {
       back_1 = new JLabel(new ImageIcon(url__2.getPath()));
       back_1.setBounds(0, 564, 415, 64);
       frame.getContentPane().add(back_1);
-
+      
+     
+      
+      
+      
+     
    }
 
    /**

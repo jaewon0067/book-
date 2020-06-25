@@ -144,10 +144,10 @@ public class MyPage{
 		panel_1.setBounds(30, 244, 315, 195);
 		frame.getContentPane().add(panel_1);
 		
-		put_table = new JTable();
-		put_table=dao.getTable();
-		panel_1.add(table);
-		
+//	put_table = new JTable();
+//		put_table=dao.getTable(user);
+//		panel_1.add(table);
+//		
 		
 		
 		
