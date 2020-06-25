@@ -6,8 +6,11 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
+import javax.swing.JFrame;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class TableDAO {
 	private Connection conn; // 전역변수로 설정
@@ -52,36 +55,42 @@ public class TableDAO {
 		}
 	}
 	public JTable getTable() {
+		ArrayList<TableVo> Tablelist = new ArrayList<TableVo>();
+		TableVo vo = null;
 		getConnection();
 		JTable table = null;
-		
+		String []title = {"ID", "반납기한", "책 제목", "소장 도서관"};
+		JFrame frame = new JFrame("독서 내역");
+		DefaultTableModel model = new DefaultTableModel(title, 0); 
+		table = new JTable(model);
+		String arr[] = {"ID", "반납기한", "책 제목", "소장 도서관"};
+		String [][]data = null;
 		
 		try {
-			String sql = "select BOOK_NAME from DELI_INFO where name like ? ";
+			String sql = "select ID, BORROW_DATE+15, BOOK_NAME, LIB_NAME  from DELI_INFO where id = ?  and RETURN_day is null ";
 			pst = conn.prepareStatement(sql);
-			pst.setString(1, loginUser.getName());
+			pst.setString(1, user.getId());
 			rs = pst.executeQuery();
-			if(rs.next()) {
-			String []title = {"책 제목", "반납기한"};
-			String [][]data = {{"어떻게 잠을 잘까요", "야부우치 마사유키"},
-	        		{"1日 1茶 : 매일 마셔도 좋은 건강 약차", "신혜정"},
-	        		{"할머니가 남긴 선물", "마거릿 와이즈 브라운"},
-	        		{"우리끼리 가자", "윤구병"},
-	        		{"카라마조프가의 형제들 1", "도스토예프스키"},
-	        		{"오셀로", "윌리엄 셰익스피어 원작"},
-	        		{"나르치스와 골드문트", "헤르만 헤세"}
-					
-					};
-			table = new JTable(data, title);
+			while(rs.next()) {
+				String id = rs.getString("ID");
+				String Borrow_date = rs.getString("BORROW_DATE+15");
+				String Book_name = rs.getString("BOOK_NAME");
+				String Lib_name = rs.getString("LIB_NAME");
+				model.addRow(new Object[] {id, Borrow_date, Book_name, Lib_name});
+			
+				
 			}
 			
-			
+		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
-		}
+		}frame.add(table);
+		frame.setBounds(0,0,900,310);
+		frame.setVisible(true);
+		
 	return table;
 }
 

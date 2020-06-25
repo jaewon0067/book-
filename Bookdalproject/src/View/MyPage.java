@@ -1,6 +1,10 @@
 package View;
 
 import java.awt.EventQueue;
+import Model.Member_LibraryDAO;
+import Model.Member_LibraryVo;
+import Model.TableDAO;
+
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,14 +14,20 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 
 import Controller.LibraryManagementSystem;
-import Model.Member_LibraryVo;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 
 import java.awt.GridLayout;
 import javax.swing.JButton;
 
-public class MyPage {
+public class MyPage{
 	
 	
 	
@@ -28,9 +38,10 @@ public class MyPage {
 	private JLabel lbl_gender;
 	private JLabel lbl_age;
 	private JLabel lbl_name;
-	/**
-	 * Launch the application.
-	 */
+	private JTable put_table;
+	private JTable table;
+	private TableDAO dao = new TableDAO();
+	
 	
 	public MyPage(Member_LibraryVo user) {
 		initialize(user);
@@ -41,6 +52,7 @@ public class MyPage {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize(Member_LibraryVo user) {
+		
 		frame = new JFrame();
 		frame.setBounds(100, 100, 388, 600);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -127,6 +139,46 @@ public class MyPage {
 		JLabel back_label = new JLabel(Icon);
 		back_label.setBounds(0, 0, 374, 564);
 		frame.getContentPane().add(back_label);
-
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(30, 244, 315, 195);
+		frame.getContentPane().add(panel_1);
+		
+		put_table = new JTable();
+		put_table=dao.getTable();
+		panel_1.add(table);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 }
