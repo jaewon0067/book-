@@ -2,14 +2,10 @@ package View;
 
 import java.awt.Color;
 import java.awt.EventQueue;
-<<<<<<< HEAD
 import java.awt.Font;
-=======
 import Model.Member_LibraryDAO;
 import Model.Member_LibraryVo;
 import Model.TableDAO;
-
->>>>>>> branch 'master' of https://github.com/jaewon0067/book-.git
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,7 +17,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-<<<<<<< HEAD
 import javax.swing.SpringLayout;
 
 import org.jfree.chart.ChartFactory;
@@ -34,25 +29,15 @@ import org.jfree.data.category.DefaultCategoryDataset;
 import Model.ChartDAO;
 import Model.getbookName_dateVO;
 import Model.testVO;
-=======
 import javax.swing.JTable;
 
 import Controller.LibraryManagementSystem;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
->>>>>>> branch 'master' of https://github.com/jaewon0067/book-.git
 
 import java.awt.GridLayout;
 import javax.swing.JButton;
 
-public class MyPage{
-	
-	
-	
+public class MyPage {
+
 	private JFrame frame;
 	public static LibraryManagementSystem controller = new LibraryManagementSystem();
 	private JLabel lbl_address;
@@ -63,8 +48,7 @@ public class MyPage{
 	private JTable put_table;
 	private JTable table;
 	private TableDAO dao = new TableDAO();
-	
-	
+
 	public MyPage(Member_LibraryVo user) {
 		initialize(user);
 		frame.setVisible(true);
@@ -74,7 +58,7 @@ public class MyPage{
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize(Member_LibraryVo user) {
-		
+
 		frame = new JFrame();
 		frame.setBounds(100, 100, 388, 600);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -87,7 +71,7 @@ public class MyPage{
 		Image originImg = new ImageIcon(back.getPath()).getImage();
 		originImg = originImg.getScaledInstance(374, 561, Image.SCALE_SMOOTH);
 		ImageIcon Icon = new ImageIcon(originImg);
-<<<<<<< HEAD
+//<<<<<<< HEAD
 
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setBounds(203, 84, 57, 15);
@@ -109,34 +93,34 @@ public class MyPage{
 		lblNewLabel_4.setBounds(224, 185, 57, 15);
 		frame.getContentPane().add(lblNewLabel_4);
 
-=======
-		
+//=======
+
 		lbl_name = new JLabel("New label");
 		lbl_name.setBounds(203, 84, 57, 15);
 		frame.getContentPane().add(lbl_name);
 		lbl_name.setText(user.getName());
-		
+
 		lbl_age = new JLabel("New label");
 		lbl_age.setBounds(192, 109, 57, 15);
 		frame.getContentPane().add(lbl_age);
 		lbl_age.setText(user.getAge());
-		
+
 		lbl_gender = new JLabel("New label");
 		lbl_gender.setBounds(214, 134, 57, 15);
 		frame.getContentPane().add(lbl_gender);
 		lbl_gender.setText(user.getGender());
-		
+
 		lbl_phone = new JLabel("New label");
 		lbl_phone.setBounds(203, 160, 57, 15);
 		frame.getContentPane().add(lbl_phone);
 		lbl_phone.setText(user.getPhone());
-		
+
 		lbl_address = new JLabel("New label");
 		lbl_address.setBounds(224, 185, 57, 15);
 		frame.getContentPane().add(lbl_address);
 		lbl_address.setText(user.getAddr());
-		
->>>>>>> branch 'master' of https://github.com/jaewon0067/book-.git
+
+//>>>>>>> branch 'master' of https://github.com/jaewon0067/book-.git
 		JPanel panel = new JPanel();
 		panel.setBounds(0, 504, 372, 57);
 		frame.getContentPane().add(panel);
@@ -183,7 +167,7 @@ public class MyPage{
 		});
 		panel.add(delivery);
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
 		JPanel readingState_panel = new JPanel();
 		readingState_panel.setBounds(26, 246, 320, 176);
 		springLayout.putConstraint(SpringLayout.WEST, readingState_panel, 10, SpringLayout.WEST,
@@ -198,7 +182,6 @@ public class MyPage{
 		frame.getContentPane().add(readingState_panel);
 		readingState_panel.setLayout(null);
 
-		
 		ArrayList<testVO> listChart = new ArrayList<testVO>();
 
 		ChartDAO dao = new ChartDAO();
@@ -271,7 +254,6 @@ public class MyPage{
 		plot2.getDomainAxis().setLabelFont(f);
 		plot1.getDomainAxis().setLabelFont(f); // x축
 
-
 		plot2.getRangeAxis().setLabelFont(f);
 		plot2.getRangeAxis().setTickLabelFont(f);
 		plot1.getRangeAxis().setLabelFont(f); // y축
@@ -280,24 +262,23 @@ public class MyPage{
 		ChartPanel chartPanel = new ChartPanel(barChart);
 		ChartPanel chartPanel2 = new ChartPanel(linechart);
 		readingState_panel.setLayout(new GridLayout(0, 1, 0, 0));
-	
 
 		readingState_panel.add(chartPanel);
-		
+
 		JButton recommand_btn = new JButton("\uB098\uC5D0\uAC8C \uB9DE\uB294 \uB3C4\uC11C \uCD94\uCC9C\uBC1B\uAE30");
 		recommand_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				MyJavaChart.main(null);
-				
+
 			}
 		});
 		recommand_btn.setFont(new Font("배달의민족 주아", Font.PLAIN, 18));
 		recommand_btn.setBounds(66, 442, 234, 23);
 		frame.getContentPane().add(recommand_btn);
-		
-				JLabel back_label = new JLabel(Icon);
-				back_label.setBounds(0, 0, 374, 564);
-				frame.getContentPane().add(back_label);
+
+		JLabel back_label = new JLabel(Icon);
+		back_label.setBounds(0, 0, 374, 564);
+		frame.getContentPane().add(back_label);
 
 		// ChartDAO dao = new ChartDAO();
 
@@ -307,51 +288,14 @@ public class MyPage{
 //			System.out.println(cnt);
 //		}
 
-=======
-		JLabel back_label = new JLabel(Icon);
-		back_label.setBounds(0, 0, 374, 564);
-		frame.getContentPane().add(back_label);
-		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(30, 244, 315, 195);
 		frame.getContentPane().add(panel_1);
-		
+
 //	put_table = new JTable();
 //		put_table=dao.getTable(user);
 //		panel_1.add(table);
 //		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
->>>>>>> branch 'master' of https://github.com/jaewon0067/book-.git
+
 	}
 }

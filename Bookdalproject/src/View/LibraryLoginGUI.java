@@ -147,17 +147,14 @@ public class LibraryLoginGUI {
 				}
 			}
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
 		});
 
-		java.net.URL url__1 = this.getClass().getResource("../icon/back.PNG");
-=======
-		});
 		java.net.URL url__1 = this.getClass().getResource("../icon/back.PNG");
 		Image originImg = new ImageIcon(url__1.getPath()).getImage();
 		originImg = originImg.getScaledInstance(50, 50, Image.SCALE_SMOOTH);
 		ImageIcon Icon = new ImageIcon(originImg);
->>>>>>> branch 'master' of https://github.com/jaewon0067/book-.git
+//>>>>>>> branch 'master' of https://github.com/jaewon0067/book-.git
 		JLabel back = new JLabel(new ImageIcon(url__1.getPath()));
 		back.setBounds(0, 0, 374, 581);
 		panel_1.add(back);

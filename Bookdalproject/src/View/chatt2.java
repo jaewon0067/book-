@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -47,7 +48,7 @@ public class chatt2 {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
 		DefaultCategoryDataset dataset1 = new DefaultCategoryDataset();
 
 		// 그래프를 그려주는 객체 dataset을 넣어준다
@@ -76,6 +77,9 @@ public class chatt2 {
 		plot2.getRangeAxis().setTickLabelFont(f);
 		plot1.getRangeAxis().setLabelFont(f); // y축
 		plot1.getRangeAxis().setTickLabelFont(f);
+
+		JPanel panel = new JPanel();
+		frame.getContentPane().add(panel);
 
 		ChartPanel chartPanel = new ChartPanel(barChart);
 		ChartPanel chartPanel2 = new ChartPanel(linechart);

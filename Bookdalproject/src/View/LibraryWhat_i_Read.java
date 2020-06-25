@@ -38,10 +38,10 @@ public class LibraryWhat_i_Read {
 	private void initialize(Member_LibraryVo user) {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 412, 638);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame = new JFrame();
 		frame.setBounds(100, 100, 892, 638);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();

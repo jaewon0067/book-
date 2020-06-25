@@ -71,15 +71,36 @@ public class LibraryManagementSystem {
 			return true;
 		}
 	}
-<<<<<<< HEAD
-	
-	public ArrayList<getbookName_dateVO> getbookName_date(){
+
+	public ArrayList<getbookName_dateVO> getbookName_date() {
 		return null;
-		
+
 	}
-	
 
-=======
->>>>>>> branch 'master' of https://github.com/jaewon0067/book-.git
+	public boolean removefrombookbasket(String table_values, Member_LibraryVo user) {
+		int cnt = dao.removeOne(table_values, user);
+		if (cnt > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
+	public boolean todeli(String deletebookcode, Member_LibraryVo user, String deletebooklib) {
+		int cnt = dao.updatedeli(deletebookcode, user, deletebooklib);
+		if (cnt > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean emptybookcart(Member_LibraryVo user) {
+		int cnt = dao.emptycart(user);
+		if (cnt > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

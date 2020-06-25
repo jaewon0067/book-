@@ -12,9 +12,9 @@ CREATE TABLE MEMBER_library(
 
 Select * from Member_Library;
 
-<<<<<<< HEAD
+
 drop table MEMBER_library cascade constraints;
-=======
+
 drop table MEMBER_library;
 
 
@@ -27,7 +27,7 @@ drop table MEMBER_library;
 
 
 
->>>>>>> branch 'master' of https://github.com/jaewon0067/book-.git
+
 
 
 <<<<<<< HEAD
@@ -43,7 +43,7 @@ INSERT INTO MEMBER_LIBRARY VALUES('ej1004','1234','이은지',25,'010-1234-5678','F
 INSERT INTO MEMBER_LIBRARY VALUES('mj1004','1234','김명주',26,'010-1111-2222','M','광주광역시 광산구 월계동')
 INSERT INTO MEMBER_LIBRARY VALUES('jw1004','1234','정재원',25,'010-2222-3333','F','광주광역시 송하동 CGI센터')
 INSERT INTO MEMBER_LIBRARY VALUES('고양이','1234','고양이1',26,'010-2222-3333','F','아파트')
->>>>>>> branch 'master' of https://github.com/jaewon0067/book-.git
+
 
 
 
@@ -82,9 +82,14 @@ CONSTRAINT DELINFO_ID_FK FOREIGN KEY(ID)
 	REFERENCES MEMBER_LIBRARY(ID)
 );
 
+CREATE SEQUENCE  order_number1
+ START WITH  300
+
+
+
 select *from DELI_INFO
 
-INSERT INTO DELI_INFO VALUES(1, 'jw1004', '오셀로', '광주광역시 송하동 CGI센터', 25, 0, 3000, '광주광역시 서구 상무대로 1171번길 11', '2020-01-12', '상록도서관','2020-01-12');
+INSERT INTO DELI_INFO VALUES(1, 'fffff', '오셀로', '광주광역시 송하동 CGI센터', 25, 0, 3000, '광주광역시 서구 상무대로 1171번길 11', '2020-01-12', '상록도서관','2020-01-12');
 INSERT INTO DELI_INFO VALUES(2, 'jw1004', '할머니가 남긴 선물', '광주광역시 송하동 CGI센터', 25, 0, 3000, '광주광역시 서구 상무대로 1171번길 11', '2020-01-12', '상록도서관','2020-01-12');
 INSERT INTO DELI_INFO VALUES(3, 'jw1004', '우리끼리 가자', '광주광역시 송하동 CGI센터', 25, 0, 3000, '광주광역시 서구 상무대로 1171번길 11', '2020-01-12', '상록도서관','2020-01-12');
 INSERT INTO DELI_INFO VALUES(4, 'jw1004', '죽음. 2 : 베르나르 베르베르 장편소설', '광주광역시 송하동 CGI센터', 25, 0, 3000, '광주광역시 서구 상무대로 1171번길 11', '2020-01-12', '상록도서관','2020-01-12');
@@ -94,7 +99,7 @@ INSERT INTO DELI_INFO VALUES(7, 'jw1004', '진보의 미래 : 다음 세대를 위한 민주주
 INSERT INTO DELI_INFO VALUES(8, 'jw1004', '오셀로', '광주광역시 송하동 CGI센터', 25, 0, 3000, '광주광역시 서구 상무대로 1171번길 11', '2020-01-12', '상록도서관','2020-01-12');
 INSERT INTO DELI_INFO VALUES(9, 'jw1004', '진짜 그런 책은 없는데요 : 또다시 찾아온 더 엉뚱한 손님들', '광주광역시 송하동 CGI센터', 25, 0, 3000, '광주광역시 서구 상무대로 1171번길 11', '2020-01-12', '상록도서관','2020-01-12');
 
-<<<<<<< HEAD
+
 INSERT INTO DELI_INFO VALUES(10, 'jw1004', '할머니가 남긴 선물', '광주광역시 송하동 CGI센터', 25, 0, 3000, '광주광역시 서구 상무대로 1171번길 11', '2020-01-12', '상록도서관','2020-01-12');
 INSERT INTO DELI_INFO VALUES(11, 'jw1004', '카라마조프가의 형제들', '광주광역시 송하동 CGI센터', 25, 0, 3000, '광주광역시 서구 상무대로 1171번길 11', '2020-02-12', '상록도서관','2020-02-12');
 INSERT INTO DELI_INFO VALUES(12, 'jw1004', '우리끼리 가자', '광주광역시 송하동 CGI센터', 25, 0, 3000, '광주광역시 서구 상무대로 1171번길 11', '2020-02-12', '상록도서관','2020-02-12');
@@ -389,6 +394,8 @@ INSERT INTO DELI_INFO VALUES(149, 'jw1004', '오셀로', '광주광역시 송하동 CGI센터
 INSERT INTO DELI_INFO VALUES(150, 'jw1004', '오셀로', '광주광역시 송하동 CGI센터', 25, 0, 3000, '광주광역시 서구 상무대로 1171번길 11', null, '상록도서관','2020-06-05')
 INSERT INTO DELI_INFO VALUES(151, 'jw1004', '오셀로', '광주광역시 송하동 CGI센터', 25, 0, 3000, '광주광역시 서구 상무대로 1171번길 11', null, '상록도서관','2020-06-05')
 INSERT INTO DELI_INFO VALUES(152, 'mj1004', '카라마조프가의 형제들', '광주광역시 광산구 월계동', 26, 1, 3000, '광주광역시 서구 상무대로 1171번길 11', null, '상록도서관', '2020-06-11')
+INSERT INTO DELI_INFO VALUES(order_number1.nextval, 'mj1004', '카라마조프가의 형제들', '광주광역시 광산구 월계동', 26, 1, 3000, '광주광역시 서구 상무대로 1171번길 11', null, '상록도서관', '2020-06-11')
+SELECT * from deli_info
 >>>>>>> branch 'master' of https://github.com/jaewon0067/book-.git
 
 
@@ -396,7 +403,7 @@ INSERT INTO DELI_INFO VALUES(152, 'mj1004', '카라마조프가의 형제들', '광주광역시
 drop table DELI_INFO
 
 
-SELECT * from DELI_INFO
+SELECT * from DELI_INFO where ID = 'jw1004'
 
 
 
@@ -456,6 +463,7 @@ INSERT INTO LIB VALUES(
 '매월 첫번째, 세번째 월요일 및 법정공휴일', 'http://www.seogu.gwangju.kr/library', 57544, 15, 5,'062-654-4306',NULL
 )
 select * from lib;
+
 
 
 

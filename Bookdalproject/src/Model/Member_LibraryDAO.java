@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 
 import Controller.BookVO;
 
@@ -14,7 +15,6 @@ public class Member_LibraryDAO {
 	private PreparedStatement pst; // 레퍼런스 변수들은 필드로 넣게되면 기본값으로 null값
 	private ResultSet rs;
 	private Member_LibraryVo user;
-	private Member_LibraryVo loginUser;
 	private Member_LibraryVo loginName;
 
 	private void getConnection() {
@@ -136,43 +136,120 @@ public class Member_LibraryDAO {
 
 		return Bookcartbook;
 	}
+
 	public int booknumber(Member_LibraryVo user) {
 		int num = 0;
-		
+
 		getConnection();
 		try {
 			String sql = "select BOOK_NAME, CODE, WRITER, PUBLISHER, LIB_NAME from BOOKCART where ID = ? ";
-	         pst = conn.prepareStatement(sql);
-	         pst.setString(1, user.getId());
-	         rs = pst.executeQuery();
-	         while(rs.next()) {
-	            num++;
-	            }
-		}catch (SQLException e) {
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, user.getId());
+			rs = pst.executeQuery();
+			while (rs.next()) {
+				num++;
+			}
+		} catch (SQLException e) {
 
-		e.printStackTrace();
-	} finally {
-		close();
-	}
+			e.printStackTrace();
+		} finally {
+			close();
+		}
 		return num;
-}
-	public BookcartbookVO MovetoDeli(Member_LibraryVo user) {
-		BookcartbookVO Bookcartbook_1 = null;
+	}
+
+//	public BookcartbookVO MovetoDeli(Member_LibraryVo user) {
+//		BookcartbookVO Bookcartbook_1 = null;
+//		getConnection();
+//		try {
+//			String sql = "INSERT INTO DELI_INFO VALUES(order_number1.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+//			pst = conn.prepareStatement(sql);
+//			pst.setString(1,);
+//			pst.setString(2);
+//			pst.setString(3);
+//			pst.setString(4);
+//			pst.setString(5);
+//			pst.setString(6);
+//			pst.setString(7);
+//			pst.setString(8);
+//			pst.setString(9);
+//			pst.setString(10);
+//		} catch (SQLException e) {
+//
+//			e.printStackTrace();
+//		} finally {
+//			close();
+//		}
+
+//	}
+
+	public int removeOne(String table_values, Member_LibraryVo user) {
+		int cnt =0;
 		getConnection();
+		try {
+			String sql = "DELETE from BOOKCART where ID = ? and CODE = ? ";
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, user.getId());
+			pst.setString(2, table_values);
+			cnt = pst.executeUpdate();
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		return Bookcartbook_1;
+	}
+
+	public int updatedeli(String deletebookcode, Member_LibraryVo user2, String deletebooklib) {
+		int cnt = 0;
+		getConnection();
+		SimpleDateFormat format1 = new SimpleDateFormat ("yyyy-MM-dd");
+		String today = format1.format(System.currentTimeMillis());
+		long retd = System.currentTimeMillis()+1296000000;
+		String returndate = format1.format(retd);
+
+		try {
+			String sql = "INSERT INTO DELI_INFO VALUES(order_number1.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, user2.getId());
+			pst.setString(2, deletebookcode);
+			pst.setString(3, user2.getAddr());
+			pst.setInt(4, Integer.parseInt(user2.getAge()));
+			if(user2.getGender()=="F") {
+				pst.setInt(5,0);
+			}else {
+				pst.setInt(5, 1);
+			}
+			pst.setInt(6, 2000);
+			pst.setString(7, "대출중");
+			pst.setString(8, null);
+			pst.setString(9, deletebooklib);
+			pst.setString(10, today);
+			cnt = pst.executeUpdate();
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
+	}
+
+	public int emptycart(Member_LibraryVo user2) {
+		int cnt =0;
+		getConnection();
+		try {
+			String sql = "DELETE from BOOKCART where ID = ?";
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, user2.getId());
+			cnt = pst.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
 	}
 }
