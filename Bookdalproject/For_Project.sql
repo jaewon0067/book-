@@ -12,18 +12,10 @@ CREATE TABLE MEMBER_library(
 
 Select * from Member_Library;
 
-
 drop table MEMBER_library;
 
 
 
-update Member_Library set phone = '010-7176-0953' where name = '김명주';
-update Member_Library set sex = 'M' where name = '김명주';
-update MEMBER_LIBRARY set phone = '010-1111-2222' where name = '정재원';
-update MEMBER_LIBRARY set sex = 'F' where name = '박수진';
-update MEMBER_LIBRARY set sex = 'F' where name = '이은지';
-update MEMBER_LIBRARY set phone = '010-2222-3333' where name = '박수진';
-update MEMBER_LIBRARY set phone = '010-3333-4444' where name = '이은지';
 
 
 
@@ -39,7 +31,7 @@ INSERT INTO MEMBER_LIBRARY VALUES('sj1004','1234','박수진',25,'010-1111-3333','F
 INSERT INTO MEMBER_LIBRARY VALUES('ej1004','1234','이은지',25,'010-1234-5678','F','광주광역시 광산구')
 INSERT INTO MEMBER_LIBRARY VALUES('mj1004','1234','김명주',26,'010-1111-2222','M','광주광역시 광산구 월계동')
 INSERT INTO MEMBER_LIBRARY VALUES('jw1004','1234','정재원',25,'010-2222-3333','F','광주광역시 송하동 CGI센터')
-
+INSERT INTO MEMBER_LIBRARY VALUES('고양이','1234','고양이1',26,'010-2222-3333','F','아파트')
 
 
 
@@ -247,8 +239,8 @@ RENTAL_DAY NUMBER(30) NOT NULL,
 CONSTRAINT BOOKCART_idCode_PK PRIMARY KEY(ID, CODE),
 CONSTRAINT BOOKCART_ID_FK FOREIGN KEY(ID)
         REFERENCES MEMBER_LIBRARY(ID),
-CONSTRAINT BOOKCART_ID_FK FOREIGN KEY(BOOK_NAME, CODE)
-        REFERENCES BOOK(BOOK_NAME, CODE),
+CONSTRAINT BOOKCART_ID_FK FOREIGN KEY(CODE)
+        REFERENCES BOOK(CODE),
 CONSTRAINT BOOKCART_libName_FK FOREIGN KEY(LIB_NAME)
         REFERENCES LIB(LIB_NAME)
 );

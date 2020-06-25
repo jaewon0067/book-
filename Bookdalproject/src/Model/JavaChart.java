@@ -69,6 +69,7 @@ public class JavaChart {
 		
 		for (int i = 0; i < list.size(); i++) {
 			dataset1.addValue(list.get(i).getId(), list.get(i).getBookName(), list.get(i).getAge(), list.get(i).getGender(), list.get(i).getBorrow_date());
+			dataset1.addChangeListener();
 		}
 	}
 
