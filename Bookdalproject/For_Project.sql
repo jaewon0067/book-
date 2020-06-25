@@ -215,6 +215,12 @@ INSERT INTO DELI_INFO VALUES(141, 'mj1004', '나르치스와 골드문트', '광주광역시 �
 INSERT INTO DELI_INFO VALUES(142, 'mj1004', '오셀로', '광주광역시 광산구 월계동', 26, 1, 3000, '광주광역시 서구 상무대로 1171번길 11', '2020-06-12', '상록도서관','2020-06-05')
 INSERT INTO DELI_INFO VALUES(143, 'mj1004', '할머니가 남긴 선물', '광주광역시 광산구 월계동', 26, 1, 3000, '광주광역시 서구 상무대로 1171번길 11', '2020-06-12', '상록도서관','2020-06-05')
 INSERT INTO DELI_INFO VALUES(144, 'mj1004', '카라마조프가의 형제들', '광주광역시 광산구 월계동', 26, 1, 3000, '광주광역시 서구 상무대로 1171번길 11', '2020-06-12', '상록도서관','2020-06-05')
+insert into deli_info values(145, 'jw1004', '나르치스와 골드문트', '광주광역시 송하동 CGI센터', 25, 0, 3000, '광주광역시 서구 상무대로 1171번길 11', null, '상록도서관','2020-06-05')
+INSERT INTO DELI_INFO VALUES(147, 'jw1004', '오셀로', '광주광역시 송하동 CGI센터', 25, 0, 3000, '광주광역시 서구 상무대로 1171번길 11', null, '상록도서관','2020-06-05')
+INSERT INTO DELI_INFO VALUES(148, 'jw1004', '오셀로', '광주광역시 송하동 CGI센터', 25, 0, 3000, '광주광역시 서구 상무대로 1171번길 11', null, '상록도서관','2020-06-05')
+INSERT INTO DELI_INFO VALUES(149, 'jw1004', '오셀로', '광주광역시 송하동 CGI센터', 25, 0, 3000, '광주광역시 서구 상무대로 1171번길 11', null, '상록도서관','2020-06-05')
+INSERT INTO DELI_INFO VALUES(150, 'jw1004', '오셀로', '광주광역시 송하동 CGI센터', 25, 0, 3000, '광주광역시 서구 상무대로 1171번길 11', null, '상록도서관','2020-06-05')
+INSERT INTO DELI_INFO VALUES(151, 'jw1004', '오셀로', '광주광역시 송하동 CGI센터', 25, 0, 3000, '광주광역시 서구 상무대로 1171번길 11', null, '상록도서관','2020-06-05')
 
 
 
@@ -283,26 +289,6 @@ INSERT INTO LIB VALUES(
 )
 select * from lib;
 
-CREATE TABLE DELI_INFO(
-	ORDER_NUMBER NUMBER(10) NOT NULL,
-	ID VARCHAR2(100) NOT NULL,
-	BOOK_NAME VARCHAR2(100) NOT NULL,
-	NAME VARCHAR2(50) NOT NULL,
-	ADDR VARCHAR2(100) NOT NULL,
-	AGE NUMBER(30) NOT NULL,
-	GENDER NUMBER(5) NOT NULL,
-	CHARGE NUMBER(10)  NOT NULL,
-	LIB_NAME varchar2(100) NOT NULL,
-	BORROW_DATE DATE NOT NULL,	
-	NOW_LOCATION VARCHAR2(100),
-	CONSTRAINT DELIINFO_ORDER_PK PRIMARY KEY(ORDER_NUMBER),
-	CONSTRAINT DELIINFO_ID_FK FOREIGN KEY(ID)
-	        REFERENCES MEMBER(ID),
-	CONSTRAINT DELIINFO_BOOKNAME_FK FOREIGN KEY(BOOK_NAME)
-	        REFERENCES BOOK(BOOK_NAME),
-	CONSTRAINT DELI_INFO_GENDER_CK CHECK(GENDER IN('F', 'M')),
-	CONSTRAINT DELI_INFO_DELISTATE_CK CHECK(DELI_STATE IN('배송중','대출중','반납완료'))
-)
 
 
 select * from DELI_INFO;
