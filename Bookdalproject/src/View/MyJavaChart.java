@@ -87,16 +87,18 @@ public class MyJavaChart {
 		ArrayList<testVO> listChart = new ArrayList<testVO>();
 		
 		
+		
+		
 		ChartDAO dao = new ChartDAO();
-		ArrayList<String> borrosList = dao.getBorrowList();
+		ArrayList<String> borrowsList = dao.getBorrowList();
 
 		ArrayList<Integer> months = new ArrayList<Integer>();
 		ArrayList<Integer> cnts = new ArrayList<Integer>();
 
-		for (int i = 0; i < borrosList.size(); i++) {
+		for (int i = 0; i < borrowsList.size(); i++) {
 			boolean isCheck = true;
 			for (int j = 0; j < months.size(); j++) {
-				if (Integer.parseInt(borrosList.get(i)) == months.get(j)) {
+				if (Integer.parseInt(borrowsList.get(i)) == months.get(j)) {
 					// 일치하는게 있다
 					int cnt = cnts.get(j);
 					cnt++;
@@ -107,7 +109,7 @@ public class MyJavaChart {
 				}
 			}
 			if (isCheck) {
-				months.add(Integer.parseInt(borrosList.get(i)));
+				months.add(Integer.parseInt(borrowsList.get(i)));
 				cnts.add(1);
 			}
 			
