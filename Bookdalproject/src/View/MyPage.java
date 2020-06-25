@@ -2,7 +2,14 @@ package View;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+<<<<<<< HEAD
 import java.awt.Font;
+=======
+import Model.Member_LibraryDAO;
+import Model.Member_LibraryVo;
+import Model.TableDAO;
+
+>>>>>>> branch 'master' of https://github.com/jaewon0067/book-.git
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,6 +21,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+<<<<<<< HEAD
 import javax.swing.SpringLayout;
 
 import org.jfree.chart.ChartFactory;
@@ -26,41 +34,47 @@ import org.jfree.data.category.DefaultCategoryDataset;
 import Model.ChartDAO;
 import Model.getbookName_dateVO;
 import Model.testVO;
+=======
+import javax.swing.JTable;
+
+import Controller.LibraryManagementSystem;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+>>>>>>> branch 'master' of https://github.com/jaewon0067/book-.git
 
 import java.awt.GridLayout;
 import javax.swing.JButton;
 
-public class MyPage {
-
+public class MyPage{
+	
+	
+	
 	private JFrame frame;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MyPage window = new MyPage();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the application.
-	 */
-	public MyPage() {
-		initialize();
+	public static LibraryManagementSystem controller = new LibraryManagementSystem();
+	private JLabel lbl_address;
+	private JLabel lbl_phone;
+	private JLabel lbl_gender;
+	private JLabel lbl_age;
+	private JLabel lbl_name;
+	private JTable put_table;
+	private JTable table;
+	private TableDAO dao = new TableDAO();
+	
+	
+	public MyPage(Member_LibraryVo user) {
+		initialize(user);
+		frame.setVisible(true);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(Member_LibraryVo user) {
+		
 		frame = new JFrame();
 		frame.setBounds(100, 100, 388, 600);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -73,6 +87,7 @@ public class MyPage {
 		Image originImg = new ImageIcon(back.getPath()).getImage();
 		originImg = originImg.getScaledInstance(374, 561, Image.SCALE_SMOOTH);
 		ImageIcon Icon = new ImageIcon(originImg);
+<<<<<<< HEAD
 
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setBounds(203, 84, 57, 15);
@@ -94,6 +109,34 @@ public class MyPage {
 		lblNewLabel_4.setBounds(224, 185, 57, 15);
 		frame.getContentPane().add(lblNewLabel_4);
 
+=======
+		
+		lbl_name = new JLabel("New label");
+		lbl_name.setBounds(203, 84, 57, 15);
+		frame.getContentPane().add(lbl_name);
+		lbl_name.setText(user.getName());
+		
+		lbl_age = new JLabel("New label");
+		lbl_age.setBounds(192, 109, 57, 15);
+		frame.getContentPane().add(lbl_age);
+		lbl_age.setText(user.getAge());
+		
+		lbl_gender = new JLabel("New label");
+		lbl_gender.setBounds(214, 134, 57, 15);
+		frame.getContentPane().add(lbl_gender);
+		lbl_gender.setText(user.getGender());
+		
+		lbl_phone = new JLabel("New label");
+		lbl_phone.setBounds(203, 160, 57, 15);
+		frame.getContentPane().add(lbl_phone);
+		lbl_phone.setText(user.getPhone());
+		
+		lbl_address = new JLabel("New label");
+		lbl_address.setBounds(224, 185, 57, 15);
+		frame.getContentPane().add(lbl_address);
+		lbl_address.setText(user.getAddr());
+		
+>>>>>>> branch 'master' of https://github.com/jaewon0067/book-.git
 		JPanel panel = new JPanel();
 		panel.setBounds(0, 504, 372, 57);
 		frame.getContentPane().add(panel);
@@ -140,6 +183,7 @@ public class MyPage {
 		});
 		panel.add(delivery);
 
+<<<<<<< HEAD
 		JPanel readingState_panel = new JPanel();
 		readingState_panel.setBounds(26, 246, 320, 176);
 		springLayout.putConstraint(SpringLayout.WEST, readingState_panel, 10, SpringLayout.WEST,
@@ -263,5 +307,51 @@ public class MyPage {
 //			System.out.println(cnt);
 //		}
 
+=======
+		JLabel back_label = new JLabel(Icon);
+		back_label.setBounds(0, 0, 374, 564);
+		frame.getContentPane().add(back_label);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(30, 244, 315, 195);
+		frame.getContentPane().add(panel_1);
+		
+//	put_table = new JTable();
+//		put_table=dao.getTable(user);
+//		panel_1.add(table);
+//		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+>>>>>>> branch 'master' of https://github.com/jaewon0067/book-.git
 	}
 }

@@ -1,6 +1,7 @@
 package View;
 
 import java.awt.Color;
+
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -16,31 +17,44 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableModel;
+import Model.Member_LibraryDAO;
+import Controller.LibraryManagementSystem;
+import Model.Member_LibraryVo;
+import Model.TableDAO;
+
 import javax.swing.JScrollPane;
+import java.awt.FlowLayout;
+import javax.swing.JTable;
 
 public class RealBookBasketGUI {
-
+	private Member_LibraryDAO dao_1 = new Member_LibraryDAO();	
 	private JFrame frame;
+	 private JTable table;
+	   public static LibraryManagementSystem controller = new LibraryManagementSystem();
+	private JTable put_table;
+	   private TableDAO dao = new TableDAO();
+	   private JTable table_1;
 
-	public RealBookBasketGUI() {
-		initialize();
+	public RealBookBasketGUI(Member_LibraryVo user) {
+		initialize(user);
 		frame.setVisible(true);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(Member_LibraryVo user) {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 412, 638);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame = new JFrame();
-		frame.setBounds(100, 100, 412, 638);
+		frame.setBounds(100, 100, 1238, 638);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 394, 599);
+		panel.setBounds(0, 0, 1222, 599);
 		frame.getContentPane().add(panel);
 		
 		URL url__1 = this.getClass().getResource("../icon/back2.PNG");
@@ -52,8 +66,22 @@ public class RealBookBasketGUI {
 	      long gap = (retd-System.currentTimeMillis())/86400000;
 				panel.setLayout(null);
 				
+				JPanel panel_3 = new JPanel();
+				panel_3.setBounds(24, 111, 1186, 323);
+				panel.add(panel_3);
+				panel_3.setLayout(new GridLayout(1, 0, 0, 0));
+				
+				JScrollPane scrollPane = new JScrollPane();
+			      scrollPane.setBounds(0, 0, 357, 213);
+			      String []title = {"책 제목", "책 식별번호", "작가", "츨판사", "소장 도서관"};
+			      DefaultTableModel model_book = new DefaultTableModel(title, 0);
+			      model_book = dao.getBookTable(user);
+			      table = new JTable(model_book);
+			      scrollPane.setViewportView(table);
+			      panel_3.add(scrollPane);
+				
 				JPanel panel_1 = new JPanel();
-				panel_1.setBounds(24, 20, 347, 62);
+				panel_1.setBounds(24, 20, 1186, 62);
 				panel.add(panel_1);
 				panel_1.setLayout(new GridLayout(1, 0, 0, 0));
 				
@@ -61,12 +89,22 @@ public class RealBookBasketGUI {
 				panel_1.add(lblNewLabel_2);
 				
 				JButton btnNewButton_5 = new JButton("(\uBC30\uB2EC\uBE44 2000\uC6D0) \uB300\uCD9C\uD558\uAE30");
+				btnNewButton_5.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						//북바구니 DB에서 BookcartbookVO 객체로 받아왔을 것임.
+						//그것을 userid가 지금 현재 로그인 아이디인걸 찾아서 검색 전부 다(지금은) DeliDB에다가 추가해서 넣어주는 과정
+						//그리고서는 북바구니DB에서는 삭제. -동규오빠네거랑 비슷하네 
+						//Deli_info는 (ordernumber, userID, book_name, addr ,age, gender, charge, nowlocation, returnday, lib_name, borrowdate)
+						//BookcartbookVO(String member_ID, String member_Name, String book_Name, String book_ID, String author,
+						//String publisher, String library, String status)
+					}
+				});
 				btnNewButton_5.setFont(new Font("배달의민족 주아", Font.PLAIN, 14));
-				btnNewButton_5.setBounds(98, 470, 191, 47);
+				btnNewButton_5.setBounds(454, 480, 351, 47);
 				panel.add(btnNewButton_5);
 				
 				JPanel panel_2 = new JPanel();
-				panel_2.setBounds(24, 415, 347, 45);
+				panel_2.setBounds(24, 444, 1186, 25);
 				panel.add(panel_2);
 				panel_2.setLayout(new GridLayout(1, 0, 0, 0));
 				
@@ -74,18 +112,15 @@ public class RealBookBasketGUI {
 				lblNewLabel_1.setFont(new Font("배달의민족 주아", Font.PLAIN, 20));
 				lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 				panel_2.add(lblNewLabel_1);
+				lblNewLabel_1.setText("총" + " " + dao_1.booknumber(user)+ "개");
 				
-				JScrollPane scrollPane = new JScrollPane();
-				scrollPane.setBounds(24, 113, 347, 300);
-				panel.add(scrollPane);
-				
-				JLabel lblNewLabel = new JLabel("\uC0C1\uB85D\uB3C4\uC11C\uAD00");
+				JLabel lblNewLabel = new JLabel("\uC804\uCCB4 \uBAA9\uB85D");
 				lblNewLabel.setFont(new Font("배달의민족 주아", Font.PLAIN, 18));
 				lblNewLabel.setBounds(34, 86, 246, 25);
 				panel.add(lblNewLabel);
 				
 				JPanel panel_4 = new JPanel();
-				panel_4.setBounds(0, 537, 394, 62);
+				panel_4.setBounds(0, 537, 1222, 62);
 				panel_4.setBackground(new Color(255, 0,0,0));
 				panel_4.setOpaque(false);
 				panel.add(panel_4);
@@ -143,11 +178,5 @@ public class RealBookBasketGUI {
 				btnNewButton_4.setFocusPainted(false);
 				btnNewButton_4.setOpaque(false);
 				panel_4.add(btnNewButton_4);
-		
-				JLabel back = new JLabel(new ImageIcon(url__1.getPath()));
-				back.setBounds(0, 0, 394, 593);
-				panel.add(back);
 	}
-
-
 }

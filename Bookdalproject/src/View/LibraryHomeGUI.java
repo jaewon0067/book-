@@ -16,12 +16,16 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTable;
 import javax.swing.UIManager;
+import javax.swing.table.DefaultTableModel;
+
 import Controller.LibraryManagementSystem;
 import Model.Member_LibraryVo;
 import Model.TableDAO;
 import Model.TableVo;
 
 import java.awt.GridLayout;
+import java.awt.CardLayout;
+import javax.swing.JScrollPane;
 
 public class LibraryHomeGUI {
 
@@ -50,6 +54,10 @@ public class LibraryHomeGUI {
    private JButton mypage;
    private JButton delivery;
    private JButton home;
+   private JPanel panel_3;
+   private JTable put_table;
+   private TableDAO dao = new TableDAO();
+   private JTable table_1;
 
    public LibraryHomeGUI(Member_LibraryVo user) {
       initialize(user);
@@ -61,6 +69,20 @@ public class LibraryHomeGUI {
 
       frame.getContentPane().add(panel);
       panel.setLayout(null);
+      
+      panel_3 = new JPanel();
+      panel_3.setBounds(29, 104, 357, 213);
+      frame.getContentPane().add(panel_3);
+      panel_3.setLayout(null);
+      
+      JScrollPane scrollPane = new JScrollPane();
+      scrollPane.setBounds(0, 0, 357, 213);
+      String []title = {"ID", "반납기한", "책 제목", "소장 도서관"};
+      DefaultTableModel model = new DefaultTableModel(title, 0);
+      model = dao.getTable(user);
+      table = new JTable(model);
+      scrollPane.setViewportView(table);
+      panel_3.add(scrollPane);
 
       lblNewLabel_1 = new JLabel("\uB2D8 \uD658\uC601\uD569\uB2C8\uB2E4");
       lblNewLabel_1.setFont(new Font("HY중고딕", Font.BOLD, 20));
@@ -104,7 +126,12 @@ public class LibraryHomeGUI {
       back_1 = new JLabel(new ImageIcon(url__2.getPath()));
       back_1.setBounds(0, 564, 415, 64);
       frame.getContentPane().add(back_1);
-
+      
+     
+      
+      
+      
+     
    }
 
    /**
@@ -123,6 +150,29 @@ public class LibraryHomeGUI {
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
       frame.getContentPane().setLayout(null);
+      
+      JButton btn_DetailView = new JButton("\uB300\uCD9C\uBAA9\uB85D \uC790\uC138\uD788\uBCF4\uAE30");
+      btn_DetailView.addActionListener(new ActionListener() {
+      	public void actionPerformed(ActionEvent arg0) {
+      		DetailViewGUI view = new DetailViewGUI(user);
+      	
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      	}
+      });
+      btn_DetailView.setBounds(45, 478, 239, 23);
+      frame.getContentPane().add(btn_DetailView);
       
       JSeparator separator_1 = new JSeparator();
       separator_1.setBackground(SystemColor.controlHighlight);
@@ -146,6 +196,7 @@ public class LibraryHomeGUI {
       list = new JButton(new ImageIcon(list_1.getPath()));
       list.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
+        	 LibraryWhat_i_Read read = new LibraryWhat_i_Read(user);
          }
       });
       panel_1.add(list);
@@ -154,6 +205,7 @@ public class LibraryHomeGUI {
       cart = new JButton(new ImageIcon(cart_1.getPath()));
       cart.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
+        	 RealBookBasketGUI basket = new RealBookBasketGUI(user);
          }
       });
 
@@ -163,6 +215,7 @@ public class LibraryHomeGUI {
       mypage = new JButton(new ImageIcon(mypage_1.getPath()));
       mypage.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
+        	 MyPage myPage = new MyPage(user);
          }
       });
       panel_1.add(mypage);
@@ -196,6 +249,7 @@ public class LibraryHomeGUI {
       libaray_2.addActionListener(new ActionListener() {
 
          public void actionPerformed(ActionEvent e) {
+        	 snagrok sangrok = new snagrok(user);
          }
       });
 

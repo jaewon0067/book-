@@ -2,7 +2,6 @@ package Controller;
 
 import java.util.ArrayList;
 
-
 import Model.BookcartbookVO;
 
 import Model.Member_LibraryDAO;
@@ -15,8 +14,7 @@ public class LibraryManagementSystem {
 	private Member_LibraryVo loginUser;
 	private ArrayList<BookVO> booklist = new ArrayList<BookVO>();
 	private ExcelRead excelRead = new ExcelRead();
-	private BookcartbookVO Bookcartbook = null; //새로운 vo 생성 필요할 수도 있어서 일단 만듬
-
+	private BookcartbookVO Bookcartbook = null; // 새로운 vo 생성 필요할 수도 있어서 일단 만듬
 
 	public ArrayList<BookVO> getSearchBook(String searchbook) {
 		ArrayList<BookVO> list = excelRead.getBookList();
@@ -32,7 +30,6 @@ public class LibraryManagementSystem {
 		return searchresult;
 	}
 
-
 	public BookVO getSearchcode(String searchcode) {
 		ArrayList<BookVO> list = excelRead.getBookList();
 		BookVO vo = null;
@@ -43,7 +40,6 @@ public class LibraryManagementSystem {
 		}
 		return vo;
 	}
-
 
 	public Member_LibraryVo getLoginUser() {
 		return loginUser;
@@ -65,16 +61,17 @@ public class LibraryManagementSystem {
 		return cnt;
 	}
 
-
-	public boolean bookcartin(BookVO vo) {
-		
-//		Bookcartbook = dao.intobookcart(getLoginUser(), name, vo);
+	public boolean bookcartin(BookVO vo, Member_LibraryVo member) {
+		System.out.println(vo.getAuthor());
+		System.out.println(member.getId());
+		Bookcartbook = dao.intobookcart(member.getId(), member.getName(), vo);
 		if (Bookcartbook == null) {
 			return false;
 		} else {
 			return true;
 		}
 	}
+<<<<<<< HEAD
 	
 	public ArrayList<getbookName_dateVO> getbookName_date(){
 		return null;
@@ -82,5 +79,7 @@ public class LibraryManagementSystem {
 	}
 	
 
+=======
+>>>>>>> branch 'master' of https://github.com/jaewon0067/book-.git
 
 }

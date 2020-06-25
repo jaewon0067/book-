@@ -1,47 +1,51 @@
 package View;
 
-import java.awt.EventQueue;
+import java.awt.Button;
 import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SpringLayout;
+import javax.swing.SwingConstants;
 
 import Controller.BookVO;
 import Controller.LibraryManagementSystem;
+import Model.Member_LibraryVo;
 
-import javax.swing.JButton;
-import java.awt.GridLayout;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.awt.event.ActionEvent;
-import javax.swing.SpringLayout;
-import javax.swing.AbstractAction;
-import javax.swing.Action;
-import javax.swing.SwingConstants;
-import javax.swing.JTable;
-import java.awt.GridBagLayout;
-
-public class LibrarySearchGUI {
+public class LibrarySearchGUI implements ActionListener{
 
 	private JFrame frame;
 	private LibraryManagementSystem controller = new LibraryManagementSystem();
 	private JPanel panel;
 	private JTextField textField;
-	private final Action action = new SwingAction();
+	//private final Action action = new SwingAction();
 	ArrayList<BookVO> searchlist = new ArrayList();
 	private JPanel panel_2 = new JPanel();
 	int j;
 	String[] sp;
 	public JButton lblNewButton_j;
+<<<<<<< HEAD
 
 	public LibrarySearchGUI(String searchbook) {
+=======
+	private Member_LibraryVo user;
+	public LibrarySearchGUI(String searchbook , Member_LibraryVo user) {
+		this.user = user;
+>>>>>>> branch 'master' of https://github.com/jaewon0067/book-.git
 		searchlist = controller.getSearchBook(searchbook);
 		for (j = 0; j < searchlist.size(); j++) {
 			lblNewButton_j = new JButton();
+			lblNewButton_j.addActionListener(this);
 //<<<<<<< HEAD
 //			lblNewButton_j.setText(searchlist.get(j).getBook_id() + searchlist.get(j).getBook_name() + "\n"
 //					+ searchlist.get(j).getAuthor() + searchlist.get(j).getLib_location());
@@ -57,16 +61,30 @@ public class LibrarySearchGUI {
 //		}
 
 //=======
+<<<<<<< HEAD
 			lblNewButton_j.setText(j + 1 + " : " + searchlist.get(j).getBook_id() + searchlist.get(j).getBook_name()
 					+ searchlist.get(j).getLib_location());
+=======
+			lblNewButton_j.setText(searchlist.get(j).getBook_id() +":"+ searchlist.get(j).getBook_name() + ","+searchlist.get(j).getLib_location());
+>>>>>>> branch 'master' of https://github.com/jaewon0067/book-.git
 			panel_2.add(lblNewButton_j);
+<<<<<<< HEAD
 
 			lblNewButton_j.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 
+=======
+			
+
+			
+//			lblNewButton_j.addActionListener(new ActionListener() {
+//				public void actionPerformed(ActionEvent arg0) {
+					
+>>>>>>> branch 'master' of https://github.com/jaewon0067/book-.git
 //					book1GUI book1gui = new book1GUI();
 //					frame.setVisible(true);
 //					book1gui.setNum(1);
+<<<<<<< HEAD
 					// 사진 띄우는 코드
 					System.out.println(lblNewButton_j.getText());
 					sp = lblNewButton_j.getText().toString().split(" : ");
@@ -77,6 +95,18 @@ public class LibrarySearchGUI {
 				}
 			});
 
+=======
+					//사진 띄우는 코드
+//					System.out.println(lblNewButton_j.getText());
+//					sp = lblNewButton_j.getText().toString().split(" : ");
+//					System.out.println("size : "+searchlist.size());
+//					String searchcode = searchlist.get(Integer.parseInt(sp[0])).getBook_id();
+//					System.out.println(searchcode);
+//					realbookGUI realgui = new realbookGUI(searchcode);
+//				}
+//			});
+			
+>>>>>>> branch 'master' of https://github.com/jaewon0067/book-.git
 		}
 
 		initialize();
@@ -114,11 +144,28 @@ public class LibrarySearchGUI {
 		frame.getContentPane().add(panel_2);
 		panel_2.setLayout(new GridLayout(0, 1, 0, 0));
 
+<<<<<<< HEAD
+=======
+		JButton btnNewButton = new JButton("\uB4A4\uB85C\uAC00\uAE30");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(frame, "뒤로 이동합니다.", "뒤로가기", JOptionPane.PLAIN_MESSAGE);
+				frame.setVisible(false);
+				SangrokGUI back = new SangrokGUI(user);
+			}
+
+		});
+		//btnNewButton.setAction(action);
+		btnNewButton.setBounds(277, 6, 77, 28);
+		btnNewButton.setFont(new Font("굴림", Font.PLAIN, 11));
+		panel_1.add(btnNewButton);
+
+>>>>>>> branch 'master' of https://github.com/jaewon0067/book-.git
 		JLabel lblNewLabel = new JLabel(
 				"\uB4A4\uB85C \uB3CC\uC544\uAC00\uC11C \uC791\uAC00\uC640 \uCC45 \uC774\uB984\uC73C\uB85C \uAC80\uC0C9\uD558\uC138\uC694~");
-		lblNewLabel.setFont(new Font("배달의민족 주아", Font.PLAIN, 14));
+		lblNewLabel.setFont(new Font("Dialog", Font.PLAIN, 12));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(0, 0, 260, 34);
+		lblNewLabel.setBounds(12, 3, 260, 34);
 		panel_1.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("\uB4A4\uB85C\uAC00\uAE30");
@@ -128,13 +175,25 @@ public class LibrarySearchGUI {
 
 	}
 
-	private class SwingAction extends AbstractAction {
-		public SwingAction() {
-			putValue(NAME, "SwingAction");
-			putValue(SHORT_DESCRIPTION, "Some short description");
-		}
-
-		public void actionPerformed(ActionEvent e) {
-		}
+//	private class SwingAction extends AbstractAction {
+//		public SwingAction() {
+//			putValue(NAME, "SwingAction");
+//			putValue(SHORT_DESCRIPTION, "Some short description");
+//		}
+//
+//		public void actionPerformed(ActionEvent e) {
+//		}
+//	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e)
+	{
+		//액션 리스너 재정의
+		String value = ((JButton)e.getSource()).getText();
+		String[] values = value.split(":");
+		System.out.println(values[0]);
+		realbookGUI realgui = new realbookGUI(values[0],user);
 	}
+
+	
 }
