@@ -1,15 +1,32 @@
 package View;
 
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collections;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SpringLayout;
+
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
+
+import Model.ChartDAO;
+import Model.getbookName_dateVO;
+import Model.testVO;
+
 import java.awt.GridLayout;
 import javax.swing.JButton;
 
@@ -48,6 +65,7 @@ public class MyPage {
 		frame.setBounds(100, 100, 388, 600);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		SpringLayout springLayout = new SpringLayout();
 
 		String path = "../icon/mypageback.PNG";
 
@@ -55,23 +73,23 @@ public class MyPage {
 		Image originImg = new ImageIcon(back.getPath()).getImage();
 		originImg = originImg.getScaledInstance(374, 561, Image.SCALE_SMOOTH);
 		ImageIcon Icon = new ImageIcon(originImg);
-		
+
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setBounds(203, 84, 57, 15);
 		frame.getContentPane().add(lblNewLabel);
-		
+
 		JLabel lblNewLabel_1 = new JLabel("New label");
 		lblNewLabel_1.setBounds(192, 109, 57, 15);
 		frame.getContentPane().add(lblNewLabel_1);
-		
+
 		JLabel lblNewLabel_2 = new JLabel("New label");
 		lblNewLabel_2.setBounds(214, 134, 57, 15);
 		frame.getContentPane().add(lblNewLabel_2);
-		
+
 		JLabel lblNewLabel_3 = new JLabel("New label");
 		lblNewLabel_3.setBounds(203, 160, 57, 15);
 		frame.getContentPane().add(lblNewLabel_3);
-		
+
 		JLabel lblNewLabel_4 = new JLabel("New label");
 		lblNewLabel_4.setBounds(224, 185, 57, 15);
 		frame.getContentPane().add(lblNewLabel_4);
@@ -122,9 +140,122 @@ public class MyPage {
 		});
 		panel.add(delivery);
 
-		JLabel back_label = new JLabel(Icon);
-		back_label.setBounds(0, 0, 374, 564);
-		frame.getContentPane().add(back_label);
+		JPanel readingState_panel = new JPanel();
+		readingState_panel.setBounds(26, 246, 320, 176);
+		springLayout.putConstraint(SpringLayout.WEST, readingState_panel, 10, SpringLayout.WEST,
+				frame.getContentPane());
+		springLayout.putConstraint(SpringLayout.SOUTH, readingState_panel, 500, SpringLayout.NORTH,
+				frame.getContentPane());
+		readingState_panel.setBackground(Color.WHITE);
+		springLayout.putConstraint(SpringLayout.NORTH, readingState_panel, 10, SpringLayout.NORTH,
+				frame.getContentPane());
+		springLayout.putConstraint(SpringLayout.EAST, readingState_panel, 500, SpringLayout.WEST,
+				frame.getContentPane());
+		frame.getContentPane().add(readingState_panel);
+		readingState_panel.setLayout(null);
+
+		
+		ArrayList<testVO> listChart = new ArrayList<testVO>();
+
+		ChartDAO dao = new ChartDAO();
+		ArrayList<String> borrowList = dao.getBorrowList();
+
+		ArrayList<Integer> months = new ArrayList<Integer>();
+		ArrayList<Integer> cnts = new ArrayList<Integer>();
+
+		for (int i = 0; i < borrowList.size(); i++) {
+			boolean isCheck = true;
+			for (int j = 0; j < months.size(); j++) {
+				if (Integer.parseInt(borrowList.get(i)) == months.get(j)) {
+					// 일치하는게 있다
+					int cnt = cnts.get(j);
+					cnt++;
+					cnts.remove(j);
+					cnts.add(j, cnt);
+					isCheck = false;
+					break;
+				}
+			}
+			if (isCheck) {
+				months.add(Integer.parseInt(borrowList.get(i)));
+				cnts.add(1);
+			}
+
+		}
+
+		// 월 months.get(i) 갯수 cnts.get(i)
+//				for(int i = 0; i < months.size(); i++) {
+//					System.out.print(months.get(i)+"월 : ");
+//					System.out.println(cnts.get(i)+"개");
+//				}
+
+		for (int i = 0; i < months.size(); i++) {
+			listChart.add(new testVO(months.get(i), cnts.get(i)));
+		}
+
+		System.out.println(months);
+		Collections.sort(months);
+		System.out.println(months);
+		// ------------------월평균 독서량
+
+		DefaultCategoryDataset dataset1 = new DefaultCategoryDataset();
+
+		// 그래프에 값을 추가하는 코드
+		// 1.그래프 크기 2.범례 3.x축 이름
+		for (int i = 0; i < months.size(); i++) {
+			dataset1.addValue(listChart.get(i).getCnts() / 4, "1~6", listChart.get(i).getMonths() + "");
+		}
+
+		// 그래프를 그려주는 객체 dataset을 넣어준다
+		// 1.그래프제목(상단) 2.x축 제목 3.y축제목 4.그래프 데이터 5.그래프 가로/세로 할건지 6~8.그래프의 기능
+		JFreeChart barChart = ChartFactory.createBarChart("전체 월평균 독서량", "월", "독서량", dataset1, PlotOrientation.VERTICAL,
+				true, // HORIZONTAL
+				true, true);
+
+		JFreeChart linechart = ChartFactory.createLineChart("전체 월평균 독서량", "월", "독서량", dataset1,
+				PlotOrientation.VERTICAL, false, false, false);
+
+		// 한글을 적용하기 위한 Font 객체 생성
+		// 1.폰트종류 2.폰트타입 3.크기
+		Font f = new Font("gulim", Font.BOLD, 14);
+		barChart.getTitle().setFont(f);
+		linechart.getTitle().setFont(f);
+
+		CategoryPlot plot1 = barChart.getCategoryPlot();
+		CategoryPlot plot2 = linechart.getCategoryPlot();
+
+		plot2.getDomainAxis().setLabelFont(f);
+		plot1.getDomainAxis().setLabelFont(f); // x축
+
+
+		plot2.getRangeAxis().setLabelFont(f);
+		plot2.getRangeAxis().setTickLabelFont(f);
+		plot1.getRangeAxis().setLabelFont(f); // y축
+		plot1.getRangeAxis().setTickLabelFont(f);
+
+		ChartPanel chartPanel = new ChartPanel(barChart);
+		ChartPanel chartPanel2 = new ChartPanel(linechart);
+		readingState_panel.setLayout(new GridLayout(0, 1, 0, 0));
+	
+
+		readingState_panel.add(chartPanel);
+		
+		JButton recommand_btn = new JButton("\uB098\uC5D0\uAC8C \uB9DE\uB294 \uB3C4\uC11C \uCD94\uCC9C\uBC1B\uAE30");
+		recommand_btn.setFont(new Font("배달의민족 주아", Font.PLAIN, 18));
+		recommand_btn.setBounds(66, 442, 234, 23);
+		frame.getContentPane().add(recommand_btn);
+		
+				JLabel back_label = new JLabel(Icon);
+				back_label.setBounds(0, 0, 374, 564);
+				frame.getContentPane().add(back_label);
+
+		// ChartDAO dao = new ChartDAO();
+
+//		for (int i = 1; i <= 6; i++) {
+//			ArrayList<getbookName_dateVO> list1 = dao.getbookName_date1(i);
+//			int cnt = list1.size()+1;
+//			System.out.println(cnt);
+//		}
 
 	}
 }

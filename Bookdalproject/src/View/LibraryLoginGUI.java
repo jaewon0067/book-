@@ -148,7 +148,7 @@ public class LibraryLoginGUI {
 
 		});
 
-		java.net.URL url__1 = this.getClass().getResource("C:\\Users\\smhrd\\Desktop\\icon\\back.PNG");
+		java.net.URL url__1 = this.getClass().getResource("../icon/back.PNG");
 		JLabel back = new JLabel(new ImageIcon(url__1.getPath()));
 		back.setBounds(0, 0, 374, 581);
 		panel_1.add(back);
