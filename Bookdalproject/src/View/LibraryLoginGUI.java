@@ -69,7 +69,7 @@ public class LibraryLoginGUI {
 		
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(255, 255, 255));
-		frame.setBounds(100, 100, 390, 600);
+		frame.setBounds(100, 100, 389, 621);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
@@ -91,19 +91,18 @@ public class LibraryLoginGUI {
 		
 		panel_1 = new JPanel();
 		panel_1.setBackground(new Color(255, 255, 255));
-		panel_1.setBounds(0, 0, 374, 561);
+		panel_1.setBounds(0, 0, 374, 581);
 		frame.getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 		
-		String path2= "C:\\Users\\smhrd\\Desktop\\icon\\login.png";
-	    Image image2 = new ImageIcon(path2).getImage();
+
 				
 				Input_pw = new JPasswordField();
-				Input_pw.setBounds(65, 433, 219, 31);
+				Input_pw.setBounds(65, 451, 219, 31);
 				panel_1.add(Input_pw);
 				
 				Input_id = new JTextField();
-				Input_id.setBounds(65, 373, 219, 31);
+				Input_id.setBounds(65, 391, 219, 31);
 				panel_1.add(Input_id);
 				Input_id.setColumns(10);
 				
@@ -116,11 +115,11 @@ public class LibraryLoginGUI {
 				});
 				btn_Join.setFont(new Font("Dialog", Font.BOLD, 15));
 				btn_Join.setBackground(new Color(222, 184, 135));
-				btn_Join.setBounds(189, 480, 97, 31);
+				btn_Join.setBounds(187, 501, 97, 31);
 				panel_1.add(btn_Join);
 		
 				btn_Login = new JButton("Login");
-				btn_Login.setBounds(70, 480, 97, 31);
+				btn_Login.setBounds(64, 501, 97, 31);
 				panel_1.add(btn_Login);
 				btn_Login.setFont(new Font("Dialog", Font.BOLD, 15));
 				btn_Login.setBackground(new Color(222, 184, 135));
@@ -153,9 +152,10 @@ public class LibraryLoginGUI {
 
 				});
 		
-		
-		JLabel back = new JLabel(new ImageIcon(image2.getScaledInstance(374, 561, image2.SCALE_SMOOTH)));
-		back.setBounds(0, 0, 374, 561);
+
+		java.net.URL url__1 = this.getClass().getResource("../icon/back.PNG");
+		JLabel back = new JLabel(new ImageIcon(url__1.getPath()));
+		back.setBounds(0, 0, 374, 581);
 		panel_1.add(back);
 
 	}
